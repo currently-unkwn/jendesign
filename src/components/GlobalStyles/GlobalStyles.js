@@ -27,7 +27,7 @@ time, mark, audio, video {
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-	display: block;
+  display: block;
 }
 ol, ul {
 	list-style: none;
@@ -108,6 +108,8 @@ a {
 img {
   display: block;
   width: 100%;
+
+  /* TEMP */
   height: 50vh;
 
 }
