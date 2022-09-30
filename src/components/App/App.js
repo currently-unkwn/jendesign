@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Slider from "react-slick";
 
+import Logo from "../Logo/Logo";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import { ABOUT_DATA, PROJECTS_DATA } from "../../data";
 
@@ -22,7 +23,9 @@ function App() {
   return (
     <>
       <MaxWidthWrapper>
-        <header>Header</header>
+        <header>
+          <Logo />
+        </header>
       </MaxWidthWrapper>
       <main>
         <MaxWidthWrapper>
