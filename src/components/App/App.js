@@ -7,8 +7,6 @@ import { ABOUT_DATA, PROJECTS_DATA } from "../../data";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import Logo from "../Logo";
-
 function App() {
   const { id, text, image } = ABOUT_DATA;
 
@@ -24,9 +22,7 @@ function App() {
   return (
     <>
       <MaxWidthWrapper>
-        <header>
-          <Logo />
-        </header>
+        <header>Header</header>
       </MaxWidthWrapper>
       <main>
         <MaxWidthWrapper>
