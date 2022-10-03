@@ -1,11 +1,15 @@
 import styled from "styled-components";
 
 const Logo = () => {
-  return (
-    <a href="/">
-      <h1>Jendesign</h1>
-    </a>
-  );
+  return <Wrapper href="/">Jendesign</Wrapper>;
 };
+
+const Wrapper = styled.a`
+  font-family: var(--font-family-logo);
+  font-size: clamp(1.6rem, 1.4vw + 1rem, 2.5rem);
+  letter-spacing: -0.7px;
+  text-decoration: none;
+  color: inherit;
+`;
 
 export default Logo;
