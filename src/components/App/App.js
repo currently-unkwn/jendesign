@@ -2,6 +2,8 @@ import styled from "styled-components";
 import Slider from "react-slick";
 
 import Logo from "../Logo/Logo";
+import HamburgerButton from "../HamburgerButton/HamburgerButton";
+
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import { ABOUT_DATA, PROJECTS_DATA } from "../../data";
 
@@ -25,6 +27,7 @@ function App() {
       <MaxWidthWrapper>
         <header>
           <Logo />
+          <HamburgerButton />
         </header>
       </MaxWidthWrapper>
       <main>
