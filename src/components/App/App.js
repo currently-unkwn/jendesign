@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import Slider from "react-slick";
 
 import Header from "../Header/Header";

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 const Logo = () => {
   return <Wrapper href="/">Jendesign</Wrapper>;
