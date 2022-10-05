@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import Slider from "react-slick";
 
-import Logo from "../Logo/Logo";
-import HamburgerButton from "../HamburgerButton/HamburgerButton";
+import Header from "../Header/Header";
 
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import { ABOUT_DATA, PROJECTS_DATA } from "../../data";
@@ -25,10 +24,7 @@ function App() {
   return (
     <>
       <MaxWidthWrapper>
-        <header>
-          <Logo />
-          <HamburgerButton />
-        </header>
+        <Header />
       </MaxWidthWrapper>
       <main>
         <MaxWidthWrapper>
@@ -37,7 +33,7 @@ function App() {
             <img src={image.src} alt={image.alt} />
           </HeroSection>
         </MaxWidthWrapper>
-        <section>
+        {/* <section>
           {PROJECTS_DATA.map((project) => {
             return (
               <div>
@@ -56,7 +52,7 @@ function App() {
               </div>
             );
           })}
-        </section>
+        </section> */}
         <MaxWidthWrapper>
           <section>Get in Touch</section>
         </MaxWidthWrapper>

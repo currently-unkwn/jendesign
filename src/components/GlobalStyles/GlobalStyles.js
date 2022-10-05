@@ -63,8 +63,6 @@ img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
 
-  /** TEMP */
-  height: 50vh;
 }
 /*
   7. Remove built-in form typography styles
