@@ -26,9 +26,9 @@ function App() {
         <Header />
       </MaxWidthWrapper>
       <Main>
-        <HeroWrapper>
+        <MaxWidthWrapper>
           <Hero {...ABOUT_DATA} />
-        </HeroWrapper>
+        </MaxWidthWrapper>
         {/* <section>
           {PROJECTS_DATA.map((project) => {
             return (
@@ -61,5 +61,5 @@ function App() {
 }
 
 const Main = styled.main``;
-const HeroWrapper = styled(MaxWidthWrapper)``;
+
 export default App;

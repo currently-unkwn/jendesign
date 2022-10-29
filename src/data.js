@@ -1,6 +1,7 @@
 export const ABOUT_DATA = {
   id: "a",
-  text: "Jane Kuznetsova is an interior designer and creative based out of Kyiv, Ukraine. Her design aesthetic can be described as eclectic, curated and intentional.",
+  // text: "Jane Kuznetsova is an interior designer and creative based out of Kyiv, Ukraine. Her design aesthetic can be described as eclectic, curated and intentional.",
+  text: `"Привіт, мене звати Женя. Я дизайнерка інтер'єрів. В даний час працюю і живу в Київі, Україна. Мені подобається мінімалістична та єклектична єстетика."`,
   image: {
     src: "/images/jane-portrait.jpg",
     alt: "Portrait of Jane Kuznetsova, an interior designer.",

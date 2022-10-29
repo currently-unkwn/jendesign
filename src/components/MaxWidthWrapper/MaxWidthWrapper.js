@@ -1,8 +1,8 @@
 import styled from "styled-components/macro";
 
 const MaxWidthWrapper = styled.div`
-  max-width: calc(1400 / 16 * 1rem);
-  padding: 0 32px;
+  max-width: calc(1280 / 16 * 1rem);
+  padding: 0 16px;
   margin: 0 auto;
 `;
 

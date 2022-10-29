@@ -18,7 +18,7 @@ const MainHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 0;
+  padding: calc(32px - 12px) 0;
 
   /** Fluid Approach */
   /* padding: 6vw 0; */
