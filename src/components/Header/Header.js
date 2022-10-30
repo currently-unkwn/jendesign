@@ -1,15 +1,23 @@
+import { useState } from "react";
 import styled from "styled-components/macro";
 
 import Logo from "../Logo/Logo";
 import HamburgerButton from "../HamburgerButton/HamburgerButton";
+import MobileMenu from "../MobileMenu/MobileMenu";
 
 const Header = () => {
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+
   return (
     <header>
       <MainHeader>
         <Logo />
-        <HamburgerButton />
+        <HamburgerButton onClick={() => setShowMobileMenu(true)} />
       </MainHeader>
+      <MobileMenu
+        isOpen={showMobileMenu}
+        onDismiss={() => setShowMobileMenu(false)}
+      />
     </header>
   );
 };

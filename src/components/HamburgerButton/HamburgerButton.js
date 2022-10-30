@@ -4,10 +4,10 @@ import VisuallyHidden from "../VisuallyHidden";
 import UnstyledButton from "../UnstyledButton";
 import Icon from "../Icon/Icon";
 
-const HamburgerButton = () => {
+const HamburgerButton = ({ ...delegated }) => {
   return (
-    <Wrapper>
-      <Icon id="menu" />
+    <Wrapper {...delegated}>
+      <Icon id="menu" size={24} />
       <VisuallyHidden>Open menu</VisuallyHidden>
     </Wrapper>
   );
@@ -15,9 +15,6 @@ const HamburgerButton = () => {
 
 const Wrapper = styled(UnstyledButton)`
   position: relative;
-
-  /* Exit animation */
-  transition: opacity 450ms;
 
   /** Increase tap size */
   &::after {
@@ -30,6 +27,9 @@ const Wrapper = styled(UnstyledButton)`
     right: var(--tap-increment);
     bottom: var(--tap-increment);
   }
+
+  /* Exit animation */
+  transition: opacity 450ms;
 
   /** Hover State */
   &:hover {

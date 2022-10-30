@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { Menu, X } from "react-feather";
+import { FiMenu, FiX } from "react-icons/fi";
+import { RiFacebookFill, RiInstagramLine } from "react-icons/ri";
 
 const icons = {
-  menu: Menu,
-  close: X,
+  menu: FiMenu,
+  close: FiX,
+  facebook: RiFacebookFill,
+  instagram: RiInstagramLine,
 };
 
 const Icon = ({ id, color, size, strokeWidth, ...delegated }) => {
