@@ -3,6 +3,7 @@ import { COLORS, FAMILIES } from "../../constants";
 
 const GlobalStyles = createGlobalStyle`
 
+
 /** FONTS */
 
 @font-face {
@@ -23,6 +24,11 @@ html {
   --font-family-serif: ${FAMILIES.serif};
   --font-family-sans-serif: ${FAMILIES.sansSerif};
   --font-family-logo: ${FAMILIES.logo};
+
+  --ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ease-in: cubic-bezier(0.75, 0, 1, 1);
+  --ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --ease: cubic-bezier(0.44, 0.21, 0, 1);
 }
 
 /** GLOBAL STYLES */
@@ -82,6 +88,35 @@ p, h1, h2, h3, h4, h5, h6 {
 #root, #__next {
   isolation: isolate;
 }
+
+/** Styling Headless UI Dialog Transition with Twin Macro */
+@keyframes fadeIn {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+
+/* .test[data-state='open'] {
+  animation: fadeIn 400ms var(--ease-out);
+}
+
+
+.test[data-state='closed'] {
+  animation: fadeOut 250ms var(--ease-in);
+} */
 `;
 
 export default GlobalStyles;

@@ -8,16 +8,14 @@ import MobileMenu from "../MobileMenu/MobileMenu";
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
+  const handleDismiss = () => setShowMobileMenu(false);
   return (
     <header>
       <MainHeader>
         <Logo />
         <HamburgerButton onClick={() => setShowMobileMenu(true)} />
       </MainHeader>
-      <MobileMenu
-        isOpen={showMobileMenu}
-        onDismiss={() => setShowMobileMenu(false)}
-      />
+      <MobileMenu isOpen={showMobileMenu} onDismiss={handleDismiss} />
     </header>
   );
 };
