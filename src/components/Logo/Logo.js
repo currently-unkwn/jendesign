@@ -1,10 +1,11 @@
 import styled from "styled-components/macro";
+import { Link } from "react-router-dom";
 
 const Logo = () => {
-  return <Wrapper href="/">Jendesign</Wrapper>;
+  return <Wrapper to="/">Jendesign</Wrapper>;
 };
 
-const Wrapper = styled.a`
+const Wrapper = styled(Link)`
   font-family: var(--font-family-logo);
   font-size: clamp(1.6rem, 1.4vw + 1rem, 2.5rem);
   line-height: 1;

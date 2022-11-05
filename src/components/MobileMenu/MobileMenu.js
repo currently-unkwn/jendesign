@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import styled, { keyframes } from "styled-components/macro";
+import { NavLink, useLocation } from "react-router-dom";
 import Icon from "../Icon/Icon";
 import VisuallyHidden from "../VisuallyHidden";
 
@@ -8,6 +10,12 @@ import * as Dialog from "@radix-ui/react-dialog";
 /** TODO: Make close button to not outline when you click with mouse  */
 
 const MobileMenu = ({ isOpen, onDismiss }) => {
+  const location = useLocation();
+
+  useEffect(() => {
+    onDismiss();
+  }, [location]);
+
   return (
     <Dialog.Root open={isOpen} onOpenChange={onDismiss}>
       <Dialog.Portal>
@@ -20,20 +28,29 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
           <InnerWrapper>
             <Filler />
             <Nav>
-              <NavLink href="/" style={{ "--animation-delay": 600 + "ms" }}>
+              <MenuLink to="/" style={{ "--animation-delay": 600 + "ms" }}>
+                Home
+              </MenuLink>
+              <MenuLink
+                to="/projects"
+                style={{ "--animation-delay": 700 + "ms" }}
+              >
                 Projects
-              </NavLink>
-              <NavLink href="/" style={{ "--animation-delay": 700 + "ms" }}>
+              </MenuLink>
+              <MenuLink
+                to="/contacts"
+                style={{ "--animation-delay": 800 + "ms" }}
+              >
                 Contacts
-              </NavLink>
+              </MenuLink>
             </Nav>
 
             <Footer>
               <SocialWrapper>
-                <SocialLink href="/">
+                <SocialLink href="#">
                   <Icon id="facebook" size={32} />
                 </SocialLink>
-                <SocialLink href="/">
+                <SocialLink href="#">
                   <Icon id="instagram" size={32} />
                 </SocialLink>
               </SocialWrapper>
@@ -127,7 +144,8 @@ const Content = styled(Dialog.Content)`
 
   width: calc(100% + var(--removed-body-scroll-bar-size));
   height: 100%;
-  background: red;
+  /** TEMP  */
+  background: gray;
 
   &[data-state="open"] {
     animation: ${slideIn} 250ms var(--ease-in) backwards;
@@ -150,7 +168,7 @@ const CloseButton = styled(Dialog.Close)`
 
   animation: ${fadeIn} 250ms var(--ease) backwards,
     ${smallSlideIn} 250ms var(--ease);
-  animation-delay: 1000ms;
+  animation-delay: 1100ms;
 `;
 
 const InnerWrapper = styled.div`
@@ -171,8 +189,15 @@ const Nav = styled.nav`
   flex-direction: column;
 `;
 
-const NavLink = styled.a`
+const MenuLink = styled(NavLink)`
+  /** TEMP  */
   font-size: 2rem;
+  color: white;
+  text-decoration: none;
+
+  &.active {
+    text-decoration: underline;
+  }
 
   animation: ${fadeIn} 250ms var(--ease) backwards,
     ${smallSlideIn} 250ms var(--ease);
@@ -190,7 +215,7 @@ const SocialWrapper = styled.div`
 
   animation: ${fadeIn} 250ms var(--ease) backwards,
     ${slideBottomTop} 250ms var(--ease);
-  animation-delay: 1000ms;
+  animation-delay: 1100ms;
 `;
 
 const SocialLink = styled.a``;
