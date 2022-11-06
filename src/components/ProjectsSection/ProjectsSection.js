@@ -1,6 +1,13 @@
+import { PROJECTS_DATA } from "../../data";
+
+import ProjectPreview from "../ProjectPreview";
+
 const ProjectsSection = () => {
   return (
     <section>
+      {PROJECTS_DATA.map((projectItem) => (
+        <ProjectPreview key={projectItem.id} projectItem={projectItem} />
+      ))}
       {/* {PROJECTS_DATA.map((project) => {
       return (
         <div>
@@ -19,8 +26,6 @@ const ProjectsSection = () => {
         </div>
       );
     })} */}
-      <a href="/">Квартира на Голосіївській</a>
-      <a href="/">Квартира на Печерській</a>
     </section>
   );
 };

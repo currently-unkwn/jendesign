@@ -7,6 +7,21 @@ export const ABOUT_DATA = {
   },
 };
 
+export const PROJECTS = [
+  {
+    id: 1,
+    title: "Квартира на Голосіївській",
+    imageUrl: "/images/golosiivskiy_project_001.jpg",
+    route: "projects/golosiivska-street-flat",
+  },
+  {
+    id: 2,
+    title: "Квартира на Печерській",
+    imageUrl: "/images/pecherskiy_project_001.jpg",
+    route: "projects/pecherska-street-flat",
+  },
+];
+
 export const PROJECTS_DATA = [
   {
     id: 1,

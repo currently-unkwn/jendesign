@@ -10,7 +10,7 @@ import MobileMenu from "../MobileMenu/MobileMenu";
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
-  const handleDismiss = () => setShowMobileMenu();
+  const handleDismiss = () => setShowMobileMenu(false);
 
   return (
     <>
