@@ -1,9 +1,13 @@
+import { Link } from "react-router-dom";
+
 const ProjectPreview = ({ projectItem }) => {
-  const { name, images } = projectItem;
+  const { name, title, images } = projectItem;
+
+  const projectLink = `projects/${title}`;
 
   return (
     <div>
-      <h2>{name}</h2>
+      <Link to={projectLink}>{name}</Link>
       <div>
         {/* {images
           .filter((_, index) => index < 4)

@@ -1,13 +1,21 @@
-import { PROJECTS_DATA } from "../../data";
+import { useContext } from "react";
+import { ProjectsContext } from "../../contexts/projects.context";
 
 import ProjectPreview from "../ProjectPreview";
 
 const ProjectsSection = () => {
+  const { projectItemsMap } = useContext(ProjectsContext);
+
   return (
     <section>
-      {PROJECTS_DATA.map((projectItem) => (
-        <ProjectPreview key={projectItem.id} projectItem={projectItem} />
-      ))}
+      {Object.keys(projectItemsMap).map((title) => {
+        const projectItem = projectItemsMap[title];
+
+        return (
+          <ProjectPreview key={projectItem.id} projectItem={projectItem} />
+        );
+      })}
+
       {/* {PROJECTS_DATA.map((project) => {
       return (
         <div>

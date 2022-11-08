@@ -1,14 +1,14 @@
-import { PROJECTS } from "../../data";
+import { Routes, Route } from "react-router-dom";
 
-import ProjectItem from "../../components/ProjectItem";
+import ProjectItemsPreview from "../../components/ProjectItemsPreview";
+import Project from "../Project";
 
 const Projects = () => {
   return (
-    <div>
-      {PROJECTS.map((project) => (
-        <ProjectItem key={project.id} project={project} />
-      ))}
-    </div>
+    <Routes>
+      <Route index element={<ProjectItemsPreview />} />
+      <Route path=":projectItem" element={<Project />} />
+    </Routes>
   );
 };
 

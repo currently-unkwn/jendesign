@@ -12,13 +12,13 @@ export const PROJECTS = [
     id: 1,
     title: "Квартира на Голосіївській",
     imageUrl: "/images/golosiivskiy_project_001.jpg",
-    route: "projects/golosiivska-street-flat",
+    route: "golosiivska-street-flat",
   },
   {
     id: 2,
     title: "Квартира на Печерській",
     imageUrl: "/images/pecherskiy_project_001.jpg",
-    route: "projects/pecherska-street-flat",
+    route: "pecherska-street-flat",
   },
 ];
 
@@ -26,6 +26,7 @@ export const PROJECTS_DATA = [
   {
     id: 1,
     name: "Квартира на Голосіївській",
+    title: "golosiivska-street-flat",
     client: "Яна Зужко",
     date: "Червень 2020",
     location: "Голосіївський район",
@@ -46,6 +47,7 @@ export const PROJECTS_DATA = [
   {
     id: 2,
     name: "Квартира на Печерській",
+    title: "pecherska-street-flat",
     client: "Богдан Сірий",
     date: "Жовтень 2021",
     location: "Печерський район",
