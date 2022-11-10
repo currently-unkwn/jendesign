@@ -1,6 +1,6 @@
 import { PROJECTS } from "../../data";
 
-import ProjectItem from "../../components/ProjectItem";
+import ProjectItem from "../ProjectItem/ProjectItem";
 
 const ProjectItemsPreview = () => {
   return (

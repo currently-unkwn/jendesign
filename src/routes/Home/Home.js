@@ -3,7 +3,7 @@ import styled from "styled-components/macro";
 import ProjectsSection from "../../components/ProjectsSection";
 import MaxWidthWrapper from "../../components/MaxWidthWrapper";
 
-import { ABOUT_DATA, PROJECTS_DATA } from "../../data";
+import { ABOUT_DATA } from "../../data";
 
 function App() {
   const { id, text, image } = ABOUT_DATA;
