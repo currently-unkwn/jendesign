@@ -4,7 +4,11 @@ import { Link } from "react-router-dom";
 import Glider from "react-glider";
 import "glider-js/glider.min.css";
 
+import { FreeMode } from "swiper";
+
 import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/free-mode";
 
 const ProjectPreview = ({ projectItem }) => {
   const { name, title, images } = projectItem;
@@ -13,25 +17,27 @@ const ProjectPreview = ({ projectItem }) => {
 
   return (
     <div>
-      <div>
-        <Link to={projectLink}>{name}</Link>
+      <Swiper modules={[FreeMode]} freeMode slidesPerView={2} spaceBetween={16}>
+        <SwiperSlide>
+          <Link to={projectLink}>{name}</Link>
+        </SwiperSlide>
         {images
           .filter((_, index) => index < 4)
           .map((image) => (
-            <div>
+            <SwiperSlide>
               <Picture src={image} alt="" />
-            </div>
+            </SwiperSlide>
           ))}
-        <div>
+        <SwiperSlide>
           <Link to={projectLink}>View Work</Link>
-        </div>
-      </div>
+        </SwiperSlide>
+      </Swiper>
     </div>
   );
 };
 
 const Picture = styled.img`
-  height: 750px;
+  height: 550px;
 `;
 
 export default ProjectPreview;
