@@ -1,9 +1,6 @@
 import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
 
-import Glider from "react-glider";
-import "glider-js/glider.min.css";
-
 import { FreeMode } from "swiper";
 
 import { Swiper, SwiperSlide } from "swiper/react";
