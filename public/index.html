@@ -26,8 +26,68 @@
     -->
     <title>Jendesign | Дизайн інтер'єрів</title>
   </head>
+  <style>
+    /* Preloader */
+
+    .preloader {
+      --clip-from-top: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+      --clip-to-bottom: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+      --clip-from-left: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+      --clip-to-right: polygon(100% 3%, 100% 0, 100% 100%, 100% 100%);
+
+      position: fixed;
+
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: grid;
+      place-content: center;
+      width: calc(100% + var(--removed-body-scroll-bar-size));
+      background: lightgray;
+      z-index: 1;
+    }
+
+    .preloader-logo {
+      font-family: var(--font-family-logo);
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+
+    .preloader.animated {
+      animation: slideOut 500ms cubic-bezier(0.75, 0, 1, 1) forwards;
+      animation-delay: 1000ms;
+    }
+
+    .preloader.animated .preloader-logo {
+      animation: unfurl 1000ms forwards;
+    }
+
+    /** Preloader Animations */
+    @keyframes unfurl {
+      from {
+        clip-path: var(--clip-from-left);
+      }
+      to {
+        clip-path: var(--clip-to-right);
+      }
+    }
+
+    @keyframes slideOut {
+      from {
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(-100%);
+      }
+    }
+  </style>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div class="preloader">
+      <!-- Make this an svg or picture -->
+      <div class="preloader-logo">Jendesign</div>
+    </div>
     <div id="root"></div>
     <!--
       This HTML file is a template.

@@ -58,9 +58,11 @@ html, body, #root, #__next {
   5. Improve text rendering
 */
 body {
+  position: relative;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   font-family: var(--font-family-sans-serif);
+  overflow-y: scroll;
 }
 /*
   6. Improve media defaults
@@ -89,34 +91,7 @@ p, h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
 }
 
-/** Styling Headless UI Dialog Transition with Twin Macro */
-@keyframes fadeIn {
-  from {
-    transform: translateY(-100%);
-  }
-  to {
-    transform: translateY(0%);
-  }
-}
 
-@keyframes fadeOut {
-  from {
-    transform: translateY(0%);
-  }
-  to {
-    transform: translateY(-100%);
-  }
-}
-
-
-/* .test[data-state='open'] {
-  animation: fadeIn 400ms var(--ease-out);
-}
-
-
-.test[data-state='closed'] {
-  animation: fadeOut 250ms var(--ease-in);
-} */
 `;
 
 export default GlobalStyles;
