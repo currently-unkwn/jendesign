@@ -29,6 +29,9 @@ html {
   --ease-in: cubic-bezier(0.75, 0, 1, 1);
   --ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
   --ease: cubic-bezier(0.44, 0.21, 0, 1);
+
+  --dynamic-bg-color: yellow;
+  --projects-color: indigo; 
 }
 
 /** GLOBAL STYLES */
@@ -91,6 +94,11 @@ p, h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
 }
 
+/** TEMP */
+section, footer {
+  height: 100vh;
+  border-top: 1px solid red;
+}
 
 `;
 

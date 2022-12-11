@@ -14,7 +14,8 @@ const ProjectPreview = ({ projectItem }) => {
 
   return (
     <div>
-      <Swiper modules={[FreeMode]} freeMode slidesPerView={2} spaceBetween={16}>
+      Projects
+      {/* <Swiper modules={[FreeMode]} freeMode slidesPerView={2} spaceBetween={16}>
         <SwiperSlide>
           <Link to={projectLink}>{name}</Link>
         </SwiperSlide>
@@ -28,7 +29,7 @@ const ProjectPreview = ({ projectItem }) => {
         <SwiperSlide>
           <Link to={projectLink}>View Work</Link>
         </SwiperSlide>
-      </Swiper>
+      </Swiper> */}
     </div>
   );
 };
