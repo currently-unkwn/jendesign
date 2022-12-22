@@ -3,7 +3,7 @@ import Header from "../Header";
 import Home from "../../routes/Home";
 import Projects from "../../routes/Projects";
 import Contacts from "../../routes/Contacts";
-import DynamicBg from "../../components/DynamicBg";
+import DynamicBg from "../DynamicBg/DynamicBg";
 
 const App = () => {
   return (

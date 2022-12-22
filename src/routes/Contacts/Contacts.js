@@ -7,6 +7,7 @@ import ContactForm from "../../components/ContactForm";
 import ContactFormAlert from "../../components/ContactFormAlert";
 
 import MaxWidthWrapper from "../../components/MaxWidthWrapper";
+import DynamicBgSection from "../../components/DynamicBgSection/DynamicBgSection";
 
 const Contacts = () => {
   const [buttonText, setButtonText] = useState("Send");
@@ -47,17 +48,17 @@ const Contacts = () => {
   };
 
   return (
-    <MaxWidthWrapper>
-      {alertIsVisible ? (
-        <ContactFormAlert />
-      ) : (
-        <ContactForm
-          ref={form}
-          onSubmit={handleSubmit}
-          buttonText={buttonText}
-        />
-      )}
-    </MaxWidthWrapper>
+      <MaxWidthWrapper>
+        {alertIsVisible ? (
+          <ContactFormAlert />
+        ) : (
+          <ContactForm
+            ref={form}
+            onSubmit={handleSubmit}
+            buttonText={buttonText}
+          />
+        )}
+      </MaxWidthWrapper>
   );
 };
 
