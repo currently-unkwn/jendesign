@@ -37,7 +37,7 @@ const App = () => {
           <Route path="/" element={<Header />}>
             <Route index element={<Home loading={loading} />} />
             <Route path="projects/*" element={<Projects />} />
-            <Route path="contacts" element={<Contacts />} />
+            <Route path="contacts" element={<Contacts loading={loading} />} />
           </Route>
         </Routes>
       </>

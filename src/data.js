@@ -11,13 +11,21 @@ export const PROJECTS = [
   {
     id: 1,
     title: "Квартира на Голосіївській",
-    imageUrl: "/images/golosiivskiy_project_001.jpg",
+    images: [
+      "/images/dragomanova_project_001.jpg",
+      "/images/dragomanova_project_002.jpg",
+      "/images/dragomanova_project_003.jpg",
+    ],
     route: "golosiivska-street-flat",
   },
   {
     id: 2,
     title: "Квартира на Печерській",
-    imageUrl: "/images/pecherskiy_project_001.jpg",
+    images: [
+      "/images/pecherskiy_project_001.jpg",
+      "/images/pecherskiy_project_002.jpg",
+      "/images/pecherskiy_project_003.jpg",
+    ],
     route: "pecherska-street-flat",
   },
 ];

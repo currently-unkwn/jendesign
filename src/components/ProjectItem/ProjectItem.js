@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 const ProjectItem = ({ project }) => {
-  const { title, imageUrl, route } = project;
+  const { title, images, route } = project;
 
   const navigate = useNavigate();
 
@@ -9,9 +9,11 @@ const ProjectItem = ({ project }) => {
 
   return (
     <div>
-      <img src={imageUrl} alt="" />
-
       <h2 onClick={onNavigateHandler}>{title}</h2>
+
+      {images.map((image) => (
+        <img src={image} alt="" />
+      ))}
     </div>
   );
 };

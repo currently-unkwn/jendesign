@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import styled from "styled-components/macro";
 
 import { sendEmail } from "../../utils/emailjs/emailjs.utils";
@@ -7,13 +7,23 @@ import ContactForm from "../../components/ContactForm";
 import ContactFormAlert from "../../components/ContactFormAlert";
 
 import MaxWidthWrapper from "../../components/MaxWidthWrapper";
+import { setDynamicBg } from "../../helpers";
 import DynamicBgSection from "../../components/DynamicBgSection/DynamicBgSection";
 
-const Contacts = () => {
+const Contacts = ({ loading }) => {
   const [buttonText, setButtonText] = useState("Send");
   const [alertIsVisible, setAlertIsVisible] = useState(false);
 
   const form = useRef();
+  const contactsRef = useRef();
+
+  const contactsRefs = [contactsRef];
+
+  useEffect(() => {
+    if (!loading) {
+      setDynamicBg(contactsRefs);
+    }
+  }, [loading]);
 
   const showAlert = () => {
     setAlertIsVisible(true);
@@ -48,6 +58,7 @@ const Contacts = () => {
   };
 
   return (
+    <DynamicBgSection bgColor="cyan" ref={contactsRef}>
       <MaxWidthWrapper>
         {alertIsVisible ? (
           <ContactFormAlert />
@@ -59,6 +70,7 @@ const Contacts = () => {
           />
         )}
       </MaxWidthWrapper>
+    </DynamicBgSection>
   );
 };
 
