@@ -1,4 +1,7 @@
+import styled from "styled-components/macro";
 import { useNavigate } from "react-router-dom";
+import ImagesRow from "../ImagesRow/ImagesRow";
+import MaxWidthWrapper from "../MaxWidthWrapper";
 
 const ProjectItem = ({ project }) => {
   const { title, images, route } = project;
@@ -8,14 +11,19 @@ const ProjectItem = ({ project }) => {
   const onNavigateHandler = () => navigate(route);
 
   return (
-    <div>
-      <h2 onClick={onNavigateHandler}>{title}</h2>
+    <Wrapper>
+      <MaxWidthWrapper>
+        <h2 onClick={onNavigateHandler}>{title}</h2>
+      </MaxWidthWrapper>
 
-      {images.map((image) => (
-        <img src={image} alt="" />
-      ))}
-    </div>
+      <ImagesRow images={images} />
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  padding-left: 16px;
+  padding-right: 16px;
+`;
 
 export default ProjectItem;
