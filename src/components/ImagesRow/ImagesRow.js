@@ -1,11 +1,22 @@
 import styled from "styled-components/macro";
+import { QUERIES } from "../../constants";
 
 const ImagesRow = ({ images }) => {
   return (
     <Wrapper>
       {images.map((image) => (
-        <ImageWrapper>
-          <Image src={image} alt="" />
+        <ImageWrapper
+          key={image.id}
+          style={{
+            "--grid-span": `span ${image.gridSpan}`,
+            "--display": image.display,
+          }}
+        >
+          <Image
+            src={image.imageUrl}
+            alt={image.alt}
+            style={{ "--aspect-ratio": image.aspectRatio }}
+          />
         </ImageWrapper>
       ))}
     </Wrapper>
@@ -13,36 +24,48 @@ const ImagesRow = ({ images }) => {
 };
 
 const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 16px;
+  display: flex;
+  /* display: grid; */
+  /* grid-template-columns: repeat(12, 1fr); */
+  gap: 8px;
+
+  @media ${QUERIES.smallTabletAndUp} {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+  }
 `;
 
 const ImageWrapper = styled.div`
   &:nth-child(1) {
-    grid-column: span 5;
+    grid-column: var(--grid-span);
   }
 
-  &:nth-child(2) {
-    grid-column: span 4;
-  }
-
+  &:nth-child(2),
   &:nth-child(3) {
-    grid-column: span 3;
+    display: var(--display);
+    grid-column: var(--grid-span);
+  }
+
+  @media ${QUERIES.smallTabletAndUp} {
+    &:nth-child(2),
+    &:nth-child(3) {
+      display: block;
+    }
   }
 `;
 
 const Image = styled.img`
   width: 100%;
-  aspect-ratio: 3/2;
+  aspect-ratio: var(--aspect-ratio);
   object-fit: cover;
 
   ${ImageWrapper}:nth-child(odd) & {
-    aspect-ratio: 3 / 2;
+    aspect-ratio: var(--aspect-ratio);
   }
 
   ${ImageWrapper}:nth-child(even) & {
-    aspect-ratio: 4 / 5;
+    aspect-ratio: var(--aspect-ratio);
   }
 `;
 

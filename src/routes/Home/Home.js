@@ -30,24 +30,24 @@ const Home = ({ loading }) => {
     <>
       <main>
         <MaxWidthWrapper>
-          <DynamicBgSection bgColor="red" ref={heroRef}>
+          <DynamicBgSection bgColor="#f8f9fa" ref={heroRef}>
             <HeroSection>
               <h1>{text}</h1>
               <img src={image.src} alt={image.alt} />
             </HeroSection>
           </DynamicBgSection>
         </MaxWidthWrapper>
-        <DynamicBgSection bgColor="blue" ref={projectsRef}>
+        <DynamicBgSection bgColor="#dee2e6" ref={projectsRef}>
           <ProjectsSection />
         </DynamicBgSection>
         <MaxWidthWrapper>
-          <DynamicBgSection bgColor="lavender" ref={contactRef}>
+          <DynamicBgSection bgColor="#f1f3f5" ref={contactRef}>
             <section>Get in Touch</section>
           </DynamicBgSection>
         </MaxWidthWrapper>
       </main>
       <MaxWidthWrapper>
-        <DynamicBgSection bgColor="cyan" ref={footerRef}>
+        <DynamicBgSection bgColor="#ced4da" ref={footerRef}>
           <footer>Footer</footer>
         </DynamicBgSection>
       </MaxWidthWrapper>
