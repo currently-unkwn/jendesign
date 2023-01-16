@@ -26,7 +26,7 @@ const ProjectItem = ({ project }) => {
   );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   margin-bottom: 12px;
   padding-top: 10vh;
   padding-left: 16px;

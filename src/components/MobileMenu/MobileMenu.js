@@ -120,6 +120,8 @@ const Wrapper = styled(Dialog.Overlay)`
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
   background: hsl(${COLORS.black});
@@ -136,7 +138,7 @@ const Wrapper = styled(Dialog.Overlay)`
 `;
 
 const Content = styled(Dialog.Content)`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
