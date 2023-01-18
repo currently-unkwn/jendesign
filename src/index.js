@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import App from "./components/App";
 import { ProjectsProvider } from "./contexts/projects.context";
+import { LoadingProvider } from "./contexts/loading.context";
 
 import GlobalStyles from "./components/GlobalStyles/GlobalStyles";
 
@@ -14,7 +15,9 @@ root.render(
   <>
     <BrowserRouter>
       <ProjectsProvider>
-        <App />
+        <LoadingProvider>
+          <App />
+        </LoadingProvider>
       </ProjectsProvider>
     </BrowserRouter>
     <GlobalStyles />

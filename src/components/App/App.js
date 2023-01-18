@@ -1,5 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
+import { LoadingContext } from "../../contexts/loading.context";
+
 import Header from "../Header";
 import Home from "../../routes/Home";
 import Projects from "../../routes/Projects";
@@ -7,7 +9,7 @@ import Contacts from "../../routes/Contacts";
 import DynamicBg from "../DynamicBg/DynamicBg";
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
+  const { loading, setLoading } = useContext(LoadingContext);
 
   useEffect(() => {
     const preloader = document.querySelector(".preloader");
@@ -36,7 +38,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Header />}>
             <Route index element={<Home loading={loading} />} />
-            <Route path="projects/*" element={<Projects />} />
+            <Route path="projects/*" element={<Projects loading={loading} />} />
             <Route path="contacts" element={<Contacts loading={loading} />} />
           </Route>
         </Routes>

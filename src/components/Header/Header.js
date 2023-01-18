@@ -76,6 +76,7 @@ const Wrapper = styled.header`
   width: 100%;
   transition: transform 350ms, opacity 350ms;
   /* background-color: red; */
+  z-index: 9999;
 `;
 const MainHeader = styled.div`
   display: flex;
