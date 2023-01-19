@@ -1,18 +1,44 @@
+import { useEffect, useRef } from "react";
 import styled from "styled-components/macro";
 import DynamicBgSection from "../DynamicBgSection/DynamicBgSection";
 import { COLORS } from "../../constants";
+import { setDynamicBg } from "../../helpers";
 
 const ProjectLayout = ({ project }) => {
   const { name, previewImg, images } = project;
+  const heroImgRef = useRef();
+  const infoRef = useRef();
+
+  const projectLayoutRefs = [heroImgRef, infoRef];
+
+  useEffect(() => {
+    setDynamicBg(projectLayoutRefs);
+  });
+
   return (
     <Wrapper>
       <Hero>
         <HeroImgWrapper>
-          <HeroImg src={previewImg} alt="" />
+          <DynamicBgSection
+            ref={heroImgRef}
+            bgColor="white"
+            style={{ width: "100%", height: "100%" }}
+          >
+            {" "}
+            <HeroImg src={previewImg} alt="" />
+          </DynamicBgSection>
         </HeroImgWrapper>
         <TitleWrapper>
           <Title>{name}</Title>
         </TitleWrapper>
+        <InfoWrapper>
+          <DynamicBgSection
+            ref={infoRef}
+            bgColor="cyan"
+            style={{ width: "100%", height: "100%" }}
+          />
+        </InfoWrapper>
+
         <InfoImg></InfoImg>
       </Hero>
 
@@ -55,6 +81,11 @@ const Title = styled.h2`
   font-size: calc(48 / 16 * 1rem);
   line-height: 1.2;
   color: hsl(${COLORS.white});
+`;
+
+const InfoWrapper = styled.div`
+  grid-column: full-start / full-end;
+  grid-row: 6 / 12;
 `;
 
 const InfoImg = styled.div`

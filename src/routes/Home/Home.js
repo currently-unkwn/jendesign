@@ -21,10 +21,8 @@ const Home = ({ loading }) => {
   const { id, text, image } = ABOUT_DATA;
 
   useEffect(() => {
-    if (!loading) {
-      setDynamicBg(homePageRefs);
-    }
-  }, [loading]);
+    setDynamicBg(homePageRefs);
+  });
 
   return (
     <>

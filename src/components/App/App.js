@@ -9,7 +9,8 @@ import Contacts from "../../routes/Contacts";
 import DynamicBg from "../DynamicBg/DynamicBg";
 
 const App = () => {
-  const { loading, setLoading } = useContext(LoadingContext);
+  const [loading, setLoading] = useState(true);
+  // const { loading, setLoading } = useContext(LoadingContext);
 
   useEffect(() => {
     const preloader = document.querySelector(".preloader");
@@ -37,9 +38,9 @@ const App = () => {
         <DynamicBg />
         <Routes>
           <Route path="/" element={<Header />}>
-            <Route index element={<Home loading={loading} />} />
-            <Route path="projects/*" element={<Projects loading={loading} />} />
-            <Route path="contacts" element={<Contacts loading={loading} />} />
+            <Route index element={<Home />} />
+            <Route path="projects/*" element={<Projects />} />
+            <Route path="contacts" element={<Contacts />} />
           </Route>
         </Routes>
       </>

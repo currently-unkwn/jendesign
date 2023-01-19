@@ -20,10 +20,8 @@ const Contacts = ({ loading }) => {
   const contactsRefs = [contactsRef];
 
   useEffect(() => {
-    if (!loading) {
-      setDynamicBg(contactsRefs);
-    }
-  }, [loading]);
+    setDynamicBg(contactsRefs);
+  });
 
   const showAlert = () => {
     setAlertIsVisible(true);
