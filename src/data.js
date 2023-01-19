@@ -78,9 +78,26 @@ export const PROJECTS_DATA = [
     date: "Червень 2020",
     location: "Київ, Голосіївський район",
     size: "180m²",
+    projectInfo: [
+      {
+        id: "h",
+        category: "Місце",
+        text: "Київ, Голосіївський район",
+      },
+      {
+        id: "j",
+        category: "Розмір",
+        text: "180м2",
+      },
+      {
+        id: "k",
+        category: "Замовник",
+        text: "Яна Зужко",
+      },
+    ],
     previewImg: "/images/dragomanova_project_001.jpg",
+    infoImg: "/images/dragomanova_project_002.jpg",
     images: [
-      "/images/golosiivskiy_project_002.jpg",
       "/images/golosiivskiy_project_003.jpg",
       "/images/golosiivskiy_project_004.jpg",
       "/images/golosiivskiy_project_005.jpg",
@@ -100,8 +117,8 @@ export const PROJECTS_DATA = [
     location: "Київ, Печерський район",
     size: "154m²",
     previewImg: "/images/pecherskiy_project_001.jpg",
+    infoImg: "/images/pecherskiy_project_002.jpg",
     images: [
-      "/images/pecherskiy_project_002.jpg",
       "/images/pecherskiy_project_003.jpg",
       "/images/pecherskiy_project_004.jpg",
       "/images/pecherskiy_project_005.jpg",

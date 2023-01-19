@@ -96,8 +96,8 @@ p, h1, h2, h3, h4, h5, h6 {
 
 /** TEMP */
 section, footer {
-  height: 100vh;
-  border-top: 1px solid red;
+  /* height: 100vh; */
+  /* border-top: 1px solid red; */
 }
 
 `;
