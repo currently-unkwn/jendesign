@@ -32,7 +32,7 @@ const Wrapper = styled.section`
   padding-left: 16px;
   padding-right: 16px;
 
-  @media ${QUERIES.smallTabletAndUp} {
+  @media ${QUERIES.tabletAndUp} {
     margin-bottom: 20vh;
     padding-top: 0;
   }
@@ -42,7 +42,7 @@ const TitleWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
 
-  @media ${QUERIES.smallTabletAndUp} {
+  @media ${QUERIES.tabletAndUp} {
     grid-template-columns: 1fr 1fr;
   }
 `;
@@ -54,7 +54,7 @@ const Title = styled.h2`
   padding-bottom: 8px;
   font-weight: ${WEIGHTS.regular};
 
-  @media ${QUERIES.smallTabletAndUp} {
+  @media ${QUERIES.tabletAndUp} {
     padding-top: 64px;
     padding-bottom: 160px;
     grid-column: 2 / -1;

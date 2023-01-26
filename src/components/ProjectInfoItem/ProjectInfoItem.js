@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-import { COLORS } from "../../constants";
+import { COLORS, QUERIES } from "../../constants";
 
 const ProjectInfoItem = ({ infoItem }) => {
   const { category, text } = infoItem;
@@ -18,10 +18,12 @@ const Wrapper = styled.div`
 
 const Category = styled.span`
   display: block;
-  font-size: calc(20 / 16 * 1rem);
+  /** 16-20 */
+  font-size: clamp(1rem, 0.376vw + 0.925rem, 1.266rem);
 `;
 const Text = styled.p`
-  font-size: calc(32 / 16 * 1rem);
+  /** 20-32 */
+  font-size: clamp(1.266rem, 1.079vw + 1.05rem, 2.027rem);
   line-height: 1.1;
 `;
 

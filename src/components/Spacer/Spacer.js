@@ -1,5 +1,5 @@
 // Spacer.js
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 function getHeight({ axis, size }) {
   return axis === "horizontal" ? 1 : size;
@@ -15,7 +15,6 @@ const Spacer = styled.span`
   min-width: ${getWidth}px;
   height: ${getHeight}px;
   min-height: ${getHeight}px;
-  
 `;
 
 export default Spacer;

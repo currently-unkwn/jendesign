@@ -8,7 +8,7 @@ const Project = () => {
   const { projectItem } = useParams();
   // console.log(projectItem);
   const { projectItemsMap } = useContext(ProjectsContext);
-  console.log(projectItemsMap);
+
   const [project, setProject] = useState(projectItemsMap[projectItem]);
 
   // console.log(projectItemsMap[projectItem]);
@@ -18,9 +18,7 @@ const Project = () => {
     setProject(projectItemsMap[projectItem]);
   }, [projectItem, projectItemsMap]);
 
-  return (
-    <div>{project && <ProjectLayout key={project.id} project={project} />}</div>
-  );
+  return <>{project && <ProjectLayout key={project.id} project={project} />}</>;
 };
 
 export default Project;

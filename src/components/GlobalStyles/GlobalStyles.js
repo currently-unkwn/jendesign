@@ -32,6 +32,8 @@ html {
 
   --dynamic-bg-color: yellow;
   --projects-color: indigo; 
+
+  --body-gap: 32px;
 }
 
 /** GLOBAL STYLES */

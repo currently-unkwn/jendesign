@@ -1,11 +1,16 @@
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import styled from "styled-components/macro";
 import DynamicBgSection from "../DynamicBgSection/DynamicBgSection";
 import ProjectInfoItem from "../ProjectInfoItem/ProjectInfoItem";
-import { COLORS } from "../../constants";
+import Grid from "../Grid/Grid";
+
+import { COLORS, WEIGHTS, QUERIES } from "../../constants";
 import { setDynamicBg } from "../../helpers";
+import Spacer from "../Spacer";
 
 const ProjectLayout = ({ project }) => {
+  const [isTitleStatic, setIsTitleStatic] = useState(false);
+
   const { name, previewImg, infoImg, projectInfo, images } = project;
   const heroImgRef = useRef();
   const infoRef = useRef();
@@ -13,44 +18,89 @@ const ProjectLayout = ({ project }) => {
 
   const projectLayoutRefs = [heroImgRef, infoRef, plansRef];
 
+  const titleRef = useRef();
+  const stickyTitleRef = useRef();
+
   useEffect(() => {
     setDynamicBg(projectLayoutRefs);
-  });
+  }, []);
+
+  useEffect(() => {
+    const stickyTitleRefCoords = stickyTitleRef.current.getBoundingClientRect();
+
+    const handleScroll = () => {
+      const titleRefCoords = titleRef.current.getBoundingClientRect();
+
+      const isStickyTitleIntersectsTitle =
+        titleRefCoords.top < stickyTitleRefCoords.top;
+
+      if (isStickyTitleIntersectsTitle) {
+        setIsTitleStatic(true);
+      } else {
+        setIsTitleStatic(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <Wrapper>
-      <Hero>
-        <HeroImgWrapper>
-          <DynamicBgSection
-            ref={heroImgRef}
-            bgColor="white"
-            style={{ width: "100%", height: "100%" }}
-          >
-            {" "}
-            <HeroImg src={previewImg} alt="" />
-          </DynamicBgSection>
-        </HeroImgWrapper>
-        <TitleWrapper>
-          <Title>{name}</Title>
-        </TitleWrapper>
-        <InfoSection>
-          <DynamicBgSection
-            ref={infoRef}
-            bgColor="#959982"
-            style={{ width: "100%", height: "100%" }}
-          />
-        </InfoSection>
+      <DynamicBgSection
+        ref={heroImgRef}
+        bgColor="white"
+        style={{ height: "100%" }}
+      >
+        <Hero>
+          <HeroImg src={previewImg} alt="" />
+        </Hero>
+      </DynamicBgSection>
 
-        <ProjectInfoWrapper>
-          {projectInfo.map((infoItem) => {
-            return <ProjectInfoItem key={infoItem.id} infoItem={infoItem} />;
-          })}
-        </ProjectInfoWrapper>
+      <Spacer size={160} />
 
-        <SideImgWrapper>
-          <SideImg src={infoImg} alt="" />
-        </SideImgWrapper>
-      </Hero>
+      <DynamicBgSection
+        ref={infoRef}
+        bgColor="#959982"
+        style={{ height: "100%" }}
+      >
+        <Grid>
+          <InfoWrapper>
+            <StickyTitle
+              ref={stickyTitleRef}
+              style={{
+                position: isTitleStatic ? "absolute" : "fixed",
+                opacity: isTitleStatic ? "0" : "1",
+              }}
+            >
+              {name}
+            </StickyTitle>
+
+            <InfoContent>
+              <Title
+                ref={titleRef}
+                style={{
+                  opacity: isTitleStatic ? "1" : "0",
+                  visibility: isTitleStatic ? "visible" : "hidden",
+                }}
+              >
+                {name}
+              </Title>
+
+              {projectInfo.map((infoItem) => {
+                return (
+                  <ProjectInfoItem key={infoItem.id} infoItem={infoItem} />
+                );
+              })}
+            </InfoContent>
+          </InfoWrapper>
+
+          <InfoImgWrapper>
+            <InfoImg src={infoImg} alt="" />
+          </InfoImgWrapper>
+        </Grid>
+      </DynamicBgSection>
 
       <Plans>
         <DynamicBgSection
@@ -68,17 +118,13 @@ const ProjectLayout = ({ project }) => {
   );
 };
 
-const Wrapper = styled.div``;
-const Hero = styled.section`
-  display: grid;
-  grid-template-columns: [full-start] 1fr [col-start] repeat(10, 1fr) [col-end] 1fr [full-end];
-  grid-template-rows: repeat(5, 20vh) repeat(10, 15vh);
-  column-gap: 16px;
+const Wrapper = styled.div`
+  position: relative;
+  height: 100%;
 `;
 
-const HeroImgWrapper = styled.div`
-  grid-column: full-start / full-end;
-  grid-row: 1 / 6;
+const Hero = styled.div`
+  height: 100%;
 `;
 
 const HeroImg = styled.img`
@@ -86,47 +132,59 @@ const HeroImg = styled.img`
   height: 100%;
   object-fit: cover;
 `;
-const TitleWrapper = styled.div`
-  /** TODO: Check if the title is too narrow on resize */
-  grid-column: col-start / span 3;
-  grid-row: 2 / 10;
-  /* border: 2px solid black; */
-`;
-const Title = styled.h2`
-  position: sticky;
-  top: 18vh;
 
-  font-size: calc(48 / 16 * 1rem);
+const InfoWrapper = styled.div`
+  grid-column: col-start / col-end;
+
+  @media ${QUERIES.tabletAndUp} {
+    grid-column: col-start / span 5;
+  }
+`;
+
+const InfoContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  height: 100%;
+`;
+
+const Title = styled.h2`
+  /* position: fixed;
+  top: 11rem; */
+
+  max-width: 400px;
+  /** 36-64, 386-1380 */
+  font-size: clamp(2.2rem, 2.9vw + 1.5rem, 4rem);
+  font-weight: ${WEIGHTS.regular};
   line-height: 1.2;
   color: hsl(${COLORS.white});
 `;
 
-const InfoSection = styled.div`
-  grid-column: full-start / full-end;
-  grid-row: 6 / 14;
+const StickyTitle = styled(Title)`
+  /* position: fixed; */
+  top: 11rem;
 `;
 
-const ProjectInfoWrapper = styled.div`
-  grid-column: col-start / 8;
-  grid-row: 10 / 13;
+const InfoImgWrapper = styled.div`
+  grid-column: col-start / full-end;
+  margin-right: calc(var(--body-gap) * -1);
+  padding-top: 144px;
 
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  padding-top: 32px;
+  @media ${QUERIES.tabletAndUp} {
+    padding-top: 0;
+    grid-column: 8 / full-end;
+  }
 `;
 
-const SideImgWrapper = styled.div`
-  grid-column: 8 / -1;
-  grid-row: 7 / 14;
-`;
-
-const SideImg = styled.img`
+const InfoImg = styled.img`
   object-fit: cover;
   height: 100%;
+  width: 100%;
+  aspect-ratio: 5 / 7;
 `;
 
-const Plans = styled.div`
+const Plans = styled.section`
   height: 800px;
 `;
 
