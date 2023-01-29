@@ -60,13 +60,13 @@ const ProjectLayout = ({ project }) => {
 
       <Spacer size={160} />
 
-      <DynamicBgSection
-        ref={infoRef}
-        bgColor="#959982"
-        style={{ height: "100%" }}
-      >
-        <Grid>
-          <InfoWrapper>
+      <Grid>
+        <InfoWrapper>
+          <DynamicBgSection
+            ref={infoRef}
+            bgColor="#959982"
+            style={{ height: "100%" }}
+          >
             <StickyTitle
               ref={stickyTitleRef}
               style={{
@@ -94,21 +94,20 @@ const ProjectLayout = ({ project }) => {
                 );
               })}
             </InfoContent>
-          </InfoWrapper>
+          </DynamicBgSection>
+        </InfoWrapper>
 
-          <InfoImgWrapper>
-            <InfoImg src={infoImg} alt="" />
-          </InfoImgWrapper>
+        <InfoImgWrapper>
+          <InfoImg src={infoImg} alt="" />
+        </InfoImgWrapper>
+      </Grid>
+
+      <DynamicBgSection ref={plansRef} bgColor="white">
+        <Grid>
+          <Plans>Plans</Plans>
         </Grid>
       </DynamicBgSection>
 
-      <Plans>
-        <DynamicBgSection
-          ref={plansRef}
-          bgColor="white"
-          style={{ width: "100%", height: "100%" }}
-        />
-      </Plans>
       {/* <div>
         {images.map((image) => (
           <img src={image} />
@@ -168,7 +167,7 @@ const StickyTitle = styled(Title)`
 
 const InfoImgWrapper = styled.div`
   grid-column: col-start / full-end;
-  margin-right: calc(var(--body-gap) * -1);
+  margin-right: calc(var(--gutter) * -1);
   padding-top: 144px;
 
   @media ${QUERIES.tabletAndUp} {
@@ -185,6 +184,7 @@ const InfoImg = styled.img`
 `;
 
 const Plans = styled.section`
+  grid-column: col-start / col-end;
   height: 800px;
 `;
 

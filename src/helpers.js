@@ -24,7 +24,7 @@ export const setDynamicBg = (refsArr) => {
     root: null,
     // Layout should be larger than viewport
     // Should be tested across layouts
-    threshold: 0.5,
+    threshold: 0.6,
   });
 
   refsArr.forEach((ref) => observer.observe(ref.current));

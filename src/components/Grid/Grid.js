@@ -6,8 +6,8 @@ const Grid = styled.div`
   grid-template-columns: [full-start] 1fr [col-start] repeat(10, minmax(0, 1fr)) [col-end] 1fr [full-end];
   gap: 16px;
 
-  padding-left: var(--body-gap);
-  padding-right: var(--body-gap);
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
 
   @media ${QUERIES.tabletAndUp} {
     gap: 32px;

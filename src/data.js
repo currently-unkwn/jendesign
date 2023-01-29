@@ -116,6 +116,23 @@ export const PROJECTS_DATA = [
     date: "Жовтень 2021",
     location: "Київ, Печерський район",
     size: "154m²",
+    projectInfo: [
+      {
+        id: "h",
+        category: "Місце",
+        text: "Київ, Печерський район",
+      },
+      {
+        id: "j",
+        category: "Розмір",
+        text: "154m²",
+      },
+      {
+        id: "k",
+        category: "Замовник",
+        text: "Богдан Сірий",
+      },
+    ],
     previewImg: "/images/pecherskiy_project_001.jpg",
     infoImg: "/images/pecherskiy_project_002.jpg",
     images: [
