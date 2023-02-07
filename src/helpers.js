@@ -24,8 +24,12 @@ export const setDynamicBg = (refsArr) => {
     root: null,
     // Layout should be larger than viewport
     // Should be tested across layouts
-    threshold: 0.6,
+    threshold: 0.5,
   });
 
   refsArr.forEach((ref) => observer.observe(ref.current));
+};
+
+export const getIndex = (id, array) => {
+  return array.findIndex((item) => item.id === id);
 };

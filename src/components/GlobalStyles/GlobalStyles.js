@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components/macro";
 import { COLORS, FAMILIES } from "../../constants";
+import { QUERIES } from "../../constants";
 
 const GlobalStyles = createGlobalStyle`
 
@@ -33,7 +34,11 @@ html {
   --dynamic-bg-color: yellow;
   --projects-color: indigo; 
 
-  --gutter: 32px;
+  --gutter: 16px;
+
+  @media ${QUERIES.tabletAndUp} {
+    --gutter: 32px;
+  }
 }
 
 /** GLOBAL STYLES */
@@ -101,6 +106,7 @@ section, footer {
   /* height: 100vh;  */
   /* border-top: 1px solid red; */
 }
+
 
 `;
 

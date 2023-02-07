@@ -4,14 +4,10 @@ import { QUERIES } from "../../constants";
 const Grid = styled.div`
   display: grid;
   grid-template-columns: [full-start] 1fr [col-start] repeat(10, minmax(0, 1fr)) [col-end] 1fr [full-end];
-  gap: 16px;
+  gap: var(--gutter);
 
   padding-left: var(--gutter);
   padding-right: var(--gutter);
-
-  @media ${QUERIES.tabletAndUp} {
-    gap: 32px;
-  }
 `;
 
 export default Grid;

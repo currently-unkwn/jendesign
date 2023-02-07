@@ -72,17 +72,18 @@ export const PROJECTS = [
 export const PROJECTS_DATA = [
   {
     id: 1,
-    name: "Квартира на Голосіївській",
+    name: `Квартира 
+на Басейній`,
     title: "golosiivska-street-flat",
     client: "Яна Зужко",
     date: "Червень 2020",
-    location: "Київ, Голосіївський район",
+    location: "Київ, Печерський район",
     size: "180m²",
     projectInfo: [
       {
         id: "h",
         category: "Місце",
-        text: "Київ, Голосіївський район",
+        text: "Київ, Печерський район",
       },
       {
         id: "j",
@@ -95,17 +96,59 @@ export const PROJECTS_DATA = [
         text: "Яна Зужко",
       },
     ],
+    plans: [
+      {
+        id: "b",
+        image: "/images/dragomanova_plans_001.jpeg",
+        alt: "",
+        caption: "Підвал",
+      },
+      {
+        id: "n",
+        image: "/images/dragomanova_plans_002.jpeg",
+        alt: "",
+        caption: "Перший поверх",
+      },
+      {
+        id: "m",
+        image: "/images/dragomanova_plans_003.jpeg",
+        alt: "",
+        caption: "Другий поверх",
+      },
+    ],
     previewImg: "/images/dragomanova_project_001.jpg",
     infoImg: "/images/dragomanova_project_002.jpg",
     images: [
-      "/images/golosiivskiy_project_003.jpg",
-      "/images/golosiivskiy_project_004.jpg",
-      "/images/golosiivskiy_project_005.jpg",
-      "/images/golosiivskiy_project_006.jpg",
-      "/images/golosiivskiy_project_007.jpg",
-      "/images/golosiivskiy_project_008.jpg",
-      "/images/golosiivskiy_project_009.jpg",
-      "/images/golosiivskiy_project_010.jpg",
+      {
+        id: "t",
+        imgPath: "/images/dragomanova_project_003.jpg",
+        alt: "",
+        aspectRatio: 4 / 3,
+        layout: "default",
+        span: `col-start / col-end`,
+      },
+      {
+        id: "y",
+        imgPath: "/images/dragomanova_project_004.jpg",
+        alt: "",
+        aspectRatio: 2 / 3,
+        span: `col-start / span 5`,
+      },
+      {
+        id: "u",
+        imgPath: "/images/dragomanova_project_005.jpg",
+        alt: "",
+        aspectRatio: 2 / 3,
+        span: `7 / col-end`,
+      },
+      {
+        id: "i",
+        imgPath: "/images/dragomanova_project_006.jpg",
+        alt: "",
+        aspectRatio: 4 / 3,
+        layout: "full",
+        span: `full-start / full-end`,
+      },
     ],
   },
   {

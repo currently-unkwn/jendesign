@@ -1,23 +1,29 @@
 import { useState, useEffect, useRef } from "react";
 import styled from "styled-components/macro";
+
 import DynamicBgSection from "../DynamicBgSection/DynamicBgSection";
 import ProjectInfoItem from "../ProjectInfoItem/ProjectInfoItem";
 import Grid from "../Grid/Grid";
+import Spacer from "../Spacer";
+import Plans from "../Plans/Plans";
+import ProjectNavigation from "../ProjectNavigation/ProjectNavigation";
 
 import { COLORS, WEIGHTS, QUERIES } from "../../constants";
 import { setDynamicBg } from "../../helpers";
-import Spacer from "../Spacer";
 
 const ProjectLayout = ({ project }) => {
   const [isTitleStatic, setIsTitleStatic] = useState(false);
 
-  const { name, previewImg, infoImg, projectInfo, images } = project;
+  const { id, name, previewImg, infoImg, projectInfo, images, plans } = project;
+
+  /** Dynamic BG refs */
   const heroImgRef = useRef();
   const infoRef = useRef();
   const plansRef = useRef();
 
   const projectLayoutRefs = [heroImgRef, infoRef, plansRef];
 
+  /** Sticky title refs */
   const titleRef = useRef();
   const stickyTitleRef = useRef();
 
@@ -103,16 +109,26 @@ const ProjectLayout = ({ project }) => {
       </Grid>
 
       <DynamicBgSection ref={plansRef} bgColor="white">
-        <Grid>
-          <Plans>Plans</Plans>
-        </Grid>
+        <Grid>{plans && <Plans plans={plans} />}</Grid>
       </DynamicBgSection>
 
-      {/* <div>
+      <ImagesGrid>
         {images.map((image) => (
-          <img src={image} />
+          <ProjectImgWrapper
+            style={{ "--grid-column": image.span }}
+            data-layout={image.layout ? image.layout : undefined}
+          >
+            <ProjectImg
+              key={image.id}
+              src={image.imgPath}
+              alt={image.alt}
+              style={{ "--aspect-ratio": image.aspectRatio }}
+            />
+          </ProjectImgWrapper>
         ))}
-      </div> */}
+      </ImagesGrid>
+
+      <ProjectNavigation id={id} />
     </Wrapper>
   );
 };
@@ -149,19 +165,16 @@ const InfoContent = styled.div`
 `;
 
 const Title = styled.h2`
-  /* position: fixed;
-  top: 11rem; */
-
   max-width: 400px;
   /** 36-64, 386-1380 */
   font-size: clamp(2.2rem, 2.9vw + 1.5rem, 4rem);
   font-weight: ${WEIGHTS.regular};
   line-height: 1.2;
   color: hsl(${COLORS.white});
+  white-space: pre-wrap;
 `;
 
 const StickyTitle = styled(Title)`
-  /* position: fixed; */
   top: 11rem;
 `;
 
@@ -183,9 +196,37 @@ const InfoImg = styled.img`
   aspect-ratio: 5 / 7;
 `;
 
-const Plans = styled.section`
-  grid-column: col-start / col-end;
-  height: 800px;
+const ImagesGrid = styled(Grid)`
+  grid-template-columns: 1fr;
+  column-gap: 0;
+  row-gap: 144px;
+
+  & [data-layout="full"],
+  & [data-layout="default"] {
+    margin-left: calc(var(--gutter) * -1);
+    margin-right: calc(var(--gutter) * -1);
+  }
+
+  @media ${QUERIES.tabletAndUp} {
+    grid-template-columns:
+      [full-start] 1fr [col-start] repeat(10, minmax(0, 1fr))
+      [col-end] 1fr [full-end];
+    column-gap: var(--gutter);
+    row-gap: 184px;
+
+    & [data-layout="default"] {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+`;
+const ProjectImgWrapper = styled.figure`
+  grid-column: var(--grid-column);
+`;
+const ProjectImg = styled.img`
+  aspect-ratio: var(--aspect-ratio);
+  object-fit: cover;
+  width: 100%;
 `;
 
 export default ProjectLayout;
