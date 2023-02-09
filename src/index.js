@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
 import App from "./components/App";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import { ProjectsProvider } from "./contexts/projects.context";
 import { LoadingProvider } from "./contexts/loading.context";
 
@@ -14,6 +15,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
     <BrowserRouter>
+      <ScrollToTop />
       <ProjectsProvider>
         <LoadingProvider>
           <App />

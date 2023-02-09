@@ -5,19 +5,21 @@ import { ProjectsContext } from "../../contexts/projects.context";
 import ProjectLayout from "../../components/ProjectLayout";
 
 const Project = () => {
+  // Get project's name from address bar
   const { projectItem } = useParams();
-  // console.log(projectItem);
+
+  // Get projects from context
   const { projectItemsMap } = useContext(ProjectsContext);
 
-  const [project, setProject] = useState(projectItemsMap[projectItem]);
+  const [project, setProject] = useState([]);
 
-  // console.log(projectItemsMap[projectItem]);
-
-  // console.log(projects);
   useEffect(() => {
+    // Setting current project into state
     setProject(projectItemsMap[projectItem]);
+    console.log(projectItemsMap);
   }, [projectItem, projectItemsMap]);
 
+  // Rendering project
   return <>{project && <ProjectLayout key={project.id} project={project} />}</>;
 };
 

@@ -94,11 +94,12 @@ const ProjectLayout = ({ project }) => {
                 {name}
               </Title>
 
-              {projectInfo.map((infoItem) => {
-                return (
-                  <ProjectInfoItem key={infoItem.id} infoItem={infoItem} />
-                );
-              })}
+              {projectInfo &&
+                projectInfo.map((infoItem) => {
+                  return (
+                    <ProjectInfoItem key={infoItem.id} infoItem={infoItem} />
+                  );
+                })}
             </InfoContent>
           </DynamicBgSection>
         </InfoWrapper>
@@ -113,19 +114,20 @@ const ProjectLayout = ({ project }) => {
       </DynamicBgSection>
 
       <ImagesGrid>
-        {images.map((image) => (
-          <ProjectImgWrapper
-            style={{ "--grid-column": image.span }}
-            data-layout={image.layout ? image.layout : undefined}
-          >
-            <ProjectImg
+        {images &&
+          images.map((image) => (
+            <ProjectImgWrapper
               key={image.id}
-              src={image.imgPath}
-              alt={image.alt}
-              style={{ "--aspect-ratio": image.aspectRatio }}
-            />
-          </ProjectImgWrapper>
-        ))}
+              style={{ "--grid-column": image.span }}
+              data-layout={image.layout ? image.layout : undefined}
+            >
+              <ProjectImg
+                src={image.imgPath}
+                alt={image.alt}
+                style={{ "--aspect-ratio": image.aspectRatio }}
+              />
+            </ProjectImgWrapper>
+          ))}
       </ImagesGrid>
 
       <ProjectNavigation id={id} />

@@ -8,9 +8,9 @@ import "swiper/css";
 import "swiper/css/free-mode";
 
 const ProjectPreview = ({ projectItem }) => {
-  const { name, title, images } = projectItem;
+  const { name, route, images } = projectItem;
 
-  const projectLink = `projects/${title}`;
+  const projectLink = `projects/${route}`;
 
   return (
     <div>
