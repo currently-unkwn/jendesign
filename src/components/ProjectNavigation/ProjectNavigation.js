@@ -1,5 +1,7 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { ProjectsContext } from "../../contexts/projects.context";
+
 import styled from "styled-components/macro";
 
 import { PROJECTS_DATA } from "../../data";
@@ -9,14 +11,20 @@ const ProjectNavigation = ({ id }) => {
   const [nextProject, setNextProject] = useState([]);
   const [prevProject, setPrevProject] = useState([]);
 
-  // Getting projects index value
-  const index = getIndex(id, PROJECTS_DATA);
+  // Get projectsMap from context
+  const { projectItemsMap } = useContext(ProjectsContext);
 
-  // Setting projects index value as initial
+  // Get projects
+  const projects = Object.values(projectItemsMap);
+
+  // Getting current project index value
+  const index = getIndex(id, projects);
+
+  // Setting current project index value as initial
   const count = useRef(index);
 
-  // Max number of projects
-  const maxCount = useRef(PROJECTS_DATA.length);
+  // Get max number of projects
+  const maxCount = useRef(projects.length);
 
   const navigate = useNavigate();
 
@@ -38,14 +46,9 @@ const ProjectNavigation = ({ id }) => {
         setNextProject(PROJECTS_DATA[count.current + 1]);
         setPrevProject(PROJECTS_DATA[count.current - 1]);
       }
-      // console.log(index);
-      // console.log(maxCount.current);
     };
 
     calcPrevNextProjects();
-
-    console.log(nextProject);
-    console.log(prevProject);
   }, [nextProject, prevProject]);
 
   const nextProjectHandler = () => {
@@ -64,6 +67,7 @@ const ProjectNavigation = ({ id }) => {
     <Wrapper>
       <button
         onClick={prevProjectHandler}
+        // If current project is 1st hide prev button
         style={{
           opacity: count.current <= 0 ? "0" : "1",
           visibility: count.current <= 0 ? "hidden" : "visible",
@@ -73,6 +77,7 @@ const ProjectNavigation = ({ id }) => {
       </button>
       <button
         onClick={nextProjectHandler}
+        // If current project is last hide next button
         style={{
           opacity: count.current >= maxCount.current - 1 ? "0" : "1",
           visibility:
