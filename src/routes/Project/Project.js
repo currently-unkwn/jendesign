@@ -16,7 +16,6 @@ const Project = () => {
   useEffect(() => {
     // Setting current project into state
     setProject(projectItemsMap[projectItem]);
-    console.log(projectItemsMap);
   }, [projectItem, projectItemsMap]);
 
   // Rendering project

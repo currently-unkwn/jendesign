@@ -201,7 +201,7 @@ const InfoImg = styled.img`
 const ImagesGrid = styled(Grid)`
   grid-template-columns: 1fr;
   column-gap: 0;
-  row-gap: 144px;
+  row-gap: 96px;
 
   & [data-layout="full"],
   & [data-layout="default"] {

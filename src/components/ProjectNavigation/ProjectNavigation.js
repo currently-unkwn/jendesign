@@ -1,11 +1,13 @@
 import { useState, useEffect, useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { ProjectsContext } from "../../contexts/projects.context";
-
 import styled from "styled-components/macro";
 
-import { PROJECTS_DATA } from "../../data";
+import Grid from "../Grid";
+import ProjectNavigationItem from "./ProjectNavigationItem";
+
 import { getIndex } from "../../helpers";
+import { QUERIES } from "../../constants";
 
 const ProjectNavigation = ({ id }) => {
   const [nextProject, setNextProject] = useState([]);
@@ -33,18 +35,18 @@ const ProjectNavigation = ({ id }) => {
       // If current project is the first
       // Set only next project
       if (count.current <= 0) {
-        setNextProject(PROJECTS_DATA[count.current + 1]);
+        setNextProject(projects[count.current + 1]);
 
         // If current project is the last
         // Set only prev project
       } else if (count.current >= maxCount.current - 1) {
-        setPrevProject(PROJECTS_DATA[count.current - 1]);
+        setPrevProject(projects[count.current - 1]);
 
         // If current project is in the middle
         // Setting prev and next projects
       } else if (count.current >= 0 && count.current <= maxCount.current - 1) {
-        setNextProject(PROJECTS_DATA[count.current + 1]);
-        setPrevProject(PROJECTS_DATA[count.current - 1]);
+        setNextProject(projects[count.current + 1]);
+        setPrevProject(projects[count.current - 1]);
       }
     };
 
@@ -65,31 +67,45 @@ const ProjectNavigation = ({ id }) => {
 
   return (
     <Wrapper>
-      <button
-        onClick={prevProjectHandler}
-        // If current project is 1st hide prev button
-        style={{
-          opacity: count.current <= 0 ? "0" : "1",
-          visibility: count.current <= 0 ? "hidden" : "visible",
-        }}
-      >
-        Previous
-      </button>
-      <button
-        onClick={nextProjectHandler}
-        // If current project is last hide next button
-        style={{
-          opacity: count.current >= maxCount.current - 1 ? "0" : "1",
-          visibility:
-            count.current >= maxCount.current - 1 ? "hidden" : "visible",
-        }}
-      >
-        Next
-      </button>
+      <ProjectNavGrid>
+        <ProjectNavigationItem
+          project={prevProject}
+          onClickHandler={prevProjectHandler}
+          style={{
+            display: count.current <= 0 ? "none" : "block",
+          }}
+        >
+          Попередній проект
+        </ProjectNavigationItem>
+        <ProjectNavigationItem
+          project={nextProject}
+          onClickHandler={nextProjectHandler}
+          style={{
+            display: count.current >= maxCount.current - 1 ? "none" : "block",
+          }}
+        >
+          Наступний проект
+        </ProjectNavigationItem>
+      </ProjectNavGrid>
     </Wrapper>
   );
 };
 
-const Wrapper = styled.div``;
+/**TODO:
+ * Responsive next/previous for big tablets and desktop
+ */
+
+const Wrapper = styled.figure`
+  padding-top: 280px;
+  padding-bottom: 120px;
+`;
+const ProjectNavGrid = styled(Grid)`
+  align-items: center;
+  row-gap: 80px;
+
+  @media ${QUERIES.tabletAndUp} {
+    row-gap: 0;
+  }
+`;
 
 export default ProjectNavigation;

@@ -147,6 +147,11 @@ export const PROJECTS_DATA = [
     ],
     previewImg: "/images/dragomanova_project_001.jpg",
     infoImg: "/images/dragomanova_project_002.jpg",
+    prevNextImg: {
+      src: "/images/dragomanova_project_002.jpg",
+      alt: "...to be filled",
+      aspectRatio: 2 / 3,
+    },
     images: [
       {
         id: "t",
@@ -207,6 +212,11 @@ export const PROJECTS_DATA = [
     ],
     previewImg: "/images/pecherskiy_project_001.jpg",
     infoImg: "/images/pecherskiy_project_002.jpg",
+    prevNextImg: {
+      src: "/images/pecherskiy_project_002.jpg",
+      alt: "...to be filled",
+      aspectRatio: 3 / 2,
+    },
     plans: [
       {
         id: "b",
@@ -287,6 +297,11 @@ export const PROJECTS_DATA = [
     ],
     previewImg: "/images/pecherskiy_project_001.jpg",
     infoImg: "/images/pecherskiy_project_002.jpg",
+    prevNextImg: {
+      src: "/images/pecherskiy_project_002.jpg",
+      alt: "...to be filled",
+      aspectRatio: 3 / 2,
+    },
     plans: [
       {
         id: "b",
