@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { ProjectsContext } from "../../contexts/projects.context";
 
 import ProjectLayout from "../../components/ProjectLayout";
+import Transitions from "../../components/Transitions/Transitions";
 
 const Project = () => {
   // Get project's name from address bar

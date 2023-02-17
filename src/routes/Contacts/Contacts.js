@@ -5,10 +5,11 @@ import { sendEmail } from "../../utils/emailjs/emailjs.utils";
 
 import ContactForm from "../../components/ContactForm";
 import ContactFormAlert from "../../components/ContactFormAlert";
-
 import MaxWidthWrapper from "../../components/MaxWidthWrapper";
-import { setDynamicBg } from "../../helpers";
 import DynamicBgSection from "../../components/DynamicBgSection/DynamicBgSection";
+import Transitions from "../../components/Transitions/Transitions";
+
+import { setDynamicBg } from "../../helpers";
 
 const Contacts = ({ loading }) => {
   const [buttonText, setButtonText] = useState("Send");
@@ -56,19 +57,21 @@ const Contacts = ({ loading }) => {
   };
 
   return (
-    <DynamicBgSection bgColor="cyan" ref={contactsRef}>
-      <MaxWidthWrapper>
-        {alertIsVisible ? (
-          <ContactFormAlert />
-        ) : (
-          <ContactForm
-            ref={form}
-            onSubmit={handleSubmit}
-            buttonText={buttonText}
-          />
-        )}
-      </MaxWidthWrapper>
-    </DynamicBgSection>
+    <Transitions>
+      <DynamicBgSection bgColor="cyan" ref={contactsRef}>
+        <MaxWidthWrapper>
+          {alertIsVisible ? (
+            <ContactFormAlert />
+          ) : (
+            <ContactForm
+              ref={form}
+              onSubmit={handleSubmit}
+              buttonText={buttonText}
+            />
+          )}
+        </MaxWidthWrapper>
+      </DynamicBgSection>
+    </Transitions>
   );
 };
 

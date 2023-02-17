@@ -5,6 +5,7 @@ import styled from "styled-components/macro";
 import ProjectsSection from "../../components/ProjectsSection";
 import MaxWidthWrapper from "../../components/MaxWidthWrapper";
 import DynamicBgSection from "../../components/DynamicBgSection/DynamicBgSection";
+import Transitions from "../../components/Transitions/Transitions";
 
 import { ABOUT_DATA } from "../../data";
 
@@ -26,29 +27,31 @@ const Home = ({ loading }) => {
 
   return (
     <>
-      <main>
+      <Transitions>
+        <main>
+          <MaxWidthWrapper>
+            <DynamicBgSection bgColor="#f8f9fa" ref={heroRef}>
+              <HeroSection>
+                <h1>{text}</h1>
+                <img src={image.src} alt={image.alt} />
+              </HeroSection>
+            </DynamicBgSection>
+          </MaxWidthWrapper>
+          <DynamicBgSection bgColor="orangered" ref={projectsRef}>
+            <ProjectsSection />
+          </DynamicBgSection>
+          <MaxWidthWrapper>
+            <DynamicBgSection bgColor="blue" ref={contactRef}>
+              <section>Get in Touch</section>
+            </DynamicBgSection>
+          </MaxWidthWrapper>
+        </main>
         <MaxWidthWrapper>
-          <DynamicBgSection bgColor="#f8f9fa" ref={heroRef}>
-            <HeroSection>
-              <h1>{text}</h1>
-              <img src={image.src} alt={image.alt} />
-            </HeroSection>
+          <DynamicBgSection bgColor="pink" ref={footerRef}>
+            <footer>Footer</footer>
           </DynamicBgSection>
         </MaxWidthWrapper>
-        <DynamicBgSection bgColor="#dee2e6" ref={projectsRef}>
-          <ProjectsSection />
-        </DynamicBgSection>
-        <MaxWidthWrapper>
-          <DynamicBgSection bgColor="#f1f3f5" ref={contactRef}>
-            <section>Get in Touch</section>
-          </DynamicBgSection>
-        </MaxWidthWrapper>
-      </main>
-      <MaxWidthWrapper>
-        <DynamicBgSection bgColor="#ced4da" ref={footerRef}>
-          <footer>Footer</footer>
-        </DynamicBgSection>
-      </MaxWidthWrapper>
+      </Transitions>
     </>
   );
 };

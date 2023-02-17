@@ -1,7 +1,7 @@
 import { PROJECTS } from "../../data";
 
 import ProjectItem from "../ProjectItem/ProjectItem";
-import Spacer from "../Spacer/Spacer";
+import Transitions from "../Transitions/Transitions";
 
 const ProjectItemsPreview = () => {
   return (

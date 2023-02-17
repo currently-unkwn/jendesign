@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { LoadingContext } from "../../contexts/loading.context";
 
 import Header from "../Header";
@@ -8,9 +8,13 @@ import Projects from "../../routes/Projects";
 import Contacts from "../../routes/Contacts";
 import DynamicBg from "../DynamicBg/DynamicBg";
 
+import { AnimatePresence } from "framer-motion";
+
 const App = () => {
   const [loading, setLoading] = useState(true);
   // const { loading, setLoading } = useContext(LoadingContext);
+
+  const location = useLocation();
 
   useEffect(() => {
     const preloader = document.querySelector(".preloader");
@@ -36,13 +40,15 @@ const App = () => {
     !loading && (
       <>
         <DynamicBg />
-        <Routes>
-          <Route path="/" element={<Header />}>
-            <Route index element={<Home />} />
-            <Route path="projects/*" element={<Projects />} />
-            <Route path="contacts" element={<Contacts />} />
-          </Route>
-        </Routes>
+        <AnimatePresence mode="wait" initial={false}>
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Header />}>
+              <Route index element={<Home />} />
+              <Route path="projects/*" element={<Projects />} />
+              <Route path="contacts" element={<Contacts />} />
+            </Route>
+          </Routes>
+        </AnimatePresence>
       </>
     )
   );

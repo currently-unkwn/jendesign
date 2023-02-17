@@ -17,6 +17,6 @@ const Wrapper = styled.div`
   z-index: -1;
   background-color: var(--background-color);
 
-  transition: background-color 500ms;
+  transition: background-color 1000ms;
 `;
 export default DynamicBg;
