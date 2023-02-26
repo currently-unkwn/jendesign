@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 import styled from "styled-components/macro";
 
 import Logo from "../Logo/Logo";
 import HamburgerButton from "../HamburgerButton/HamburgerButton";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import MobileMenu from "../MobileMenu/MobileMenu";
+
+import { QUERIES } from "../../constants";
 
 const HEADER_HIDE_THRESHOLD = 200;
 
@@ -59,7 +61,16 @@ const Header = () => {
         <MaxWidthWrapper>
           <MainHeader>
             <Logo />
-            <HamburgerButton onClick={() => setShowMobileMenu(true)} />
+            <DesktopNav>
+              <Nav>
+                <MenuLink to="/">Головна</MenuLink>
+                <MenuLink to="/projects">Проекти</MenuLink>
+                <MenuLink to="/contacts">Контакти</MenuLink>
+              </Nav>
+            </DesktopNav>
+            <MobileNav>
+              <HamburgerButton onClick={() => setShowMobileMenu(true)} />
+            </MobileNav>
           </MainHeader>
           <MobileMenu isOpen={showMobileMenu} onDismiss={handleDismiss} />
         </MaxWidthWrapper>
@@ -87,5 +98,21 @@ const MainHeader = styled.div`
   /** Fluid Approach */
   /* padding: 6vw 0; */
 `;
+
+const DesktopNav = styled.div`
+  display: none;
+
+  @media ${QUERIES.tabletAndUp} {
+    display: revert;
+  }
+`;
+
+const MobileNav = styled.div`
+  @media ${QUERIES.tabletAndUp} {
+    display: none;
+  }
+`;
+const Nav = styled.nav``;
+const MenuLink = styled(NavLink)``;
 
 export default Header;

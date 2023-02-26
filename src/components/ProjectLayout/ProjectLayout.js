@@ -13,6 +13,7 @@ import { setDynamicBg } from "../../helpers";
 
 const ProjectLayout = ({ project }) => {
   const [isTitleStatic, setIsTitleStatic] = useState(false);
+  const [titleOffsetTop, setTitleOffsetTop] = useState(0);
 
   const { id, name, previewImg, infoImg, projectInfo, images, plans } = project;
 
@@ -32,15 +33,38 @@ const ProjectLayout = ({ project }) => {
   }, []);
 
   useEffect(() => {
-    const stickyTitleRefCoords = stickyTitleRef.current.getBoundingClientRect();
+    // Recalculating title elements coords on window resizing
+    const handleResize = () => {
+      const titleElement = titleRef.current;
+
+      if (titleElement) {
+        // Get elements top coords
+        const { top } = titleElement.getBoundingClientRect();
+
+        // Setting elements top coords + scroll position
+        setTitleOffsetTop(top + window.scrollY);
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    // Get sticky title coords from top of the viewport
+    const stickyTitleOffset = stickyTitleRef.current.offsetTop;
 
     const handleScroll = () => {
-      const titleRefCoords = titleRef.current.getBoundingClientRect();
+      const currentScroll = window.scrollY;
 
-      const isStickyTitleIntersectsTitle =
-        titleRefCoords.top < stickyTitleRefCoords.top;
+      // If current scroll pos + sticky title offset from top
+      // is greater than destination title offset from top
+      const isIntersecting = currentScroll + stickyTitleOffset > titleOffsetTop;
 
-      if (isStickyTitleIntersectsTitle) {
+      if (isIntersecting) {
         setIsTitleStatic(true);
       } else {
         setIsTitleStatic(false);
@@ -50,7 +74,7 @@ const ProjectLayout = ({ project }) => {
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [titleOffsetTop]);
 
   return (
     <Wrapper>

@@ -29,19 +29,19 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
             <Filler />
             <Nav>
               <MenuLink to="/" style={{ "--animation-delay": 600 + "ms" }}>
-                Home
+                Головна
               </MenuLink>
               <MenuLink
                 to="/projects"
                 style={{ "--animation-delay": 700 + "ms" }}
               >
-                Projects
+                Проекти
               </MenuLink>
               <MenuLink
                 to="/contacts"
                 style={{ "--animation-delay": 800 + "ms" }}
               >
-                Contacts
+                Контакти
               </MenuLink>
             </Nav>
 

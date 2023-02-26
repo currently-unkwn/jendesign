@@ -1,19 +1,29 @@
+import styled from "styled-components/macro";
 import { motion } from "framer-motion";
 
 const Transitions = ({ children }) => {
   return (
-    <motion.div
-      //   initial={{ opacity: 0 }}
-      //   animate={{ opacity: 1 }}
-      //   exit={{ opacity: 0 }}
-      //   transition={{ duration: 0.4 }}
+    <Wrapper
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 2, ease: [0.6, -0.05, 0.01, 0.99] }}
+      transition={{ duration: 1, ease: [0.6, -0.05, 0.01, 0.99] }}
+
+      // initial={{ x: 300, opacity: 0 }}
+      // animate={{ x: 0, opacity: 1 }}
+      // exit={{ x: 300, opacity: 0 }}
+      // transition={{
+      //   type: "spring",
+      //   stiffness: 260,
+      //   damping: 20,
+      // }}
     >
       {children}
-    </motion.div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled(motion.div)`
+  height: 100%;
+`;
 
 export default Transitions;

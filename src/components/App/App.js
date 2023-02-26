@@ -24,7 +24,7 @@ const App = () => {
       setTimeout(() => {
         preloader.classList.add("animated");
         setLoading(false);
-      }, 1000);
+      }, 0);
     };
 
     if (document.readyState === "complete") {
@@ -40,7 +40,15 @@ const App = () => {
     !loading && (
       <>
         <DynamicBg />
-        <AnimatePresence mode="wait" initial={false}>
+        <AnimatePresence
+          mode="wait"
+          onExitComplete={() =>
+            document.documentElement.scrollTo({
+              top: 0,
+              left: 0,
+            })
+          }
+        >
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Header />}>
               <Route index element={<Home />} />
