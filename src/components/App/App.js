@@ -7,8 +7,8 @@ import Home from "../../routes/Home";
 import Projects from "../../routes/Projects";
 import Contacts from "../../routes/Contacts";
 import DynamicBg from "../DynamicBg/DynamicBg";
-
-import { AnimatePresence } from "framer-motion";
+import AnimatedLayout from "../Layout/Layout";
+import GetInTouch from "../GetInTouch/GetInTouch";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -40,23 +40,16 @@ const App = () => {
     !loading && (
       <>
         <DynamicBg />
-        <AnimatePresence
-          mode="wait"
-          onExitComplete={() =>
-            document.documentElement.scrollTo({
-              top: 0,
-              left: 0,
-            })
-          }
-        >
+        <AnimatedLayout>
+          <Header />
           <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<Header />}>
-              <Route index element={<Home />} />
-              <Route path="projects/*" element={<Projects />} />
-              <Route path="contacts" element={<Contacts />} />
-            </Route>
+            <Route path="/" element={<Home />} />
+            <Route path="projects/*" element={<Projects />} />
+            <Route path="contacts" element={<Contacts />} />
           </Routes>
-        </AnimatePresence>
+          <GetInTouch />
+          <footer>Footer</footer>
+        </AnimatedLayout>
       </>
     )
   );

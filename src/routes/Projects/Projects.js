@@ -1,20 +1,18 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import ProjectItemsPreview from "../../components/ProjectItemsPreview";
 import Project from "../Project";
 import Transitions from "../../components/Transitions/Transitions";
+import GetInTouch from "../../components/GetInTouch/GetInTouch";
 
-import { AnimatePresence } from "framer-motion";
 const Projects = () => {
-  const location = useLocation();
-
   return (
-    <Transitions>
+    <>
       <Routes>
         <Route index element={<ProjectItemsPreview />} />
         <Route path=":projectItem" element={<Project />} />
       </Routes>
-    </Transitions>
+    </>
   );
 };
 

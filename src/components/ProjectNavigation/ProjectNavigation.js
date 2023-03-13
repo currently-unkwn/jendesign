@@ -95,7 +95,7 @@ const ProjectNavigation = ({ id }) => {
  * Responsive next/previous for big tablets and desktop
  */
 
-const Wrapper = styled.figure`
+const Wrapper = styled.section`
   padding-top: 280px;
   padding-bottom: 120px;
 `;

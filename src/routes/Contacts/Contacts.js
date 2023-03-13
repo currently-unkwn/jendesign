@@ -8,6 +8,7 @@ import ContactFormAlert from "../../components/ContactFormAlert";
 import MaxWidthWrapper from "../../components/MaxWidthWrapper";
 import DynamicBgSection from "../../components/DynamicBgSection/DynamicBgSection";
 import Transitions from "../../components/Transitions/Transitions";
+import GetInTouch from "../../components/GetInTouch/GetInTouch";
 
 import { setDynamicBg } from "../../helpers";
 
@@ -18,10 +19,10 @@ const Contacts = ({ loading }) => {
   const form = useRef();
   const contactsRef = useRef();
 
-  const contactsRefs = [contactsRef];
+  // const contactsRefs = [contactsRef];
 
   useEffect(() => {
-    setDynamicBg(contactsRefs);
+    setDynamicBg(contactsRef);
   });
 
   const showAlert = () => {
@@ -57,21 +58,19 @@ const Contacts = ({ loading }) => {
   };
 
   return (
-    <Transitions>
-      <DynamicBgSection bgColor="cyan" ref={contactsRef}>
-        <MaxWidthWrapper>
-          {alertIsVisible ? (
-            <ContactFormAlert />
-          ) : (
-            <ContactForm
-              ref={form}
-              onSubmit={handleSubmit}
-              buttonText={buttonText}
-            />
-          )}
-        </MaxWidthWrapper>
-      </DynamicBgSection>
-    </Transitions>
+    <DynamicBgSection bgColor="cyan" ref={contactsRef}>
+      <MaxWidthWrapper>
+        {alertIsVisible ? (
+          <ContactFormAlert />
+        ) : (
+          <ContactForm
+            ref={form}
+            onSubmit={handleSubmit}
+            buttonText={buttonText}
+          />
+        )}
+      </MaxWidthWrapper>
+    </DynamicBgSection>
   );
 };
 

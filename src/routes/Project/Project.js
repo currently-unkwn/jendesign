@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { ProjectsContext } from "../../contexts/projects.context";
 
+import ProjectHero from "./ProjectHero";
 import ProjectLayout from "../../components/ProjectLayout";
 import Transitions from "../../components/Transitions/Transitions";
 
@@ -20,7 +21,14 @@ const Project = () => {
   }, [projectItem, projectItemsMap]);
 
   // Rendering project
-  return <>{project && <ProjectLayout key={project.id} project={project} />}</>;
+  return (
+    project && (
+      <>
+        <ProjectHero key={project.id} project={project} />
+        <ProjectLayout key={project.id} project={project} />
+      </>
+    )
+  );
 };
 
 export default Project;

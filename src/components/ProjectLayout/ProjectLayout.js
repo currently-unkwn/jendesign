@@ -18,18 +18,18 @@ const ProjectLayout = ({ project }) => {
   const { id, name, previewImg, infoImg, projectInfo, images, plans } = project;
 
   /** Dynamic BG refs */
-  const heroImgRef = useRef();
+
   const infoRef = useRef();
   const plansRef = useRef();
 
-  const projectLayoutRefs = [heroImgRef, infoRef, plansRef];
+  const projectLayoutRefs = [infoRef, plansRef];
 
   /** Sticky title refs */
   const titleRef = useRef();
   const stickyTitleRef = useRef();
 
   useEffect(() => {
-    setDynamicBg(projectLayoutRefs);
+    setDynamicBg(...projectLayoutRefs);
   }, []);
 
   useEffect(() => {
@@ -78,16 +78,6 @@ const ProjectLayout = ({ project }) => {
 
   return (
     <Wrapper>
-      <DynamicBgSection
-        ref={heroImgRef}
-        bgColor="white"
-        style={{ height: "100%" }}
-      >
-        <Hero>
-          <HeroImg src={previewImg} alt="" />
-        </Hero>
-      </DynamicBgSection>
-
       <Spacer size={160} />
 
       <Grid>
@@ -160,18 +150,8 @@ const ProjectLayout = ({ project }) => {
 };
 
 const Wrapper = styled.div`
-  position: relative;
-  height: 100%;
-`;
-
-const Hero = styled.div`
-  height: 100%;
-`;
-
-const HeroImg = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  /* position: relative; */
+  /* height: 100%; */
 `;
 
 const InfoWrapper = styled.div`

@@ -7,7 +7,7 @@ const Transitions = ({ children }) => {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 1, ease: [0.6, -0.05, 0.01, 0.99] }}
-
+      style={{ height: "100%" }}
       // initial={{ x: 300, opacity: 0 }}
       // animate={{ x: 0, opacity: 1 }}
       // exit={{ x: 300, opacity: 0 }}
@@ -22,8 +22,6 @@ const Transitions = ({ children }) => {
   );
 };
 
-const Wrapper = styled(motion.div)`
-  height: 100%;
-`;
+const Wrapper = styled(motion.div)``;
 
 export default Transitions;

@@ -8,7 +8,7 @@ export const getProjectsAndDocuments = function (data) {
   return projectItemsMap;
 };
 
-export const setDynamicBg = (refsArr) => {
+export const setDynamicBg = (...refsArr) => {
   const callback = (entries) => {
     entries.forEach((entry) => {
       const sectionColor = entry.target.dataset.color;
