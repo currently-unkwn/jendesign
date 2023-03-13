@@ -188,6 +188,7 @@ export const PROJECTS_DATA = [
   {
     id: 2,
     name: "Квартира на Печерській",
+    // name: "Pecherksiy Flat",
     route: "pecherska-street-flat",
     client: "Богдан Сірий",
     date: "Жовтень 2021",

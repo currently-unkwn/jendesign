@@ -15,9 +15,8 @@ import { setDynamicBg } from "../../helpers";
 const Home = ({ loading }) => {
   const heroRef = useRef();
   const projectsRef = useRef();
-  const contactRef = useRef();
 
-  const homePageRefs = [heroRef, projectsRef, contactRef];
+  const homePageRefs = [heroRef, projectsRef];
 
   const { id, text, image } = ABOUT_DATA;
 
@@ -39,8 +38,6 @@ const Home = ({ loading }) => {
         <DynamicBgSection bgColor="orangered" ref={projectsRef}>
           <ProjectsSection />
         </DynamicBgSection>
-
-        <DynamicBgSection bgColor="blue" ref={contactRef}></DynamicBgSection>
       </main>
     </>
   );
