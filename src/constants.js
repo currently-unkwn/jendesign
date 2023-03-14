@@ -16,11 +16,13 @@ export const FAMILIES = {
 };
 
 const BREAKPOINTS = {
-  smallTablet: 500,
+  smallTablet: 550,
   tablet: 767,
+  laptop: 1100,
 };
 
 export const QUERIES = {
   smallTabletAndUp: `(min-width: ${BREAKPOINTS.smallTablet / 16}em)`,
   tabletAndUp: `(min-width: ${BREAKPOINTS.tablet / 16}em)`,
+  laptopAndUp: `(min-width: ${BREAKPOINTS.laptop / 16}em)`,
 };

@@ -18,13 +18,16 @@ const GetInTouch = () => {
   );
 };
 
-const Wrapper = styled.section`
-  padding-top: 128px;
-  padding-bottom: 160px;
+const Wrapper = styled.div`
+  padding-top: 96px;
 
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
   text-align: center;
+
+  @media ${QUERIES.tabletAndUp} {
+    padding-top: 0;
+  }
 `;
 
 const Content = styled.div`

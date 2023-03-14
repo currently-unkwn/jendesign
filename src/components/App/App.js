@@ -8,7 +8,7 @@ import Projects from "../../routes/Projects";
 import Contacts from "../../routes/Contacts";
 import DynamicBg from "../DynamicBg/DynamicBg";
 import AnimatedLayout from "../Layout/Layout";
-import GetInTouch from "../GetInTouch/GetInTouch";
+import Footer from "../Footer/Footer";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -47,8 +47,7 @@ const App = () => {
             <Route path="projects/*" element={<Projects />} />
             <Route path="contacts" element={<Contacts />} />
           </Routes>
-          <GetInTouch />
-          <footer>Footer</footer>
+          <Footer />
         </AnimatedLayout>
       </>
     )
