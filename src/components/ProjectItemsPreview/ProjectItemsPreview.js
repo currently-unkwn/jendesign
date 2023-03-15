@@ -1,7 +1,6 @@
 import { PROJECTS } from "../../data";
 
 import ProjectItem from "../ProjectItem/ProjectItem";
-import GetInTouch from "../GetInTouch/GetInTouch";
 
 const ProjectItemsPreview = () => {
   return (

@@ -2,15 +2,17 @@ import { useContext } from "react";
 import { ProjectsContext } from "../../contexts/projects.context";
 
 import ProjectPreview from "../ProjectPreview";
+import Spacer from "../Spacer";
 
 const ProjectsSection = () => {
   const { projectItemsMap } = useContext(ProjectsContext);
 
   return (
     <section>
+      <Spacer axis="horizontal" style={{ background: "black" }} />
       {Object.keys(projectItemsMap).map((title) => {
         const projectItem = projectItemsMap[title];
-
+        console.log(projectItem);
         return (
           <ProjectPreview key={projectItem.id} projectItem={projectItem} />
         );

@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import styled from "styled-components/macro";
 
 import MaxWidthWrapper from "../MaxWidthWrapper";
@@ -6,6 +7,11 @@ import { QUERIES } from "../../constants";
 import { WEIGHTS, FAMILIES } from "../../constants";
 
 const GetInTouch = () => {
+  const location = useLocation();
+
+  // Hide component on contacts page
+  if (location.pathname === "/contacts") return null;
+
   return (
     <Wrapper>
       <MaxWidthWrapper>

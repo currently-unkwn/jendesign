@@ -171,7 +171,7 @@ const InfoContent = styled.div`
 `;
 
 const Title = styled.h2`
-  max-width: 400px;
+  /* max-width: 400px; */
   /** 36-64, 386-1380 */
   font-size: clamp(2.2rem, 2.9vw + 1.5rem, 4rem);
   font-weight: ${WEIGHTS.regular};

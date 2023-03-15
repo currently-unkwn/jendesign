@@ -101,8 +101,8 @@ export const PROJECTS = [
 export const PROJECTS_DATA = [
   {
     id: 1,
-    name: `Квартира 
-на Басейній`,
+    // name: `Квартира на Басейній`,
+    name: "Residential complex\nBasseyna",
     route: "golosiivska-street-flat",
     client: "Яна Зужко",
     date: "Червень 2020",
@@ -167,6 +167,7 @@ export const PROJECTS_DATA = [
         alt: "",
         aspectRatio: 2 / 3,
         span: `col-start / span 5`,
+        orientation: "vertical",
       },
       {
         id: "u",
@@ -174,6 +175,7 @@ export const PROJECTS_DATA = [
         alt: "",
         aspectRatio: 2 / 3,
         span: `7 / col-end`,
+        orientation: "vertical",
       },
       {
         id: "i",
@@ -187,7 +189,7 @@ export const PROJECTS_DATA = [
   },
   {
     id: 2,
-    name: "Квартира на Печерській",
+    name: "Квартира на\nПечерській",
     // name: "Pecherksiy Flat",
     route: "pecherska-street-flat",
     client: "Богдан Сірий",
@@ -273,7 +275,7 @@ export const PROJECTS_DATA = [
   },
   {
     id: 3,
-    name: "Квартира на Липках",
+    name: "Квартира на\nЛипках",
     route: "lipki-street-flat",
     client: "Богдан Сірий",
     date: "Жовтень 2021",

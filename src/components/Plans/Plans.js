@@ -1,17 +1,18 @@
 import { useState } from "react";
 import styled from "styled-components/macro";
 
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/free-mode";
 
 // import required modules
 import { Keyboard, Navigation } from "swiper";
 
 import Icon from "../Icon/Icon";
-import ShiftBy from "../ShiftBy/ShiftBy";
+import UnstyledButton from "../UnstyledButton";
 
 import { COLORS, WEIGHTS, QUERIES } from "../../constants";
 
@@ -36,6 +37,7 @@ const Plans = ({ plans }) => {
         keyboard={{
           enabled: true,
         }}
+        grabCursor={true}
         onSlideChange={onSlideChangeHandler}
         onTransitionStart={() => setIsSlideAnimating(true)}
         onTransitionEnd={() => setIsSlideAnimating(false)}
@@ -117,11 +119,7 @@ const SwiperControls = styled.div`
   }
 `;
 
-const Button = styled.button`
-  background: transparent;
-  border: none;
-  cursor: pointer;
-
+const Button = styled(UnstyledButton)`
   &.swiper-button-disabled {
     opacity: 0;
     cursor: auto;
@@ -133,6 +131,7 @@ const ControlButton = styled(Button)`
   position: relative;
   display: flex;
   width: auto;
+  cursor: pointer;
 
   /* &::after {
     --tap-increment: -14px;
