@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import styled from "styled-components/macro";
 
 import GetInTouch from "../GetInTouch/GetInTouch";
@@ -5,15 +6,19 @@ import GetInTouch from "../GetInTouch/GetInTouch";
 import { QUERIES } from "../../constants";
 
 const Footer = () => {
+  const location = useLocation();
+
+  const isContactsPage = location.pathname === "/contacts";
+
   return (
-    <Wrapper>
+    <Wrapper isContactsPage={isContactsPage}>
       <Filler />
 
       <GetInTouch />
 
       <Content>
         <Copy>
-          <span>&copy; 2023 Jendesign.</span>
+          <span>&copy; 2023 Jendesign</span>
         </Copy>
         <Contacts>
           <a href="#">+38 093 555-44-32</a>
@@ -28,17 +33,17 @@ const Footer = () => {
 };
 
 const Wrapper = styled.footer`
-  height: 50vh;
+  height: ${(props) => (props.isContactsPage ? "auto" : "50vh")};
 
   display: flex;
   flex-direction: column;
 
   @media ${QUERIES.tabletAndUp} {
-    height: 70vh;
+    height: ${(props) => (props.isContactsPage ? "auto" : "70vh")};
   }
 
   @media ${QUERIES.laptopAndUp} {
-    height: 100vh;
+    height: ${(props) => (props.isContactsPage ? "auto" : "100vh")};
   }
 `;
 

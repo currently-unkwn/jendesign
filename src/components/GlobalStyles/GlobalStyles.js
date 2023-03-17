@@ -56,6 +56,14 @@ html {
   margin: 0;
   padding: 0;
 }
+
+
+  :focus-visible {
+    outline-offset: 4px;
+    outline-style: solid;
+    outline-width: 2px;
+  }
+
 /*
   3. Allow percentage-based heights in the application
 */

@@ -1,7 +1,10 @@
 import { useState, forwardRef } from "react";
 import styled from "styled-components/macro";
 
+import UnstyledButton from "../UnstyledButton";
 import FormElement from "../FormElement";
+
+import { COLORS, WEIGHTS } from "../../constants";
 
 const ContactForm = ({ onSubmit, buttonText }, ref) => {
   const [values, setValues] = useState({
@@ -14,10 +17,10 @@ const ContactForm = ({ onSubmit, buttonText }, ref) => {
     {
       id: 1,
       formControl: "input",
-      label: "Name (required):",
+      label: "Повне ім'я*",
       name: "user_name",
       type: "text",
-      placeholder: "Sergey",
+      placeholder: "Оксана Ткаченко",
       errorMessage:
         "Username should be 2-20 characters and shouldn't include any special character!",
       required: true,
@@ -26,7 +29,7 @@ const ContactForm = ({ onSubmit, buttonText }, ref) => {
     {
       id: 2,
       formControl: "input",
-      label: "Email (required):",
+      label: "Ваш Email*",
       name: "user_email",
       type: "email",
       placeholder: "me@you.com",
@@ -37,10 +40,12 @@ const ContactForm = ({ onSubmit, buttonText }, ref) => {
       id: 3,
       formControl: "textarea",
       name: "message",
-      label: "Message (required)",
-      placeholder: "Hi, i just want to know...",
+      label: "Повідомлення*",
+      placeholder: "Привіт, напишіть про ваш проект...",
       errorMessage: "You need to type something in here!",
       required: true,
+      cols: "40",
+      rows: "6",
     },
   ];
 
@@ -60,7 +65,7 @@ const ContactForm = ({ onSubmit, buttonText }, ref) => {
         />
       ))}
 
-      <button type="submit">{buttonText}</button>
+      <Submit type="submit">{buttonText}</Submit>
     </Form>
   );
 };
@@ -68,6 +73,23 @@ const ContactForm = ({ onSubmit, buttonText }, ref) => {
 const Form = styled.form`
   display: flex;
   flex-direction: column;
+`;
+
+const Submit = styled(UnstyledButton)`
+  font-size: calc(14 / 16 * 1rem);
+  font-weight: ${WEIGHTS.medium};
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: hsl(${COLORS.white});
+  align-self: center;
+
+  &::after {
+    content: "";
+    display: block;
+    margin-top: 2px;
+    width: 100%;
+    border-bottom: 1px solid hsl(${COLORS.white});
+  }
 `;
 
 export default forwardRef(ContactForm);

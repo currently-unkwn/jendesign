@@ -113,6 +113,12 @@ const MobileNav = styled.div`
   }
 `;
 const Nav = styled.nav``;
-const MenuLink = styled(NavLink)``;
+const MenuLink = styled(NavLink)`
+  text-decoration: none;
+
+  &.active {
+    text-decoration: underline;
+  }
+`;
 
 export default Header;

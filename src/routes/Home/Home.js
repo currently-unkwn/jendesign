@@ -28,7 +28,7 @@ const Home = ({ loading }) => {
     <>
       <main>
         <MaxWidthWrapper>
-          <DynamicBgSection bgColor="#f8f9fa" ref={heroRef}>
+          <DynamicBgSection bgColor="#dba3ab" ref={heroRef}>
             <HeroSection>
               <h1>{text}</h1>
               <img src={image.src} alt={image.alt} />

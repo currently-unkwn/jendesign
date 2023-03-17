@@ -5,6 +5,7 @@ export const COLORS = {
 
 export const WEIGHTS = {
   regular: 400,
+  medium: 500,
 };
 
 export const FAMILIES = {
