@@ -11,7 +11,8 @@ export const getProjectsAndDocuments = function (data) {
 export const setDynamicBg = (...refsArr) => {
   const callback = (entries) => {
     entries.forEach((entry) => {
-      const sectionColor = entry.target.dataset.color;
+      const sectionColor = entry.target.getAttribute("data-color");
+
       const rootProperty = document.documentElement.style;
 
       if (entry.isIntersecting) {
@@ -21,10 +22,12 @@ export const setDynamicBg = (...refsArr) => {
   };
 
   const observer = new IntersectionObserver(callback, {
-    root: null,
     // Layout should be larger than viewport
     // Should be tested across layouts
-    threshold: 0.5,
+    root: null,
+
+    threshold: [0, 1],
+    rootMargin: "-50% 0px -50% 0px",
   });
 
   refsArr.forEach((ref) => observer.observe(ref.current));

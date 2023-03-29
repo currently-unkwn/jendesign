@@ -112,6 +112,7 @@ const MobileNav = styled.div`
     display: none;
   }
 `;
+
 const Nav = styled.nav``;
 const MenuLink = styled(NavLink)`
   text-decoration: none;

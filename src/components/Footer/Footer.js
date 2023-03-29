@@ -1,34 +1,48 @@
+import { useEffect, useRef } from "react";
+
 import { useLocation } from "react-router-dom";
 import styled from "styled-components/macro";
 
 import GetInTouch from "../GetInTouch/GetInTouch";
+import DynamicBgSection from "../DynamicBgSection/DynamicBgSection";
 
 import { QUERIES } from "../../constants";
+import { setDynamicBg } from "../../helpers";
 
 const Footer = () => {
   const location = useLocation();
 
+  const footerRef = useRef();
+
+  const footerRefs = [footerRef];
+
+  useEffect(() => {
+    setDynamicBg(...footerRefs);
+  }, []);
+
   const isContactsPage = location.pathname === "/contacts";
 
   return (
-    <Wrapper isContactsPage={isContactsPage}>
-      <Filler />
+    <DynamicBgSection bgColor="#85786f" ref={footerRef}>
+      <Wrapper isContactsPage={isContactsPage}>
+        <Filler />
 
-      <GetInTouch />
+        <GetInTouch />
 
-      <Content>
-        <Copy>
-          <span>&copy; 2023 Jendesign</span>
-        </Copy>
-        <Contacts>
-          <a href="#">+38 093 555-44-32</a>
-          <a href="#">jendesign@gmail.com</a>
-        </Contacts>
-        <Social>
-          <a href="#">Instagram</a>
-        </Social>
-      </Content>
-    </Wrapper>
+        <Content>
+          <Copy>
+            <span>&copy; 2023 Jendesign</span>
+          </Copy>
+          <Contacts>
+            <a href="#">+38 093 555-44-32</a>
+            <a href="#">jendesign@gmail.com</a>
+          </Contacts>
+          <Social>
+            <a href="#">Instagram</a>
+          </Social>
+        </Content>
+      </Wrapper>
+    </DynamicBgSection>
   );
 };
 

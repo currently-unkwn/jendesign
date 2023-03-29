@@ -123,7 +123,7 @@ const ProjectLayout = ({ project }) => {
         </InfoImgWrapper>
       </Grid>
 
-      <DynamicBgSection ref={plansRef} bgColor="white">
+      <DynamicBgSection ref={plansRef} bgColor="#f0f0ea">
         <Grid>{plans && <Plans plans={plans} />}</Grid>
       </DynamicBgSection>
 

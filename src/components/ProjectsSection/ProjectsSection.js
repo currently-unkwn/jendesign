@@ -9,10 +9,10 @@ const ProjectsSection = () => {
 
   return (
     <section>
-      <Spacer axis="horizontal" style={{ background: "black" }} />
+      <Spacer axis="horizontal" style={{ background: "white" }} />
       {Object.keys(projectItemsMap).map((title) => {
         const projectItem = projectItemsMap[title];
-        console.log(projectItem);
+
         return (
           <ProjectPreview key={projectItem.id} projectItem={projectItem} />
         );

@@ -20,10 +20,12 @@ const BREAKPOINTS = {
   smallTablet: 550,
   tablet: 767,
   laptop: 1100,
+  desktop: 1500,
 };
 
 export const QUERIES = {
   smallTabletAndUp: `(min-width: ${BREAKPOINTS.smallTablet / 16}em)`,
   tabletAndUp: `(min-width: ${BREAKPOINTS.tablet / 16}em)`,
   laptopAndUp: `(min-width: ${BREAKPOINTS.laptop / 16}em)`,
+  desktopAndUp: `(min-width: ${BREAKPOINTS.desktop / 16}em)`,
 };

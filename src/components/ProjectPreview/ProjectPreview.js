@@ -14,7 +14,7 @@ import { COLORS, QUERIES, WEIGHTS } from "../../constants";
 
 const ProjectPreview = ({ projectItem }) => {
   const { name, route, images } = projectItem;
-  console.log(name, images);
+
   const projectLink = `projects/${route}`;
 
   return (
@@ -64,7 +64,7 @@ const ProjectPreview = ({ projectItem }) => {
           <Icon id="arrowRight" size={40} />
         </ControlButton>
       </StyledSwiper>
-      <Spacer axis="horizontal" style={{ background: "black" }} />
+      <Spacer axis="horizontal" style={{ background: "white" }} />
     </Wrapper>
   );
 };
@@ -79,7 +79,7 @@ const StyledSwiper = styled(Swiper)`
   margin-bottom: 8vh;
 
   .swiper-wrapper {
-    height: 50vh;
+    height: 500px;
 
     @media ${QUERIES.laptopAndUp} {
       height: 75vh;

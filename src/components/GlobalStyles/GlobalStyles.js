@@ -81,6 +81,7 @@ body {
   -webkit-font-smoothing: antialiased;
   font-family: var(--font-family-sans-serif);
   overflow-y: scroll;
+  color: black;
 }
 /*
   6. Improve media defaults
