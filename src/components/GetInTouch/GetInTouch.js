@@ -17,7 +17,7 @@ const GetInTouch = () => {
       <MaxWidthWrapper>
         <Content>
           <Text>Є питання?</Text>
-          <Email href="mailto:#">Скажіть привіт!</Email>
+          <Email href="mailto:#">Пишіть</Email>
         </Content>
       </MaxWidthWrapper>
     </Wrapper>

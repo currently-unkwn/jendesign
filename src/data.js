@@ -1,6 +1,7 @@
 export const ABOUT_DATA = {
   id: "a",
-  text: "Jane Kuznetsova is an interior designer and creative based out of Kyiv, Ukraine. Her design aesthetic can be described as eclectic, curated and intentional.",
+  text: "Привіт! Я Евгенія Кузнєцова, дизайнер інтер'єрів з понад 15 роками досвіду. Обожнюю створювати атмосферні та елегантні простори.",
+  // text: "Jane Kuznetsova is an interior designer and creative based out of Kyiv, Ukraine. Her design aesthetic can be described as eclectic, curated and intentional.",
   image: {
     src: "/images/jane-portrait.png",
     alt: "Portrait of Jane Kuznetsova, an interior designer.",
@@ -10,7 +11,7 @@ export const ABOUT_DATA = {
 export const PROJECTS = [
   {
     id: 1,
-    title: "Квартира на Голосіївській",
+    title: "Голосіївська",
     images: [
       {
         id: "a",
@@ -40,7 +41,7 @@ export const PROJECTS = [
   },
   {
     id: 2,
-    title: "Квартира на Печерській",
+    title: "Печерська",
     images: [
       {
         id: "z",
@@ -69,7 +70,7 @@ export const PROJECTS = [
   },
   {
     id: 3,
-    title: "Квартира на Липках",
+    title: "ЖК Дельмар",
     images: [
       {
         id: "z",
@@ -102,7 +103,7 @@ export const PROJECTS_DATA = [
   {
     id: 1,
     // name: `Квартира на Басейній`,
-    name: "Residential complex\nBasseyna",
+    name: "Голосіївська",
     route: "golosiivska-street-flat",
     client: "Яна Зужко",
     date: "Червень 2020",
@@ -181,7 +182,7 @@ export const PROJECTS_DATA = [
         id: "i",
         imgPath: "/images/dragomanova_project_006.jpg",
         alt: "",
-        aspectRatio: 4 / 3,
+        aspectRatio: 16 / 9,
         layout: "full",
         span: `full-start / full-end`,
       },
@@ -189,7 +190,7 @@ export const PROJECTS_DATA = [
   },
   {
     id: 2,
-    name: "Квартира на\nПечерській",
+    name: "Печерська",
     // name: "Pecherksiy Flat",
     route: "pecherska-street-flat",
     client: "Богдан Сірий",
@@ -275,7 +276,7 @@ export const PROJECTS_DATA = [
   },
   {
     id: 3,
-    name: "Квартира на\nЛипках",
+    name: "ЖК Дельмар",
     route: "lipki-street-flat",
     client: "Богдан Сірий",
     date: "Жовтень 2021",

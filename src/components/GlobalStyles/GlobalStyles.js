@@ -22,6 +22,11 @@ html {
   --color-white: hsl(${COLORS.white});
   --color-black: hsl(${COLORS.black});
 
+  --color-primary: 0deg 19% 75%; /** 	#cbb2b2 */
+  --color-secondary: ;
+  --color-tertiary: 0deg 17% 50%; /** #956a6a */
+  --color-text: 36deg 100% 96%; /** #fff7eb */
+
   --font-family-serif: ${FAMILIES.serif};
   --font-family-sans-serif: ${FAMILIES.sansSerif};
   --font-family-logo: ${FAMILIES.logo};
@@ -33,6 +38,8 @@ html {
 
   --dynamic-bg-color: yellow;
   --projects-color: indigo; 
+
+  --body-scroll: 15px;
 
   --gutter: 16px;
 
@@ -80,8 +87,9 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   font-family: var(--font-family-sans-serif);
-  overflow-y: scroll;
-  color: black;
+  /* overflow-y: scroll; */
+  color: hsl(${COLORS.text});
+
 }
 /*
   6. Improve media defaults

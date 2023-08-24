@@ -7,7 +7,7 @@ import HamburgerButton from "../HamburgerButton/HamburgerButton";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import MobileMenu from "../MobileMenu/MobileMenu";
 
-import { QUERIES } from "../../constants";
+import { QUERIES, COLORS } from "../../constants";
 
 const HEADER_HIDE_THRESHOLD = 200;
 
@@ -60,14 +60,18 @@ const Header = () => {
       <Wrapper style={{ transform, opacity }}>
         <MaxWidthWrapper>
           <MainHeader>
-            <Logo />
-            <DesktopNav>
+            <Logo to="/">
+              EUGENIA <br />
+              KUZNETSOVA
+            </Logo>
+
+            {/* <DesktopNav>
               <Nav>
                 <MenuLink to="/">Головна</MenuLink>
                 <MenuLink to="/projects">Проекти</MenuLink>
                 <MenuLink to="/contacts">Контакти</MenuLink>
               </Nav>
-            </DesktopNav>
+            </DesktopNav> */}
             <MobileNav>
               <HamburgerButton onClick={() => setShowMobileMenu(true)} />
             </MobileNav>
@@ -84,19 +88,28 @@ const Header = () => {
 const Wrapper = styled.header`
   position: fixed;
   top: 0;
-  width: 100%;
+  left: 0;
+  right: 0;
+  width: calc(100vw - var(--body-scroll));
   transition: transform 350ms, opacity 350ms;
+  /* border-bottom: 1px solid hsl(${COLORS.white} / 0.5); */
   /* background-color: red; */
   z-index: 9999;
 `;
+
 const MainHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  /* padding: 40px 0; */
+  height: 100px;
 
   /** Fluid Approach */
-  /* padding: 6vw 0; */
+  /* padding: 4vw 0; */
+`;
+
+const DesktopLogo = styled(Logo)`
+  color: black;
 `;
 
 const DesktopNav = styled.div`
@@ -108,14 +121,23 @@ const DesktopNav = styled.div`
 `;
 
 const MobileNav = styled.div`
-  @media ${QUERIES.tabletAndUp} {
+  /* @media ${QUERIES.tabletAndUp} {
     display: none;
-  }
+  } */
 `;
 
 const Nav = styled.nav``;
 const MenuLink = styled(NavLink)`
   text-decoration: none;
+
+  // Temp
+  font-size: 18px;
+  color: white;
+  font-weight: 500;
+
+  &:not(:last-child) {
+    margin-right: 32px;
+  }
 
   &.active {
     text-decoration: underline;

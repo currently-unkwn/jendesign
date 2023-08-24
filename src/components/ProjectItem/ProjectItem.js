@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ImagesRow from "../ImagesRow/ImagesRow";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import Spacer from "../Spacer/Spacer";
-import { WEIGHTS, QUERIES } from "../../constants";
+import { WEIGHTS, QUERIES, COLORS } from "../../constants";
 
 const ProjectItem = ({ project }) => {
   const { title, images, route } = project;
@@ -21,7 +21,7 @@ const ProjectItem = ({ project }) => {
 
         <ImagesRow images={images} />
       </Wrapper>
-      <Spacer axis="horizontal" style={{ background: "black" }} />
+      <Spacer axis="horizontal" style={{ background: `hsl(${COLORS.text})` }} />
     </>
   );
 };

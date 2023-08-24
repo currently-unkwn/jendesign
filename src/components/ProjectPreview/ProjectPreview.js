@@ -49,7 +49,9 @@ const ProjectPreview = ({ projectItem }) => {
           ))}
         <SwiperSlide>
           <LinkMoreContainer>
-            <LinkMore to={projectLink}>Дивитись проект &rarr;</LinkMore>
+            <LinkMore to={projectLink}>
+              Дивитись проект <span>&rarr;</span>
+            </LinkMore>
           </LinkMoreContainer>
         </SwiperSlide>
 
@@ -76,6 +78,7 @@ const Wrapper = styled.div`
 const StyledSwiper = styled(Swiper)`
   position: relative;
   padding-left: var(--gutter);
+  padding-right: var(--gutter);
   margin-bottom: 8vh;
 
   .swiper-wrapper {
@@ -115,7 +118,7 @@ const StyledSwiper = styled(Swiper)`
 const CenteredContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   height: 100%;
 `;
 
@@ -129,10 +132,17 @@ const TitleContainerMobile = styled.div`
 
 const TitleContainerDesktop = styled(CenteredContainer)`
   display: flex;
-  margin-right: 80px;
+  min-width: 250px;
+  /* margin-right: 80px; */
 
   @media ${QUERIES.tabletAndUp} {
-    margin-right: 160px;
+    min-width: 420px;
+    /* margin-right: 160px; */
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    min-width: 600px;
+    /* margin-right: 160px; */
   }
 `;
 
@@ -146,6 +156,12 @@ const Title = styled(Link)`
 
   white-space: pre-wrap;
 
+  transition: color 250ms var(--ease-in-out);
+
+  &:hover {
+    color: hsl(${COLORS.textDarker});
+  }
+
   @media ${QUERIES.tabletAndUp} {
     font-size: calc(48 / 16 * 1rem);
   }
@@ -154,6 +170,7 @@ const Title = styled(Link)`
 const LinkMoreContainer = styled(CenteredContainer)`
   padding-left: 104px;
   padding-right: 104px;
+  background-color: hsl(${COLORS.secondaryDarkest});
   height: 100%;
 
   @media ${QUERIES.laptopAndUp} {
@@ -163,7 +180,47 @@ const LinkMoreContainer = styled(CenteredContainer)`
 `;
 
 const LinkMore = styled(Link)`
+  position: relative;
+
   display: flex;
+  align-items: center;
+
+  font-size: calc(18 / 16 * 1rem);
+  color: hsl(${COLORS.text});
+  text-decoration: none;
+
+  & span {
+    display: block;
+    padding-left: 8px;
+
+    transition: transform 400ms;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    background-color: currentColor;
+    width: 100%;
+    height: 0px;
+    border-bottom: 1px solid currentColor;
+
+    transition: width 400ms;
+  }
+
+  &:hover {
+    & span {
+      transform: translateX(6px);
+    }
+
+    &::before {
+      width: 0px;
+    }
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    font-size: calc(20 / 16 * 1rem);
+  }
 `;
 
 const Image = styled.img`
@@ -178,11 +235,19 @@ const ControlButton = styled(UnstyledButton)`
 
   padding: 8px;
   margin-top: 32px;
-  border: 1px solid hsl(${COLORS.black});
+  /* border: 1px solid hsl(${COLORS.text}); */
+  background-color: hsl(${COLORS.secondaryDarkest});
+  color: hsl(${COLORS.text});
+
   border-radius: 999999px;
 
-  transition: transform 250ms;
+  transition: transform 250ms, background-color 250ms, color 250ms;
   will-change: transform;
+
+  &:hover {
+    background-color: hsl(${COLORS.textDarker});
+    color: hsl(${COLORS.secondaryDarkest});
+  }
 
   &.swiper-next {
     margin-left: 16px;

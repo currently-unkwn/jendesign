@@ -21,8 +21,9 @@ const ProjectLayout = ({ project }) => {
 
   const infoRef = useRef();
   const plansRef = useRef();
+  const projectNavRef = useRef();
 
-  const projectLayoutRefs = [infoRef, plansRef];
+  const projectLayoutRefs = [infoRef, plansRef, projectNavRef];
 
   /** Sticky title refs */
   const titleRef = useRef();
@@ -84,7 +85,7 @@ const ProjectLayout = ({ project }) => {
         <InfoWrapper>
           <DynamicBgSection
             ref={infoRef}
-            bgColor="#959982"
+            bgColor={COLORS.secondary}
             style={{ height: "100%" }}
           >
             <StickyTitle
@@ -123,28 +124,31 @@ const ProjectLayout = ({ project }) => {
         </InfoImgWrapper>
       </Grid>
 
-      <DynamicBgSection ref={plansRef} bgColor="#f0f0ea">
+      <DynamicBgSection ref={plansRef} bgColor={COLORS.grayLight02}>
         <Grid>{plans && <Plans plans={plans} />}</Grid>
+
+        <ImagesGrid>
+          {images &&
+            images.map((image) => (
+              <ProjectImgWrapper
+                key={image.id}
+                style={{ "--grid-column": image.span }}
+                data-layout={image.layout ? image.layout : undefined}
+              >
+                <ProjectImg
+                  src={image.imgPath}
+                  alt={image.alt}
+                  style={{ "--aspect-ratio": image.aspectRatio }}
+                />
+              </ProjectImgWrapper>
+            ))}
+        </ImagesGrid>
       </DynamicBgSection>
 
-      <ImagesGrid>
-        {images &&
-          images.map((image) => (
-            <ProjectImgWrapper
-              key={image.id}
-              style={{ "--grid-column": image.span }}
-              data-layout={image.layout ? image.layout : undefined}
-            >
-              <ProjectImg
-                src={image.imgPath}
-                alt={image.alt}
-                style={{ "--aspect-ratio": image.aspectRatio }}
-              />
-            </ProjectImgWrapper>
-          ))}
-      </ImagesGrid>
-
-      <ProjectNavigation id={id} />
+      <DynamicBgSection ref={projectNavRef} bgColor={COLORS.grayLight}>
+        <ProjectNavigation id={id} />
+      </DynamicBgSection>
+      <Spacer axis="horizontal" style={{ background: `hsl(${COLORS.text})` }} />
     </Wrapper>
   );
 };

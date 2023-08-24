@@ -6,10 +6,12 @@ import styled from "styled-components/macro";
 import GetInTouch from "../GetInTouch/GetInTouch";
 import DynamicBgSection from "../DynamicBgSection/DynamicBgSection";
 
-import { QUERIES } from "../../constants";
+import { QUERIES, COLORS } from "../../constants";
 import { setDynamicBg } from "../../helpers";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   const location = useLocation();
 
   const footerRef = useRef();
@@ -23,7 +25,7 @@ const Footer = () => {
   const isContactsPage = location.pathname === "/contacts";
 
   return (
-    <DynamicBgSection bgColor="#85786f" ref={footerRef}>
+    <DynamicBgSection bgColor={COLORS.tertiary} ref={footerRef}>
       <Wrapper isContactsPage={isContactsPage}>
         <Filler />
 
@@ -31,7 +33,7 @@ const Footer = () => {
 
         <Content>
           <Copy>
-            <span>&copy; 2023 Jendesign</span>
+            <span>&copy; Eugenia Kuznetsova {currentYear}</span>
           </Copy>
           <Contacts>
             <a href="#">+38 093 555-44-32</a>
@@ -85,7 +87,10 @@ const Content = styled.div`
 `;
 
 const Copy = styled.div`
+  font-size: calc(14 / 16 * 1rem);
+
   @media ${QUERIES.tabletAndUp} {
+    font-size: calc(16 / 16 * 1rem);
     flex: 1;
   }
 `;

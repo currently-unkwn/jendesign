@@ -1,6 +1,6 @@
 import styled from "styled-components/macro";
 
-import { QUERIES } from "../../constants";
+import { QUERIES, COLORS } from "../../constants";
 
 const ProjectNavigationItem = ({
   project,
@@ -32,11 +32,19 @@ const Wrapper = styled.article`
     @media ${QUERIES.tabletAndUp} {
       grid-column: full-start / 7;
     }
+
+    @media ${QUERIES.laptopAndUp} {
+      grid-column: col-start / 6;
+    }
   }
 
   &:last-of-type {
     @media ${QUERIES.tabletAndUp} {
       grid-column: 7 / full-end;
+    }
+
+    @media ${QUERIES.laptopAndUp} {
+      grid-column: 8 / col-end;
     }
   }
 `;
@@ -50,6 +58,7 @@ const Image = styled.img`
 const Content = styled.div`
   padding-top: 24px;
   padding-bottom: 24px;
+  color: hsl(${COLORS.blackLighter});
 `;
 const Direction = styled.span`
   /** 16-20 */

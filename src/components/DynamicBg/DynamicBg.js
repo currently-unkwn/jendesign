@@ -3,7 +3,7 @@ import styled from "styled-components/macro";
 const DynamicBg = () => {
   return (
     <Wrapper
-      style={{ "--background-color": "var(--dynamic-bg-color)" }}
+      style={{ "--background-color": "hsl(var(--dynamic-bg-color))" }}
     ></Wrapper>
   );
 };

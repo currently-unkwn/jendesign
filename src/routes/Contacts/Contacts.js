@@ -81,10 +81,13 @@ const Contacts = ({ loading }) => {
             </Block>
             <Block>
               <TertiaryHeading>
-                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
               </TertiaryHeading>
               <TertiaryHeading>
-                <a href="#">Instagram</a>
+                <a href="#">Telegram</a>
+              </TertiaryHeading>
+              <TertiaryHeading>
+                <a href="#">Viber</a>
               </TertiaryHeading>
             </Block>
           </Details>

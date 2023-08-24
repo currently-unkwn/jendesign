@@ -7,7 +7,7 @@ import Grid from "../Grid";
 import ProjectNavigationItem from "./ProjectNavigationItem";
 
 import { getIndex } from "../../helpers";
-import { QUERIES } from "../../constants";
+import { QUERIES, COLORS } from "../../constants";
 
 const ProjectNavigation = ({ id }) => {
   const [nextProject, setNextProject] = useState([]);

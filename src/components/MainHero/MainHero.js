@@ -22,16 +22,17 @@ const MainHero = () => {
 
 const HeroSection = styled.section`
   /* padding: 256px 0; */
-  margin-top: 15vh;
-  margin-bottom: 15vh;
+  margin-top: 150px;
+  margin-bottom: 150px;
   isolation: isolate;
 
   @media ${QUERIES.desktopAndUp} {
-    margin-top: 0;
-    margin-bottom: 0;
-    height: 100vh;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    /* height: 100vh; */
   }
 `;
+
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns:
@@ -44,7 +45,7 @@ const Wrapper = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-  grid-column: full-start / ful-end;
+  grid-column: full-start / full-end;
   z-index: 2;
 
   @media ${QUERIES.tabletAndUp} {
@@ -101,7 +102,7 @@ const PortraitWrapper = styled.div`
 const Portrait = styled.img`
   width: 100%;
   height: auto;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
 `;
 

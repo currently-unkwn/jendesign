@@ -2,12 +2,12 @@ import { useState, useEffect, useRef } from "react";
 
 import styled from "styled-components/macro";
 
-import Spacer from "../../components/Spacer";
 import MainHero from "../../components/MainHero/MainHero";
 import ProjectsSection from "../../components/ProjectsSection";
 import MaxWidthWrapper from "../../components/MaxWidthWrapper";
 import DynamicBgSection from "../../components/DynamicBgSection/DynamicBgSection";
 
+import { COLORS } from "../../constants";
 import { setDynamicBg } from "../../helpers";
 
 const Home = ({ loading }) => {
@@ -23,15 +23,14 @@ const Home = ({ loading }) => {
   return (
     <>
       <main>
-        <DynamicBgSection bgColor="#dba3ab" ref={heroRef}>
+        <DynamicBgSection bgColor={COLORS.primary} ref={heroRef}>
           <MaxWidthWrapper>
             <MainHero />
           </MaxWidthWrapper>
         </DynamicBgSection>
 
-        <DynamicBgSection bgColor="#a4c6d3" ref={projectsRef}>
+        <DynamicBgSection bgColor={COLORS.secondary} ref={projectsRef}>
           <ProjectsSection />
-          {/* <Spacer size={500} /> */}
         </DynamicBgSection>
       </main>
     </>
