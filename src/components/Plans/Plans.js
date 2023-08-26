@@ -30,7 +30,7 @@ const Plans = ({ plans }) => {
 
   return (
     <Wrapper>
-      <Swiper
+      <StyledSwiper
         modules={[Keyboard, Navigation]}
         slidesPerView={1}
         navigation={{ nextEl: ".swiper-next", prevEl: ".swiper-prev" }}
@@ -84,7 +84,7 @@ const Plans = ({ plans }) => {
             </MetaControlButton>
           </MetaControls>
         </Meta>
-      </Swiper>
+      </StyledSwiper>
     </Wrapper>
   );
 };
@@ -101,6 +101,16 @@ const Wrapper = styled.figure`
   }
 `;
 
+const StyledSwiper = styled(Swiper)`
+  .swiper-slide {
+    background-color: hsl(${COLORS.grayLight02});
+  }
+
+  .swiper-slide img {
+    mix-blend-mode: multiply;
+  }
+`;
+
 const SwiperControls = styled.div`
   position: absolute;
   top: auto;
@@ -112,18 +122,27 @@ const SwiperControls = styled.div`
   display: flex;
   justify-content: space-between;
 
+  color: hsl(${COLORS.gray});
+
   @media ${QUERIES.tabletAndUp} {
     top: 0;
     bottom: 0;
     z-index: 2;
+
+    color: hsl(${COLORS.black});
   }
 `;
 
 const Button = styled(UnstyledButton)`
+  opacity: 1;
+  transition: opacity 350ms, text-decoration-color 250ms var(--ease);
+
   &.swiper-button-disabled {
     opacity: 0;
     cursor: auto;
     pointer-events: none;
+
+    transition: opacity 350ms;
   }
 `;
 
@@ -162,6 +181,7 @@ const Meta = styled.div`
   align-items: center;
 
   font-size: calc(14 / 16 * 1rem);
+  color: hsl(${COLORS.gray});
 
   @media ${QUERIES.tabletAndUp} {
     display: grid;
@@ -225,8 +245,8 @@ const MetaControls = styled.div`
 
 const MetaControlButton = styled(Button)`
   /** Transitioning text-decoration-color instead of text-decoration */
-  transition: text-decoration-color 200 var(--ease);
   text-decoration-color: transparent;
+  /* transition: text-decoration-color 200 var(--ease); */
 
   &:hover,
   &:focus {

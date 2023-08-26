@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { ProjectsContext } from "../../contexts/projects.context";
 
@@ -15,17 +15,28 @@ const Project = () => {
 
   const [project, setProject] = useState([]);
 
+  const projectLayoutRef = useRef(null);
+
   useEffect(() => {
     // Setting current project into state
     setProject(projectItemsMap[projectItem]);
-  }, [projectItem, projectItemsMap]);
+    // console.log(projectLayoutRef.current);
+  }, [projectItem, projectItemsMap, projectLayoutRef]);
 
   // Rendering project
   return (
     project && (
       <>
-        <ProjectHero key={project.id} project={project} />
-        <ProjectLayout key={project.id} project={project} />
+        <ProjectHero
+          key={project.id}
+          project={project}
+          projectLayoutRef={projectLayoutRef}
+        />
+        <ProjectLayout
+          key={project.id}
+          project={project}
+          ref={projectLayoutRef}
+        />
       </>
     )
   );

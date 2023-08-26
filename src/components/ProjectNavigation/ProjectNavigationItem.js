@@ -27,6 +27,7 @@ const Wrapper = styled.article`
   cursor: pointer;
 
   grid-column: full-start / full-end;
+  /* transition: all 1350ms var(--ease-in-out); */
 
   &:first-of-type {
     @media ${QUERIES.tabletAndUp} {
@@ -53,6 +54,13 @@ const Image = styled.img`
   width: 100%;
   aspect-ratio: var(--aspect-ratio);
   object-fit: cover;
+  transition: opacity 350ms var(--ease-in-out);
+
+  ${Wrapper}:hover & {
+    opacity: 0.6;
+
+    /* transition: all 1350ms var(--ease-in-out); */
+  }
 `;
 
 const Content = styled.div`

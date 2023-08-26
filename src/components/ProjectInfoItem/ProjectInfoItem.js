@@ -12,9 +12,7 @@ const ProjectInfoItem = ({ infoItem }) => {
   );
 };
 
-const Wrapper = styled.div`
-  color: hsl(${COLORS.white});
-`;
+const Wrapper = styled.div``;
 
 const Category = styled.span`
   display: block;

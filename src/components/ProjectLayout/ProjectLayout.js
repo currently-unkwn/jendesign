@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, forwardRef } from "react";
 import styled from "styled-components/macro";
 
 import DynamicBgSection from "../DynamicBgSection/DynamicBgSection";
@@ -11,7 +11,7 @@ import ProjectNavigation from "../ProjectNavigation/ProjectNavigation";
 import { COLORS, WEIGHTS, QUERIES } from "../../constants";
 import { setDynamicBg } from "../../helpers";
 
-const ProjectLayout = ({ project }) => {
+const ProjectLayout = ({ project }, projectLayoutRef) => {
   const [isTitleStatic, setIsTitleStatic] = useState(false);
   const [titleOffsetTop, setTitleOffsetTop] = useState(0);
 
@@ -78,7 +78,7 @@ const ProjectLayout = ({ project }) => {
   }, [titleOffsetTop]);
 
   return (
-    <Wrapper>
+    <Wrapper ref={projectLayoutRef} id="project-layout">
       <Spacer size={160} />
 
       <Grid>
@@ -180,7 +180,7 @@ const Title = styled.h2`
   font-size: clamp(2.2rem, 2.9vw + 1.5rem, 4rem);
   font-weight: ${WEIGHTS.regular};
   line-height: 1.2;
-  color: hsl(${COLORS.white});
+
   white-space: pre-wrap;
 `;
 
@@ -239,4 +239,4 @@ const ProjectImg = styled.img`
   width: 100%;
 `;
 
-export default ProjectLayout;
+export default forwardRef(ProjectLayout);

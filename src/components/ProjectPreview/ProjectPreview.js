@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Icon from "../Icon/Icon";
 import Spacer from "../Spacer";
 import UnstyledButton from "../UnstyledButton";
+import MainLink from "../MainLink/MainLink";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Keyboard, Navigation, FreeMode } from "swiper";
@@ -146,7 +147,7 @@ const TitleContainerDesktop = styled(CenteredContainer)`
   }
 `;
 
-const Title = styled(Link)`
+const Title = styled(MainLink)`
   font-size: calc(24 / 16 * 1rem);
   font-weight: ${WEIGHTS.regular};
   text-transform: uppercase;
@@ -155,12 +156,6 @@ const Title = styled(Link)`
   text-decoration: none;
 
   white-space: pre-wrap;
-
-  transition: color 250ms var(--ease-in-out);
-
-  &:hover {
-    color: hsl(${COLORS.textDarker});
-  }
 
   @media ${QUERIES.tabletAndUp} {
     font-size: calc(48 / 16 * 1rem);

@@ -13,8 +13,9 @@ export const COLORS = {
   tertiary: "203deg 5% 34%",
   text: "36deg 100% 96%",
   textDarker: "36deg 95% 83%",
+  gray: "40deg 2% 66%",
   grayLight: "55deg 14% 83%",
-  grayLight02: "60deg 17% 93%",
+  grayLight02: "80deg 18% 97%",
 };
 
 export const WEIGHTS = {

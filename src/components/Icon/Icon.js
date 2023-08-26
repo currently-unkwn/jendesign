@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components/macro";
 import { FiMenu, FiX } from "react-icons/fi";
-import { RiFacebookFill, RiInstagramLine } from "react-icons/ri";
+import {
+  RiFacebookFill,
+  RiInstagramLine,
+  RiArrowDownSFill,
+} from "react-icons/ri";
 import { ImArrowRight2, ImArrowLeft2 } from "react-icons/im";
 
 const icons = {
@@ -11,6 +15,7 @@ const icons = {
   instagram: RiInstagramLine,
   arrowRight: ImArrowRight2,
   arrowLeft: ImArrowLeft2,
+  arrowDown: RiArrowDownSFill,
 };
 
 const Icon = ({ id, color, size, strokeWidth, ...delegated }) => {

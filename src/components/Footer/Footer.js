@@ -6,7 +6,7 @@ import styled from "styled-components/macro";
 import GetInTouch from "../GetInTouch/GetInTouch";
 import DynamicBgSection from "../DynamicBgSection/DynamicBgSection";
 
-import { QUERIES, COLORS } from "../../constants";
+import { QUERIES, COLORS, WEIGHTS } from "../../constants";
 import { setDynamicBg } from "../../helpers";
 
 const Footer = () => {
@@ -36,11 +36,17 @@ const Footer = () => {
             <span>&copy; Eugenia Kuznetsova {currentYear}</span>
           </Copy>
           <Contacts>
-            <a href="#">+38 093 555-44-32</a>
-            <a href="#">jendesign@gmail.com</a>
+            <a href="tel:#">+38 093 555-44-32</a>
+            <a href="mailto:#">jendesign@gmail.com</a>
           </Contacts>
           <Social>
-            <a href="#">Instagram</a>
+            <a
+              href="https://www.instagram.com/eugenia_kuznetsova/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Instagram
+            </a>
           </Social>
         </Content>
       </Wrapper>
@@ -74,6 +80,18 @@ const Content = styled.div`
   display: flex;
   justify-content: center;
   padding: calc(var(--gutter) / 2) var(--gutter);
+
+  & a {
+    font-weight: ${WEIGHTS.medium};
+    text-decoration: none;
+    color: inherit;
+
+    transition: color 250ms var(--ease-in-out);
+  }
+
+  & a:hover {
+    color: hsl(${COLORS.textDarker});
+  }
 
   @media ${QUERIES.tabletAndUp} {
     align-items: flex-end;
