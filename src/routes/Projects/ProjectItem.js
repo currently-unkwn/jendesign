@@ -1,10 +1,9 @@
 import styled from "styled-components/macro";
 import { useNavigate } from "react-router-dom";
 
-import ImagesRow from "../ImagesRow/ImagesRow";
-import MaxWidthWrapper from "../MaxWidthWrapper";
-import Spacer from "../Spacer/Spacer";
-import MainLink from "../MainLink/MainLink";
+import ImagesRow from "./ImagesRow";
+import Spacer from "../../components/Spacer/Spacer";
+import MainLink from "../../components/MainLink/MainLink";
 
 import { WEIGHTS, QUERIES, COLORS } from "../../constants";
 

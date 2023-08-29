@@ -1,10 +1,47 @@
 export const ABOUT_DATA = {
   id: "a",
-  text: "Привіт! Я Евгенія Кузнєцова, дизайнер інтер'єрів з понад 15 роками досвіду. Обожнюю створювати атмосферні та елегантні простори.",
+  text: "Привіт!Я Евгенія Кузнєцова, дизайнер інтер'єрів з понад 15 роками досвіду. Обожнюю створювати атмосферні та елегантні простори.",
   // text: "Jane Kuznetsova is an interior designer and creative based out of Kyiv, Ukraine. Her design aesthetic can be described as eclectic, curated and intentional.",
   image: {
     src: "/images/jane-portrait.png",
     alt: "Portrait of Jane Kuznetsova, an interior designer.",
+  },
+};
+
+export const CONTACTS_DATA = {
+  details: [
+    {
+      id: "a",
+      title: "Email",
+      value: "jendesign@gmail.com",
+      link: "mailto:jendesign@gmail.com",
+    },
+    {
+      id: "b",
+      title: "Telephone",
+      value: "+38 093 555-44-33",
+      link: "tel:+38 093 555-44-33",
+    },
+    {
+      id: "c",
+      title: "Instagram",
+      value: "@eugenia_kuznetsova",
+      link: "https://www.instagram.com/eugenia_kuznetsova/",
+    },
+    {
+      id: "d",
+      title: "Telegram",
+      value: "@EugeniaKuznetsova",
+      link: "https://t.me/EugeniaKuznetsova",
+    },
+  ],
+  fullName: "Євгенія Кузнєцова",
+  text: "Будь ласка, зателефонуйте мені, якщо у вас є які-небудь питання або ви бажаєте домовитись про консультацію.",
+  country: "Україна",
+  city: "Київ",
+  image: {
+    src: "/images/dragomanova_project_006.jpg",
+    alt: "Інтер'єр вітальні",
   },
 };
 

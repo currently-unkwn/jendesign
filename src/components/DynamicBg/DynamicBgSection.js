@@ -1,11 +1,14 @@
 import { forwardRef } from "react";
+import styled from "styled-components/macro";
 
 const DynamicBgSection = ({ bgColor, children, style }, ref) => {
   return (
-    <div ref={ref} data-color={bgColor} style={style}>
+    <Wrapper ref={ref} data-color={bgColor} style={style}>
       {children}
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div``;
 
 export default forwardRef(DynamicBgSection);

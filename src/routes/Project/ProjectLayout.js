@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef, forwardRef } from "react";
 import styled from "styled-components/macro";
 
-import DynamicBgSection from "../DynamicBgSection/DynamicBgSection";
-import ProjectInfoItem from "../ProjectInfoItem/ProjectInfoItem";
-import Grid from "../Grid/Grid";
-import Spacer from "../Spacer";
-import Plans from "../Plans/Plans";
-import ProjectNavigation from "../ProjectNavigation/ProjectNavigation";
+import DynamicBgSection from "../../components/DynamicBg/DynamicBgSection";
+import ProjectInfoItem from "./ProjectInfoItem";
+import Grid from "../../components/Grid/Grid";
+import Spacer from "../../components/Spacer";
+import ProjectPlans from "./ProjectPlans";
+import ProjectNavigation from "./ProjectNavigation";
 
 import { COLORS, WEIGHTS, QUERIES } from "../../constants";
 import { setDynamicBg } from "../../helpers";
@@ -125,7 +125,7 @@ const ProjectLayout = ({ project }, projectLayoutRef) => {
       </Grid>
 
       <DynamicBgSection ref={plansRef} bgColor={COLORS.grayLight02}>
-        <Grid>{plans && <Plans plans={plans} />}</Grid>
+        <Grid>{plans && <ProjectPlans plans={plans} />}</Grid>
 
         <ImagesGrid>
           {images &&

@@ -7,7 +7,7 @@ import Home from "../../routes/Home";
 import Projects from "../../routes/Projects";
 import Contacts from "../../routes/Contacts";
 import DynamicBg from "../DynamicBg/DynamicBg";
-import AnimatedLayout from "../Layout/Layout";
+import AnimatedLayout from "../AnimatedLayout/AnimatedLayout";
 import Footer from "../Footer/Footer";
 
 const App = () => {

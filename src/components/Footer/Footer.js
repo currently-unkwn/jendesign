@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import styled from "styled-components/macro";
 
 import GetInTouch from "../GetInTouch/GetInTouch";
-import DynamicBgSection from "../DynamicBgSection/DynamicBgSection";
+import DynamicBgSection from "../DynamicBg/DynamicBgSection";
 
 import { QUERIES, COLORS, WEIGHTS } from "../../constants";
 import { setDynamicBg } from "../../helpers";

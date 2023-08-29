@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { ProjectsContext } from "../../contexts/projects.context";
 
 import ProjectHero from "./ProjectHero";
-import ProjectLayout from "../../components/ProjectLayout";
+import ProjectLayout from "./ProjectLayout";
 import Transitions from "../../components/Transitions/Transitions";
 
 const Project = () => {

@@ -11,12 +11,12 @@ import "swiper/css/free-mode";
 // import required modules
 import { Keyboard, Navigation } from "swiper";
 
-import Icon from "../Icon/Icon";
-import UnstyledButton from "../UnstyledButton";
+import Icon from "../../components/Icon/Icon";
+import UnstyledButton from "../../components/UnstyledButton";
 
 import { COLORS, WEIGHTS, QUERIES } from "../../constants";
 
-const Plans = ({ plans }) => {
+const ProjectPlans = ({ plans }) => {
   const [slideIndex, setSlideIndex] = useState(0);
   const [isSlideAnimating, setIsSlideAnimating] = useState(false);
 
@@ -255,4 +255,4 @@ const MetaControlButton = styled(Button)`
   }
 `;
 
-export default Plans;
+export default ProjectPlans;

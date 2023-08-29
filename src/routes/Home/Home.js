@@ -4,8 +4,7 @@ import styled from "styled-components/macro";
 
 import MainHero from "../../components/MainHero/MainHero";
 import ProjectsSection from "../../components/ProjectsSection";
-import MaxWidthWrapper from "../../components/MaxWidthWrapper";
-import DynamicBgSection from "../../components/DynamicBgSection/DynamicBgSection";
+import DynamicBgSection from "../../components/DynamicBg/DynamicBgSection";
 
 import { COLORS } from "../../constants";
 import { setDynamicBg } from "../../helpers";
@@ -24,9 +23,7 @@ const Home = ({ loading }) => {
     <>
       <main>
         <DynamicBgSection bgColor={COLORS.primary} ref={heroRef}>
-          <MaxWidthWrapper>
-            <MainHero />
-          </MaxWidthWrapper>
+          <MainHero />
         </DynamicBgSection>
 
         <DynamicBgSection bgColor={COLORS.secondary} ref={projectsRef}>

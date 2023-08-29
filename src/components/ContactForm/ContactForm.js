@@ -2,9 +2,9 @@ import { useState, forwardRef } from "react";
 import styled from "styled-components/macro";
 
 import UnstyledButton from "../UnstyledButton";
-import FormElement from "../FormElement";
+import FormElement from "./FormElement";
 
-import { COLORS, WEIGHTS, QUERIES } from "../../constants";
+import { WEIGHTS } from "../../constants";
 
 const ContactForm = ({ onSubmit, buttonText }, ref) => {
   const [values, setValues] = useState({
