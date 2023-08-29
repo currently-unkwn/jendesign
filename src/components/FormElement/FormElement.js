@@ -38,21 +38,22 @@ const Label = styled.label`
   margin-bottom: 40px;
   text-transform: uppercase;
   font-size: calc(14 / 16 * 1rem);
-  color: hsl(${COLORS.white});
+  color: inherit;
   letter-spacing: 0.03em;
 `;
 
 const InputStyles = `
 font-size: calc(18 / 16 * 1rem);
-color: hsl(${COLORS.white});
+color: inherit;
 padding: 8px 0;
 background: transparent;
 border: none;
 border-radius: 0;
-border-bottom: 1px solid hsl(${COLORS.white} / 0.5);
+border-bottom: 1px solid hsl(${COLORS.text} / 0.5);
 
 &::placeholder {
-  color: #edd4d8;
+  color: hsl(${COLORS.text});
+  opacity: 0.25;
 }
 `;
 
@@ -63,6 +64,7 @@ const Input = styled.input`
 const Textarea = styled.textarea`
   ${InputStyles}
 `;
+
 const ErrorMessage = styled.span`
   color: red;
   display: none;

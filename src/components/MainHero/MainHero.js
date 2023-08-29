@@ -1,5 +1,7 @@
 import styled from "styled-components/macro";
 
+import MaxWidthWrapper from "../MaxWidthWrapper/MaxWidthWrapper";
+
 import { ABOUT_DATA } from "../../data";
 import { QUERIS, FAMILIES, QUERIES } from "../../constants";
 
@@ -7,21 +9,30 @@ const MainHero = () => {
   const { id, text, image } = ABOUT_DATA;
 
   return (
-    <HeroSection>
-      <Wrapper>
-        <ContentWrapper>
-          <AboutText>{text}</AboutText>
-        </ContentWrapper>
-        <PortraitWrapper>
-          <Portrait src={image.src} alt={image.alt} />
-        </PortraitWrapper>
-      </Wrapper>
-    </HeroSection>
+    <Wrapper>
+      <HeroSection>
+        <Grid>
+          <ContentWrapper>
+            <AboutText>{text}</AboutText>
+          </ContentWrapper>
+          <PortraitWrapper>
+            <Portrait src={image.src} alt={image.alt} />
+          </PortraitWrapper>
+        </Grid>
+      </HeroSection>
+    </Wrapper>
   );
 };
 
+const Wrapper = styled(MaxWidthWrapper)`
+  padding: 0 calc(var(--gutter) / 2);
+
+  @media ${QUERIES.smallTabletAndUp} {
+    padding: 0 var(--gutter);
+  }
+`;
+
 const HeroSection = styled.section`
-  /* padding: 256px 0; */
   margin-top: 150px;
   margin-bottom: 150px;
   isolation: isolate;
@@ -33,15 +44,19 @@ const HeroSection = styled.section`
   }
 `;
 
-const Wrapper = styled.div`
+const Grid = styled.div`
   display: grid;
   grid-template-columns:
     [full-start] 1fr [col-start] repeat(10, minmax(0, 1fr))
     [col-end] 1fr [full-end];
-  column-gap: var(--gutter);
+  column-gap: calc(var(--gutter) / 2);
   align-items: center;
   height: 100%;
   text-align: center;
+
+  @media ${QUERIES.smallTabletAndUp} {
+    column-gap: var(--gutter);
+  }
 `;
 
 const ContentWrapper = styled.div`

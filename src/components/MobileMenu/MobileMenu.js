@@ -184,7 +184,7 @@ const Content = styled(Dialog.Content)`
   }
 
   @media ${QUERIES.laptopAndUp} {
-    height: 100px;
+    height: var(--header-height);
     background: hsl(${COLORS.white});
 
     &[data-state="open"] {

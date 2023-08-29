@@ -39,13 +39,14 @@ html {
   --dynamic-bg-color: yellow;
   --projects-color: indigo; 
 
+  --header-height: 100px;
   --body-scroll: 15px;
 
-  --gutter: 16px;
+  --gutter: 32px;
 
-  @media ${QUERIES.tabletAndUp} {
+  /* @media ${QUERIES.tabletAndUp} {
     --gutter: 32px;
-  }
+  } */
 }
 
 /** GLOBAL STYLES */

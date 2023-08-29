@@ -102,7 +102,7 @@ const MainHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   /* padding: 40px 0; */
-  height: 100px;
+  height: var(--header-height);
 
   /** Fluid Approach */
   /* padding: 4vw 0; */

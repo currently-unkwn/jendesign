@@ -29,7 +29,7 @@ const ProjectItemsPreview = () => {
 };
 
 const Wrapper = styled.div`
-  margin-top: 150px;
+  margin-top: calc(var(--header-height) + 50px);
 `;
 
 export default ProjectItemsPreview;

@@ -4,7 +4,7 @@ import styled from "styled-components/macro";
 import UnstyledButton from "../UnstyledButton";
 import FormElement from "../FormElement";
 
-import { COLORS, WEIGHTS } from "../../constants";
+import { COLORS, WEIGHTS, QUERIES } from "../../constants";
 
 const ContactForm = ({ onSubmit, buttonText }, ref) => {
   const [values, setValues] = useState({
@@ -44,7 +44,6 @@ const ContactForm = ({ onSubmit, buttonText }, ref) => {
       placeholder: "Привіт, напишіть про ваш проект...",
       errorMessage: "You need to type something in here!",
       required: true,
-      cols: "40",
       rows: "6",
     },
   ];
@@ -55,7 +54,7 @@ const ContactForm = ({ onSubmit, buttonText }, ref) => {
 
   return (
     <Form ref={ref} onSubmit={onSubmit}>
-      <FormElement formControl="input" type="hidden" name="contact_number" />
+      {/* <FormElement formControl="input" type="hidden" name="contact_number" /> */}
       {inputs.map((input) => (
         <FormElement
           key={input.id}
@@ -76,19 +75,30 @@ const Form = styled.form`
 `;
 
 const Submit = styled(UnstyledButton)`
+  position: relative;
   font-size: calc(14 / 16 * 1rem);
   font-weight: ${WEIGHTS.medium};
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  color: hsl(${COLORS.white});
+  color: inherit;
   align-self: center;
 
-  &::after {
+  &::before {
     content: "";
-    display: block;
-    margin-top: 2px;
+    position: absolute;
+    bottom: -3px;
+    background-color: currentColor;
     width: 100%;
-    border-bottom: 1px solid hsl(${COLORS.white});
+    height: 0px;
+    border-bottom: 1px solid currentColor;
+
+    transition: width 400ms;
+  }
+
+  &:hover {
+    &::before {
+      width: 0px;
+    }
   }
 `;
 

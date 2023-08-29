@@ -77,10 +77,6 @@ const Message = styled(UnstyledButton)`
   }
 
   &:hover {
-    & span {
-      transform: translateX(6px);
-    }
-
     &::before {
       width: 0px;
     }

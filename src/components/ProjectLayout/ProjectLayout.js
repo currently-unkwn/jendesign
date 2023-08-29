@@ -159,9 +159,13 @@ const Wrapper = styled.div`
 `;
 
 const InfoWrapper = styled.div`
-  grid-column: col-start / col-end;
+  grid-column: full-start / col-end;
 
   @media ${QUERIES.tabletAndUp} {
+    grid-column: full-start / span 5;
+  }
+
+  @media ${QUERIES.laptopAndUp} {
     grid-column: col-start / span 5;
   }
 `;
@@ -189,7 +193,7 @@ const StickyTitle = styled(Title)`
 `;
 
 const InfoImgWrapper = styled.div`
-  grid-column: col-start / full-end;
+  grid-column: full-start / full-end;
   margin-right: calc(var(--gutter) * -1);
   padding-top: 144px;
 
