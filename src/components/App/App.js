@@ -3,9 +3,9 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { LoadingContext } from "../../contexts/loading.context";
 
 import Header from "../Header";
-import Home from "../../routes/Home";
-import Projects from "../../routes/Projects";
-import Contacts from "../../routes/Contacts";
+import Home from "../Home";
+import Projects from "../Projects";
+import Contacts from "../Contacts";
 import DynamicBg from "../DynamicBg/DynamicBg";
 import AnimatedLayout from "../AnimatedLayout/AnimatedLayout";
 import Footer from "../Footer/Footer";
@@ -17,6 +17,7 @@ const App = () => {
   const location = useLocation();
 
   useEffect(() => {
+    console.log(location.pathname);
     const preloader = document.querySelector(".preloader");
 
     const onPageLoad = () => {
@@ -47,7 +48,7 @@ const App = () => {
             <Route path="projects/*" element={<Projects />} />
             <Route path="contacts" element={<Contacts />} />
           </Routes>
-          <Footer />
+          {location.pathname !== "/contacts" ? <Footer /> : ""}
         </AnimatedLayout>
       </>
     )

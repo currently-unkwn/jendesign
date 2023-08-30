@@ -4,7 +4,7 @@ import { ProjectsContext } from "../../contexts/projects.context";
 
 import ProjectHero from "./ProjectHero";
 import ProjectLayout from "./ProjectLayout";
-import Transitions from "../../components/Transitions/Transitions";
+import Transitions from "../Transitions/Transitions";
 
 const Project = () => {
   // Get project's name from address bar

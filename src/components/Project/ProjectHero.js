@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import styled from "styled-components/macro";
 
-import DynamicBgSection from "../../components/DynamicBg/DynamicBgSection";
-import ArrowDownButton from "../../components/ArrowDownButton/ArrowDownButton";
+import DynamicBgSection from "../DynamicBg/DynamicBgSection";
+import ArrowDownButton from "../ArrowDownButton/ArrowDownButton";
 
 import { COLORS } from "../../constants";
 import { setDynamicBg } from "../../helpers";

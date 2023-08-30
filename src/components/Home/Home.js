@@ -2,9 +2,9 @@ import { useState, useEffect, useRef } from "react";
 
 import styled from "styled-components/macro";
 
-import MainHero from "../../components/MainHero/MainHero";
-import ProjectsSection from "../../components/ProjectsSection";
-import DynamicBgSection from "../../components/DynamicBg/DynamicBgSection";
+import MainHero from "../MainHero/MainHero";
+import ProjectsSection from "../ProjectsSection";
+import DynamicBgSection from "../DynamicBg/DynamicBgSection";
 
 import { COLORS } from "../../constants";
 import { setDynamicBg } from "../../helpers";

@@ -33,6 +33,7 @@ const FormElement = ({ label, errorMessage, formControl, ...delegated }) => {
 };
 
 const Label = styled.label`
+  position: relative;
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
@@ -40,21 +41,34 @@ const Label = styled.label`
   font-size: calc(14 / 16 * 1rem);
   color: inherit;
   letter-spacing: 0.03em;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-bottom: 1px solid currentColor;
+    opacity: 0.5;
+  }
 `;
 
 const InputStyles = `
+position: relative;
 font-size: calc(18 / 16 * 1rem);
 color: inherit;
 padding: 8px 0;
 background: transparent;
 border: none;
 border-radius: 0;
-border-bottom: 1px solid hsl(${COLORS.text} / 0.5);
+
 
 &::placeholder {
-  color: hsl(${COLORS.text});
+  color: inherit;
   opacity: 0.25;
 }
+
+
 `;
 
 const Input = styled.input`

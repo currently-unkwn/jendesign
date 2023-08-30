@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import styled from "styled-components/macro";
 
-import MaxWidthWrapper from "../MaxWidthWrapper";
+import MaxWidthWrapper from "../MaxWidthWrapper/MaxWidthWrapper";
 import UnstyledButton from "../UnstyledButton/UnstyledButton";
 
 import { QUERIES } from "../../constants";

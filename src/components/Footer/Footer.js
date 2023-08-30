@@ -55,7 +55,7 @@ const Footer = () => {
 };
 
 const Wrapper = styled.footer`
-  height: ${(props) => (props.isContactsPage ? "auto" : "50vh")};
+  height: ${(props) => (props.isContactsPage ? "auto" : "55vh")};
 
   display: flex;
   flex-direction: column;

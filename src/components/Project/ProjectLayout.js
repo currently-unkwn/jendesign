@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef, forwardRef } from "react";
 import styled from "styled-components/macro";
 
-import DynamicBgSection from "../../components/DynamicBg/DynamicBgSection";
+import DynamicBgSection from "../DynamicBg/DynamicBgSection";
 import ProjectInfoItem from "./ProjectInfoItem";
-import Grid from "../../components/Grid/Grid";
-import Spacer from "../../components/Spacer";
+import Grid from "../Grid/Grid";
+import Spacer from "../Spacer";
 import ProjectPlans from "./ProjectPlans";
 import ProjectNavigation from "./ProjectNavigation";
 

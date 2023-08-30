@@ -3,10 +3,10 @@ import styled from "styled-components/macro";
 
 import { CONTACTS_DATA } from "../../data";
 
-import ContactForm from "../../components/ContactForm";
-import ContactFormAlert from "../../components/ContactForm/ContactFormAlert";
-import MaxWidthWrapper from "../../components/MaxWidthWrapper";
-import DynamicBgSection from "../../components/DynamicBg/DynamicBgSection";
+import ContactForm from "../ContactForm";
+import ContactFormAlert from "../ContactForm/ContactFormAlert";
+import MaxWidthWrapper from "../MaxWidthWrapper/MaxWidthWrapper";
+import DynamicBgSection from "../DynamicBg/DynamicBgSection";
 import ContactDetail from "./ContactDetail";
 
 import { COLORS, WEIGHTS, FAMILIES, QUERIES } from "../../constants";
@@ -246,60 +246,5 @@ const ContactFormWrapper = styled.div`
 `;
 
 const ContactDetails = styled.div``;
-
-const Text = styled.p`
-  font-size: calc(18 / 16 * 1rem);
-
-  @media ${QUERIES.smallTabletAndUp} {
-    font-size: calc(22 / 16 * 1rem);
-  }
-`;
-
-const Details = styled.div`
-  padding-top: 40px;
-  padding-bottom: 24px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-
-  /* text-align: center; */
-
-  & a {
-    text-decoration: none;
-  }
-
-  @media ${QUERIES.smallTabletAndUp} {
-    padding-top: 56px;
-    padding-bottom: 40px;
-    gap: 24px;
-  }
-`;
-const Block = styled.div``;
-
-const SecondaryHeading = styled.h2`
-  &,
-  & a {
-    font-size: calc(24 / 16 * 1rem);
-    font-weight: ${WEIGHTS.medium};
-    color: hsl(${COLORS.text});
-
-    @media ${QUERIES.smallTabletAndUp} {
-      font-size: calc(32 / 16 * 1rem);
-    }
-  }
-`;
-const TertiaryHeading = styled.h3`
-  &,
-  & a {
-    font-size: calc(20 / 16 * 1rem);
-    font-weight: ${WEIGHTS.medium};
-    color: hsl(${COLORS.text});
-
-    @media ${QUERIES.smallTabletAndUp} {
-      font-size: calc(24 / 16 * 1rem);
-    }
-  }
-`;
 
 export default Contacts;

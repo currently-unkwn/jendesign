@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ProjectsContext } from "../../contexts/projects.context";
 import styled from "styled-components/macro";
 
-import Grid from "../../components/Grid";
+import Grid from "../Grid";
 import ProjectNavigationItem from "./ProjectNavigationItem";
 
 import { getIndex } from "../../helpers";

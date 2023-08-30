@@ -11,8 +11,8 @@ import "swiper/css/free-mode";
 // import required modules
 import { Keyboard, Navigation } from "swiper";
 
-import Icon from "../../components/Icon/Icon";
-import UnstyledButton from "../../components/UnstyledButton";
+import Icon from "../Icon/Icon";
+import UnstyledButton from "../UnstyledButton";
 
 import { COLORS, WEIGHTS, QUERIES } from "../../constants";
 

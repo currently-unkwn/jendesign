@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import styled from "styled-components/macro";
 
-import DynamicBgSection from "../../components/DynamicBg/DynamicBgSection";
+import DynamicBgSection from "../DynamicBg/DynamicBgSection";
 import ProjectItem from "./ProjectItem";
 
 import { PROJECTS } from "../../data";

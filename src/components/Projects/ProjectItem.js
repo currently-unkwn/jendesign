@@ -2,8 +2,8 @@ import styled from "styled-components/macro";
 import { useNavigate } from "react-router-dom";
 
 import ImagesRow from "./ImagesRow";
-import Spacer from "../../components/Spacer/Spacer";
-import MainLink from "../../components/MainLink/MainLink";
+import Spacer from "../Spacer/Spacer";
+import MainLink from "../MainLink/MainLink";
 
 import { WEIGHTS, QUERIES, COLORS } from "../../constants";
 
@@ -33,8 +33,8 @@ const ProjectItem = ({ project }) => {
 const Wrapper = styled.section`
   margin-bottom: 12px;
   padding-top: 10vh;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
 
   @media ${QUERIES.tabletAndUp} {
     margin-bottom: 20vh;
