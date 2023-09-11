@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components/macro";
 
+import SubmitEmailDialog from "../SubmitEmailDialog/SubmitEmailDialog";
 import MaxWidthWrapper from "../MaxWidthWrapper/MaxWidthWrapper";
 import UnstyledButton from "../UnstyledButton/UnstyledButton";
 
@@ -8,7 +10,10 @@ import { QUERIES } from "../../constants";
 import { WEIGHTS, FAMILIES, COLORS } from "../../constants";
 
 const GetInTouch = () => {
+  const [showContactDialog, setShowContactDialog] = useState(false);
   const location = useLocation();
+
+  const handleDismiss = () => setShowContactDialog(false);
 
   // Hide component on contacts page
   if (location.pathname === "/contacts") return null;
@@ -18,8 +23,12 @@ const GetInTouch = () => {
       <MaxWidthWrapper>
         <Content>
           <Text>Є питання?</Text>
-          <Message href="mailto:#">Пишіть</Message>
+          <Message onClick={() => setShowContactDialog(true)}>Пишіть</Message>
         </Content>
+        <SubmitEmailDialog
+          isOpen={showContactDialog}
+          onDismiss={handleDismiss}
+        />
       </MaxWidthWrapper>
     </Wrapper>
   );

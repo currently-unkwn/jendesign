@@ -25,11 +25,9 @@ const Wrapper = styled.div`
     display: block;
     width: var(--close-button-size);
     height: 2px;
-    background-color: hsl(${COLORS.secondary} / 0.5);
-
+    background-color: currentColor;
     transform: rotate(45deg);
-    transition: transform 150ms var(--ease-in-out),
-      background-color 150ms var(--ease-in-out);
+    transition: transform 150ms var(--ease-in-out);
   }
 
   & span:last-child {
@@ -38,7 +36,6 @@ const Wrapper = styled.div`
 
   &:hover span {
     transform: rotate(0deg);
-    background-color: hsl(${COLORS.secondary});
   }
 `;
 

@@ -1,64 +1,25 @@
-import { useState, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import styled from "styled-components/macro";
 
 import { CONTACTS_DATA } from "../../data";
 
-import ContactForm from "../ContactForm";
-import ContactFormAlert from "../ContactForm/ContactFormAlert";
+import SubmitEmail from "../SubmitEmail/SubmitEmail";
+
 import MaxWidthWrapper from "../MaxWidthWrapper/MaxWidthWrapper";
 import DynamicBgSection from "../DynamicBg/DynamicBgSection";
 import ContactDetail from "./ContactDetail";
 
 import { COLORS, WEIGHTS, FAMILIES, QUERIES } from "../../constants";
 import { setDynamicBg } from "../../helpers";
-import { sendEmail } from "../../utils/emailjs/emailjs.utils";
 
 const Contacts = ({ loading }) => {
-  const [buttonText, setButtonText] = useState("Відправити");
-  const [alertIsVisible, setAlertIsVisible] = useState(false);
-
   const { fullName, details, country, city, image } = CONTACTS_DATA;
 
-  const form = useRef();
   const contactsRef = useRef();
-
-  // const contactsRefs = [contactsRef];
 
   useEffect(() => {
     setDynamicBg(contactsRef);
   });
-
-  const showAlert = () => {
-    setAlertIsVisible(true);
-
-    setTimeout(() => {
-      setAlertIsVisible(false);
-    }, 3000);
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    setButtonText("Відправляю...");
-
-    try {
-      await sendEmail(form);
-      // TODO: add notification about success
-      // 1. Hide the Form UI
-      // 2. Display success message
-      // 3. Hide message and display back UI
-
-      // setButtonText("Send Success");
-      showAlert();
-      setButtonText("Відправити");
-      console.log("Message sent succesfully...");
-    } catch (error) {
-      // TODO: add notification about error
-      setButtonText("Помилка при відправленні");
-      console.log("Error: message was not sent...  ⚠️");
-      console.log(error);
-    }
-  };
 
   return (
     <DynamicBgSection bgColor="324deg 18% 51%" ref={contactsRef}>
@@ -87,53 +48,8 @@ const Contacts = ({ loading }) => {
               </ContactDetails>
             </ContactInfo>
             <ContactFormWrapper>
-              {alertIsVisible ? (
-                <ContactFormAlert />
-              ) : (
-                <ContactForm
-                  ref={form}
-                  onSubmit={handleSubmit}
-                  buttonText={buttonText}
-                />
-              )}
+              <SubmitEmail />
             </ContactFormWrapper>
-            {/* <TitleWrapper>
-            <Title>Контакти</Title>
-          </TitleWrapper>
-          <Text>{text}</Text>
-          <Details>
-            <Block>
-              <SecondaryHeading>
-                <a href="mailto:#">{email}</a>
-              </SecondaryHeading>
-            </Block>
-            <Block>
-              <TertiaryHeading>
-                {city}, {country}
-              </TertiaryHeading>
-              <TertiaryHeading>
-                <a href="tel:+">{tel}</a>
-              </TertiaryHeading>
-            </Block>
-            <Block>
-              {socials.map((social) => (
-                <TertiaryHeading>
-                  <a href={social.link} target="_blank" rel="noreferrer">
-                    {social.name}
-                  </a>
-                </TertiaryHeading>
-              ))}
-            </Block>
-          </Details>
-          {alertIsVisible ? (
-            <ContactFormAlert />
-          ) : (
-            <ContactForm
-              ref={form}
-              onSubmit={handleSubmit}
-              buttonText={buttonText}
-            />
-          )} */}
           </Container>
         </MaxWidthWrapper>
       </Wrapper>

@@ -23,45 +23,45 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
   return (
     <Dialog.Root open={isOpen} onOpenChange={onDismiss}>
       <Dialog.Portal>
-        <Wrapper />
+        <Wrapper>
+          <Backdrop />
+          <Content aria-label="Menu">
+            <OuterWrapper>
+              <InnerWrapper>
+                <MobileLogo to="/">
+                  EUGENIA <br />
+                  KUZNETSOVA
+                </MobileLogo>
 
-        <Content aria-label="Menu">
-          <OuterWrapper>
-            <InnerWrapper>
-              <MobileLogo to="/">
-                EUGENIA <br />
-                KUZNETSOVA
-              </MobileLogo>
+                <Filler />
+                <Nav>
+                  <MenuLink to="/" style={{ "--animation-delay": 300 + "ms" }}>
+                    Головна
+                  </MenuLink>
+                  <MenuLink
+                    to="/projects"
+                    style={{ "--animation-delay": 400 + "ms" }}
+                  >
+                    Проекти
+                  </MenuLink>
+                  <MenuLink
+                    to="/contacts"
+                    style={{ "--animation-delay": 500 + "ms" }}
+                  >
+                    Контакти
+                  </MenuLink>
+                </Nav>
+                <DismissWrapper>
+                  <Dismiss>
+                    {/* <span>Закрити</span> */}
+                    {/* <Icon id="close" size={24} /> */}
+                    <CloseButton />
+                    <VisuallyHidden>Close menu</VisuallyHidden>
+                  </Dismiss>
+                </DismissWrapper>
 
-              <Filler />
-              <Nav>
-                <MenuLink to="/" style={{ "--animation-delay": 300 + "ms" }}>
-                  Головна
-                </MenuLink>
-                <MenuLink
-                  to="/projects"
-                  style={{ "--animation-delay": 400 + "ms" }}
-                >
-                  Проекти
-                </MenuLink>
-                <MenuLink
-                  to="/contacts"
-                  style={{ "--animation-delay": 500 + "ms" }}
-                >
-                  Контакти
-                </MenuLink>
-              </Nav>
-              <DismissWrapper>
-                <Dismiss>
-                  {/* <span>Закрити</span> */}
-                  {/* <Icon id="close" size={24} /> */}
-                  <CloseButton />
-                  <VisuallyHidden>Close menu</VisuallyHidden>
-                </Dismiss>
-              </DismissWrapper>
-
-              <Footer>
-                {/* <SocialWrapper>
+                <Footer>
+                  {/* <SocialWrapper>
                 <SocialLink href="#">
                   <Icon id="facebook" size={32} />
                 </SocialLink>
@@ -69,11 +69,12 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
                   <Icon id="instagram" size={32} />
                 </SocialLink>
               </SocialWrapper> */}
-                &copy; Eugenia Kuznetsova 2023
-              </Footer>
-            </InnerWrapper>
-          </OuterWrapper>
-        </Content>
+                  &copy; Eugenia Kuznetsova 2023
+                </Footer>
+              </InnerWrapper>
+            </OuterWrapper>
+          </Content>
+        </Wrapper>
       </Dialog.Portal>
     </Dialog.Root>
   );
@@ -141,18 +142,34 @@ const Wrapper = styled(Dialog.Overlay)`
   bottom: 0;
   width: 100%;
   height: 100%;
-  background: hsl(${COLORS.white} / 0.4);
+  background: transparent;
   overflow-y: auto;
 
+  /** Hide horizontl scrollbar */
+  overflow-x: hidden;
+
+  will-change: transform;
+
   &[data-state="open"] {
-    animation: ${fadeIn} 300ms var(--ease-in);
+    animation: ${fadeIn} 300ms;
     animation-delay: 0ms;
   }
 
   &[data-state="closed"] {
-    animation: ${fadeOut} 100ms var(--ease-in);
+    animation: ${fadeOut} 100ms;
     animation-delay: 0ms;
   }
+`;
+
+const Backdrop = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: hsl(${COLORS.secondary});
+  opacity: 0.4;
 `;
 
 const OuterWrapper = styled(MaxWidthWrapper)`
@@ -178,6 +195,7 @@ const Content = styled(Dialog.Content)`
     animation: ${fadeIn} 250ms var(--ease-in) backwards;
     animation-delay: 150ms;
   }
+
   &[data-state="closed"] {
     animation: ${fadeOut} 500ms var(--ease-out);
     animation-delay: 0ms;
@@ -288,6 +306,7 @@ const Dismiss = styled(Dialog.Close)`
   background: transparent;
   border: none;
   cursor: pointer;
+  color: hsl(${COLORS.secondary});
 
   animation: ${fadeIn} 250ms var(--ease) backwards,
     ${smallSlideIn} 250ms var(--ease);
