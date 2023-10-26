@@ -113,8 +113,8 @@ const Backdrop = styled.div`
   right: 0;
   bottom: 0;
 
-  background-color: hsl(${COLORS.secondary});
-  opacity: 0.4;
+  background-color: hsl(${COLORS.tertiary});
+  opacity: 0.8;
 `;
 
 const Content = styled(Dialog.Content)`

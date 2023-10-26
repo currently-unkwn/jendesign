@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Outlet, NavLink } from "react-router-dom";
+import { Outlet, NavLink, Link } from "react-router-dom";
 import styled from "styled-components/macro";
 
 import Logo from "../Logo/Logo";
@@ -8,6 +8,7 @@ import MaxWidthWrapper from "../MaxWidthWrapper";
 import MobileMenu from "../MobileMenu/MobileMenu";
 
 import { QUERIES, COLORS } from "../../constants";
+import Icon from "../Icon/Icon";
 
 const HEADER_HIDE_THRESHOLD = 200;
 
@@ -60,10 +61,11 @@ const Header = () => {
       <Wrapper style={{ transform, opacity }}>
         <MaxWidthWrapper>
           <MainHeader>
-            <Logo to="/">
-              EUGENIA <br />
-              KUZNETSOVA
-            </Logo>
+            {/* <Icon id="TestLogo" size={24} color="red" /> */}
+            {/* <DesktopLogo /> */}
+            <Link to="/">
+              <MainLogo type="main" />
+            </Link>
 
             {/* <DesktopNav>
               <Nav>
@@ -108,16 +110,16 @@ const MainHeader = styled.div`
   /* padding: 4vw 0; */
 `;
 
-const DesktopLogo = styled(Logo)`
-  color: black;
-`;
-
 const DesktopNav = styled.div`
   display: none;
 
   @media ${QUERIES.tabletAndUp} {
     display: revert;
   }
+`;
+
+const MainLogo = styled(Logo)`
+  fill: hsl(${COLORS.text});
 `;
 
 const MobileNav = styled.div`

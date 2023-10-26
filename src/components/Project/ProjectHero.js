@@ -8,7 +8,7 @@ import { COLORS } from "../../constants";
 import { setDynamicBg } from "../../helpers";
 
 const ProjectHero = ({ project, projectLayoutRef }) => {
-  const { previewImg } = project;
+  const { heroImg } = project;
 
   const heroImgRef = useRef();
   // console.log(projectLayoutRef.current);
@@ -29,7 +29,7 @@ const ProjectHero = ({ project, projectLayoutRef }) => {
         bgColor="white"
         style={{ height: "100%" }}
       >
-        <HeroImg src={previewImg} alt="" />
+        <HeroImg src={heroImg} alt="" />
         <ScrollDownArrow>
           <ArrowDownButton id={projectLayoutRef?.current?.id} />
         </ScrollDownArrow>

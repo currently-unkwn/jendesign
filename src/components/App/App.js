@@ -17,23 +17,39 @@ const App = () => {
   const location = useLocation();
 
   useEffect(() => {
-    console.log(location.pathname);
     const preloader = document.querySelector(".preloader");
+    const body = document.body;
 
     const onPageLoad = () => {
+      preloader.classList.add("animated");
+      setLoading(false);
+
       // After page has loaded wait 1sec, then animate
-      setTimeout(() => {
-        preloader.classList.add("animated");
-        setLoading(false);
-      }, 0);
+
+      // setTimeout(() => {
+      //   preloader.classList.add("animated");
+      //   setLoading(false);
+      // }, 1000);
+    };
+
+    const animationEndHandler = (event) => {
+      if (event.animationName === "slideOut") {
+        console.log("animation end");
+        body.removeAttribute("data-preloader");
+      }
     };
 
     if (document.readyState === "complete") {
       onPageLoad();
+      preloader.addEventListener("animationend", animationEndHandler);
     } else {
       window.addEventListener("load", onPageLoad);
+      preloader.addEventListener("animationend", animationEndHandler);
 
-      return () => window.removeEventListener("load", onPageLoad);
+      return () => {
+        window.removeEventListener("load", onPageLoad);
+        preloader.addEventListener("animationend", animationEndHandler);
+      };
     }
   }, []);
 

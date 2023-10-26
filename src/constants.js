@@ -4,13 +4,11 @@ export const COLORS = {
   blackLighter: "0deg 2% 11%",
   primary: "0deg 19% 75%",
   primaryLightest: "0deg 54% 97%",
-  secondary: "0deg 17% 50%",
+
+  secondary: "0deg 19% 53%",
   secondaryDarkest: "0deg 33% 11%",
-  // secondary: "324deg 18% 51%",
-  // secondary: "356deg 23% 49%",
-  // secondary: "296deg 18% 30%",
-  // tertiary: "0deg 17% 50%",
-  tertiary: "203deg 5% 34%",
+
+  tertiary: "300deg 13% 43%",
   text: "36deg 100% 96%",
   textDarker: "36deg 95% 83%",
   gray: "40deg 2% 66%",

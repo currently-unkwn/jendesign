@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components/macro";
 
 import Logo from "../Logo/Logo";
@@ -28,10 +28,9 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
           <Content aria-label="Menu">
             <OuterWrapper>
               <InnerWrapper>
-                <MobileLogo to="/">
-                  EUGENIA <br />
-                  KUZNETSOVA
-                </MobileLogo>
+                <Link to="/">
+                  <MobileMenuLogo type="mobile" />
+                </Link>
 
                 <Filler />
                 <Nav>
@@ -145,7 +144,7 @@ const Wrapper = styled(Dialog.Overlay)`
   background: transparent;
   overflow-y: auto;
 
-  /** Hide horizontl scrollbar */
+  /** Hide horizontal scrollbar */
   overflow-x: hidden;
 
   will-change: transform;
@@ -162,14 +161,16 @@ const Wrapper = styled(Dialog.Overlay)`
 `;
 
 const Backdrop = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  @media ${QUERIES.laptopAndUp} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 
-  background: hsl(${COLORS.secondary});
-  opacity: 0.4;
+    background: hsl(${COLORS.secondary});
+    opacity: 0.4;
+  }
 `;
 
 const OuterWrapper = styled(MaxWidthWrapper)`
@@ -193,7 +194,7 @@ const Content = styled(Dialog.Content)`
 
   &[data-state="open"] {
     animation: ${fadeIn} 250ms var(--ease-in) backwards;
-    animation-delay: 150ms;
+    /* animation-delay: 150ms; */
   }
 
   &[data-state="closed"] {
@@ -248,8 +249,9 @@ const InnerWrapper = styled.div`
   }
 `;
 
-const MobileLogo = styled(Logo)`
-  color: hsl(${COLORS.secondary});
+const MobileMenuLogo = styled(Logo)`
+  fill: hsl(${COLORS.secondary});
+
   @media ${QUERIES.laptopAndUp} {
     display: none;
   }

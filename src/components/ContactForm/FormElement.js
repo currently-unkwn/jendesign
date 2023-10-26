@@ -32,6 +32,34 @@ const FormElement = ({ label, errorMessage, formControl, ...delegated }) => {
   );
 };
 
+const InputStyles = `
+position: relative;
+font-size: calc(18 / 16 * 1rem);
+color: inherit;
+padding: 8px 0;
+background: transparent;
+border: none;
+border-radius: 0;
+
+
+
+
+&::placeholder {
+  color: inherit;
+  opacity: 0.25;
+}
+
+
+`;
+
+const Input = styled.input`
+  ${InputStyles}
+`;
+
+const Textarea = styled.textarea`
+  ${InputStyles}
+`;
+
 const Label = styled.label`
   position: relative;
   display: flex;
@@ -50,33 +78,16 @@ const Label = styled.label`
     width: 100%;
     border-bottom: 1px solid currentColor;
     opacity: 0.5;
+
+    transition: opacity 150ms var(--ease);
   }
-`;
 
-const InputStyles = `
-position: relative;
-font-size: calc(18 / 16 * 1rem);
-color: inherit;
-padding: 8px 0;
-background: transparent;
-border: none;
-border-radius: 0;
-
-
-&::placeholder {
-  color: inherit;
-  opacity: 0.25;
-}
-
-
-`;
-
-const Input = styled.input`
-  ${InputStyles}
-`;
-
-const Textarea = styled.textarea`
-  ${InputStyles}
+  &:focus-within,
+  &:hover {
+    &::before {
+      opacity: 1;
+    }
+  }
 `;
 
 const ErrorMessage = styled.span`

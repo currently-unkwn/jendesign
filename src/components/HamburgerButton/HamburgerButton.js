@@ -105,4 +105,5 @@ const Box = styled.span`
 const Menu = styled.span`
   font-weight: ${WEIGHTS.medium};
 `;
+
 export default HamburgerButton;

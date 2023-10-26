@@ -22,7 +22,7 @@ const Contacts = ({ loading }) => {
   });
 
   return (
-    <DynamicBgSection bgColor="324deg 18% 51%" ref={contactsRef}>
+    <DynamicBgSection bgColor={COLORS.tertiary} ref={contactsRef}>
       <Wrapper>
         <HeroImageContainer>
           <HeroImage src={image.src} alt={image.alt} />

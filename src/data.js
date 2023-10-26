@@ -3,7 +3,7 @@ export const ABOUT_DATA = {
   text: "Привіт!Я Евгенія Кузнєцова, дизайнер інтер'єрів з понад 15 роками досвіду. Обожнюю створювати атмосферні та елегантні простори.",
   // text: "Jane Kuznetsova is an interior designer and creative based out of Kyiv, Ukraine. Her design aesthetic can be described as eclectic, curated and intentional.",
   image: {
-    src: "/images/jane-portrait.png",
+    src: "/images/profile-light-blue.jpeg",
     alt: "Portrait of Jane Kuznetsova, an interior designer.",
   },
 };
@@ -183,7 +183,7 @@ export const PROJECTS_DATA = [
         caption: "Другий поверх",
       },
     ],
-    previewImg: "/images/dragomanova_project_001.jpg",
+    heroImg: "/images/dragomanova_project_001.jpg",
     infoImg: "/images/dragomanova_project_002.jpg",
     prevNextImg: {
       src: "/images/dragomanova_project_002.jpg",
@@ -215,6 +215,28 @@ export const PROJECTS_DATA = [
         span: `7 / col-end`,
         orientation: "vertical",
       },
+      // {
+      //   id: "h",
+      //   imgPath: "/images/dragomanova_project_005.jpg",
+      //   alt: "",
+      //   aspectRatio: 2 / 3,
+      //   span: `4 / 10`,
+      //   orientation: "vertical",
+      // },
+      // {
+      //   id: "l",
+      //   imgPath: "/images/dragomanova_project_003.jpg",
+      //   alt: "",
+      //   aspectRatio: 4 / 3,
+      //   span: `col-start / span 5`,
+      // },
+      // {
+      //   id: "k",
+      //   imgPath: "/images/dragomanova_project_006.jpg",
+      //   alt: "",
+      //   aspectRatio: 4 / 3,
+      //   span: `7 / col-end`,
+      // },
       {
         id: "i",
         imgPath: "/images/dragomanova_project_006.jpg",
@@ -251,7 +273,7 @@ export const PROJECTS_DATA = [
         text: "Богдан Сірий",
       },
     ],
-    previewImg: "/images/pecherskiy_project_001.jpg",
+    heroImg: "/images/pecherskiy_project_001.jpg",
     infoImg: "/images/pecherskiy_project_002.jpg",
     prevNextImg: {
       src: "/images/pecherskiy_project_002.jpg",
@@ -336,7 +358,7 @@ export const PROJECTS_DATA = [
         text: "Богдан Сірий",
       },
     ],
-    previewImg: "/images/pecherskiy_project_001.jpg",
+    heroImg: "/images/pecherskiy_project_001.jpg",
     infoImg: "/images/pecherskiy_project_002.jpg",
     prevNextImg: {
       src: "/images/pecherskiy_project_002.jpg",

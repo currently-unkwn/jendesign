@@ -91,6 +91,19 @@ body {
   /* overflow-y: scroll; */
   color: hsl(${COLORS.text});
 
+
+}
+
+/** Prevents window from shifting, because of scrollbar */
+body[data-preloader] {
+  overflow: hidden;
+  overscroll-behavior: contain;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  margin-left: 0;
+  margin-top: 0;
+  margin-right: var(--body-scroll);
 }
 /*
   6. Improve media defaults
