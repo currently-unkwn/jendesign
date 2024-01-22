@@ -8,7 +8,9 @@ const ContactDetail = ({ detail }) => {
       <Title>{detail.title}</Title>
       &nbsp;
       <Value>
-        <Link href={detail.link}>{detail.value}</Link>
+        <Link href={detail.link} target="_blank" rel="noreferrer">
+          {detail.value}
+        </Link>
       </Value>
     </Wrapper>
   );

@@ -127,22 +127,24 @@ const ProjectLayout = ({ project }, projectLayoutRef) => {
       <DynamicBgSection ref={plansRef} bgColor={COLORS.grayLight02}>
         <Grid>{plans && <ProjectPlans plans={plans} />}</Grid>
 
-        <ImagesGrid>
-          {images &&
-            images.map((image) => (
-              <ProjectImgWrapper
-                key={image.id}
-                style={{ "--grid-column": image.span }}
-                data-layout={image.layout ? image.layout : undefined}
-              >
-                <ProjectImg
-                  src={image.imgPath}
-                  alt={image.alt}
-                  style={{ "--aspect-ratio": image.aspectRatio }}
-                />
-              </ProjectImgWrapper>
-            ))}
-        </ImagesGrid>
+        <ImagesContainer>
+          <ImagesGrid>
+            {images &&
+              images.map((image) => (
+                <ProjectImgWrapper
+                  key={image.id}
+                  style={{ "--grid-column": image.span }}
+                  data-layout={image.layout ? image.layout : undefined}
+                >
+                  <ProjectImg
+                    src={image.imgPath}
+                    alt={image.alt}
+                    style={{ "--aspect-ratio": image.aspectRatio }}
+                  />
+                </ProjectImgWrapper>
+              ))}
+          </ImagesGrid>
+        </ImagesContainer>
       </DynamicBgSection>
 
       <DynamicBgSection ref={projectNavRef} bgColor={COLORS.grayLight}>
@@ -210,6 +212,13 @@ const InfoImg = styled.img`
   aspect-ratio: 5 / 7;
 `;
 
+const ImagesContainer = styled.div`
+  @media ${QUERIES.desktopAndUp} {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+`;
+
 const ImagesGrid = styled(Grid)`
   grid-template-columns: 1fr;
   column-gap: 0;
@@ -221,22 +230,30 @@ const ImagesGrid = styled(Grid)`
     margin-right: calc(var(--gutter) * -1);
   }
 
-  @media ${QUERIES.tabletAndUp} {
+  @media ${QUERIES.smallTabletAndUp} {
     grid-template-columns:
       [full-start] 1fr [col-start] repeat(10, minmax(0, 1fr))
       [col-end] 1fr [full-end];
     column-gap: var(--gutter);
-    row-gap: 96px;
 
     & [data-layout="default"] {
       margin-left: 0;
       margin-right: 0;
     }
   }
+
+  @media ${QUERIES.desktopAndUp} {
+    row-gap: 96px;
+  }
 `;
 const ProjectImgWrapper = styled.figure`
-  grid-column: var(--grid-column);
+  grid-column: full-start / full-end;
+
+  @media ${QUERIES.smallTabletAndUp} {
+    grid-column: var(--grid-column);
+  }
 `;
+
 const ProjectImg = styled.img`
   aspect-ratio: var(--aspect-ratio);
   object-fit: cover;

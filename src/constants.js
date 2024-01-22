@@ -6,6 +6,7 @@ export const COLORS = {
   primaryLightest: "0deg 54% 97%",
 
   secondary: "0deg 19% 53%",
+  secondaryDarker: "0deg 33% 20%",
   secondaryDarkest: "0deg 33% 11%",
 
   tertiary: "300deg 13% 43%",
@@ -24,7 +25,9 @@ export const WEIGHTS = {
 
 export const FAMILIES = {
   serif:
-    "Iowan Old Style, Apple Garamond, Baskerville, Times New Roman,  Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji,  Segoe UI Emoji, Segoe UI Symbol, serif",
+    "Cormorant, Iowan Old Style, Apple Garamond, Baskerville, Times New Roman,  Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji,  Segoe UI Emoji, Segoe UI Symbol, serif",
+  // serif:
+  //   "Didot, 'Bodoni MT', 'Noto Serif Display', 'URW Palladio L', P052, Sylfaen, serif",
   sansSerif:
     "-apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif",
   logo: "Figtree",

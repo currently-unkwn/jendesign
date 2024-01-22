@@ -2,19 +2,19 @@ import React from "react";
 import styled from "styled-components/macro";
 import { FiMenu, FiX } from "react-icons/fi";
 import {
-  RiFacebookFill,
-  RiInstagramLine,
+  RiTelegramFill,
+  RiInstagramFill,
   RiArrowDownSFill,
 } from "react-icons/ri";
-import { ImArrowRight2, ImArrowLeft2 } from "react-icons/im";
+import { RxArrowLeft, RxArrowRight } from "react-icons/rx";
 
 const icons = {
   menu: FiMenu,
   close: FiX,
-  facebook: RiFacebookFill,
-  instagram: RiInstagramLine,
-  arrowRight: ImArrowRight2,
-  arrowLeft: ImArrowLeft2,
+  telegram: RiTelegramFill,
+  instagram: RiInstagramFill,
+  arrowRight: RxArrowRight,
+  arrowLeft: RxArrowLeft,
   arrowDown: RiArrowDownSFill,
 };
 

@@ -39,13 +39,13 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
                   </MenuLink>
                   <MenuLink
                     to="/projects"
-                    style={{ "--animation-delay": 400 + "ms" }}
+                    style={{ "--animation-delay": 375 + "ms" }}
                   >
                     Проекти
                   </MenuLink>
                   <MenuLink
                     to="/contacts"
-                    style={{ "--animation-delay": 500 + "ms" }}
+                    style={{ "--animation-delay": 425 + "ms" }}
                   >
                     Контакти
                   </MenuLink>
@@ -60,14 +60,22 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
                 </DismissWrapper>
 
                 <Footer>
-                  {/* <SocialWrapper>
-                <SocialLink href="#">
-                  <Icon id="facebook" size={32} />
-                </SocialLink>
-                <SocialLink href="#">
-                  <Icon id="instagram" size={32} />
-                </SocialLink>
-              </SocialWrapper> */}
+                  <SocialWrapper>
+                    <SocialLink
+                      href="https://t.me/EugeniaKuznetsova"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <Icon id="telegram" size={24} />
+                    </SocialLink>
+                    <SocialLink
+                      href="https://www.instagram.com/eugenia_kuznetsova/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <Icon id="instagram" size={24} />
+                    </SocialLink>
+                  </SocialWrapper>
                   &copy; Eugenia Kuznetsova 2023
                 </Footer>
               </InnerWrapper>
@@ -168,8 +176,8 @@ const Backdrop = styled.div`
     right: 0;
     bottom: 0;
 
-    background: hsl(${COLORS.secondary});
-    opacity: 0.4;
+    background: hsl(${COLORS.white});
+    opacity: 0.3;
   }
 `;
 
@@ -357,12 +365,20 @@ const Footer = styled.footer`
 
 const SocialWrapper = styled.div`
   display: flex;
-
-  animation: ${fadeIn} 250ms var(--ease) backwards,
-    ${slideBottomTop} 250ms var(--ease);
-  animation-delay: 1100ms;
+  gap: 4px;
+  justify-content: center;
+  margin-bottom: 16px;
 `;
 
-const SocialLink = styled.a``;
+const SocialLink = styled.a`
+  & svg {
+    color: hsl(${COLORS.secondary});
+    transition: color 150ms var(--ease-in-out);
+  }
+
+  &:hover svg {
+    color: hsl(${COLORS.secondary} / 0.5);
+  }
+`;
 
 export default MobileMenu;

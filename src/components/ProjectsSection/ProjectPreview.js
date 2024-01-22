@@ -165,7 +165,7 @@ const Title = styled(MainLink)`
 const LinkMoreContainer = styled(CenteredContainer)`
   padding-left: 104px;
   padding-right: 104px;
-  background-color: hsl(${COLORS.secondaryDarkest});
+  background-color: hsl(${COLORS.secondaryDarker});
   height: 100%;
 
   @media ${QUERIES.laptopAndUp} {
@@ -272,7 +272,6 @@ const ControlButton = styled(UnstyledButton)`
   }
 
   & svg {
-    /* fill: white; */
     width: 24px;
     height: 24px;
 

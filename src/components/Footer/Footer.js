@@ -5,13 +5,12 @@ import styled from "styled-components/macro";
 
 import GetInTouch from "../GetInTouch/GetInTouch";
 import DynamicBgSection from "../DynamicBg/DynamicBgSection";
+import Copyright from "../Copyright/Copyright";
 
 import { QUERIES, COLORS, WEIGHTS } from "../../constants";
 import { setDynamicBg } from "../../helpers";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
   const location = useLocation();
 
   const footerRef = useRef();
@@ -32,21 +31,30 @@ const Footer = () => {
         <GetInTouch />
 
         <Content>
-          <Copy>
-            <span>&copy; Eugenia Kuznetsova {currentYear}</span>
-          </Copy>
+          <Filler>
+            <Copyright />
+          </Filler>
           <Contacts>
             <a href="tel:#">+38 093 555-44-32</a>
             <a href="mailto:#">jendesign@gmail.com</a>
           </Contacts>
           <Social>
-            <a
-              href="https://www.instagram.com/eugenia_kuznetsova/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Instagram
-            </a>
+            <SocialContainer>
+              <a
+                href="https://t.me/EugeniaKuznetsova"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Telegram
+              </a>
+              <a
+                href="https://www.instagram.com/eugenia_kuznetsova/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Instagram
+              </a>
+            </SocialContainer>
           </Social>
         </Content>
       </Wrapper>
@@ -96,11 +104,8 @@ const Content = styled.div`
   @media ${QUERIES.tabletAndUp} {
     align-items: flex-end;
     justify-content: revert;
-  }
-
-  @media ${QUERIES.tabletAndUp} {
-    margin-top: 0;
     flex: 1;
+    margin-top: 0;
   }
 `;
 
@@ -112,6 +117,7 @@ const Copy = styled.div`
     flex: 1;
   }
 `;
+
 const Contacts = styled.div`
   display: none;
 
@@ -129,8 +135,15 @@ const Social = styled.div`
     flex: 1;
 
     display: flex;
+
     justify-content: flex-end;
   }
+`;
+
+const SocialContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 `;
 
 export default Footer;

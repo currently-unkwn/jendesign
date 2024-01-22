@@ -29,7 +29,7 @@ const ContactForm = ({ onSubmit, buttonText }, ref) => {
     {
       id: 2,
       formControl: "input",
-      label: "Ваш Email*",
+      label: "Ваша Пошта*",
       name: "user_email",
       type: "email",
       placeholder: "me@you.com",

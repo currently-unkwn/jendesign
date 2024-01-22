@@ -73,9 +73,13 @@ const AboutText = styled.h1`
   font-weight: 400;
 
   /* Temp */
-  /* 767 - 40px, 1400 - 64px  */
-  font-size: clamp(2.5rem, 3.791vw + 0.682rem, 4rem);
+  /* 320 - 36px, 1400 - 64px  */
+  font-size: 2.5rem;
+  font-size: clamp(2.25rem, 2.593vw + 1.731rem, 4rem);
+
   line-height: 1.2;
+  /* 320 - 1.2, 1400 - 1.1  */
+  line-height: clamp(2.7rem, 2.519vw + 2.196rem, 4.4rem);
 
   /** Base 48-68px */
   /* font-size: clamp(3rem, 1.754vw + 2.605rem, 4.25rem); */

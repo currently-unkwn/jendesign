@@ -7,14 +7,14 @@ const GlobalStyles = createGlobalStyle`
 
 /** FONTS */
 
+/* cormorant-regular - latin */
 @font-face {
-        font-family: "Akrobat";
-        font-style: normal;
-        font-weight: 700;
-        font-display: fallback;
-        src: url(/fonts/Akrobat-Bold.woff2)
-          format("woff2");
-      }
+  font-display: fallback; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Cormorant';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/cormorant-v21-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
 
 /* DESIGN TOKENS */
 

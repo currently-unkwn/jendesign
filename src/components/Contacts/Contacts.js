@@ -8,6 +8,7 @@ import SubmitEmail from "../SubmitEmail/SubmitEmail";
 import MaxWidthWrapper from "../MaxWidthWrapper/MaxWidthWrapper";
 import DynamicBgSection from "../DynamicBg/DynamicBgSection";
 import ContactDetail from "./ContactDetail";
+import Copyright from "../Copyright/Copyright";
 
 import { COLORS, WEIGHTS, FAMILIES, QUERIES } from "../../constants";
 import { setDynamicBg } from "../../helpers";
@@ -51,6 +52,9 @@ const Contacts = ({ loading }) => {
               <SubmitEmail />
             </ContactFormWrapper>
           </Container>
+          <CopyrightContainer>
+            <Copyright />
+          </CopyrightContainer>
         </MaxWidthWrapper>
       </Wrapper>
     </DynamicBgSection>
@@ -59,7 +63,7 @@ const Contacts = ({ loading }) => {
 
 const Wrapper = styled.div`
   padding-top: var(--header-height);
-  padding-bottom: 112px;
+  padding-bottom: 16px;
 `;
 
 const HeroImageContainer = styled.div`
@@ -91,34 +95,27 @@ const HeroImage = styled.img`
 `;
 
 const Container = styled.div`
-  /* margin: 0 auto;
-  margin-bottom: 128px;
-  width: min(700px, 100%); */
   display: grid;
   grid-template-columns: 1fr;
 
-  padding: 0;
+  padding-bottom: 112px;
 
   @media ${QUERIES.tabletAndUp} {
     grid-template-columns: 1fr 1fr;
   }
 
   @media ${QUERIES.laptopAndUp} {
-    padding: 0 60px;
+    padding-left: 60px;
+    padding-right: 60px;
   }
 
   @media ${QUERIES.desktopAndUp} {
-    padding: 0 80px;
+    padding-left: 80px;
+    padding-right: 80px;
   }
 `;
 
 const TitleWrapper = styled.div`
-  /* margin-bottom: 56px;
-
-  @media ${QUERIES.smallTabletAndUp} {
-    text-align: center;
-    margin-bottom: 96px;
-  } */
   margin-bottom: 24px;
 
   @media ${QUERIES.desktopAndUp} {
@@ -162,5 +159,11 @@ const ContactFormWrapper = styled.div`
 `;
 
 const ContactDetails = styled.div``;
+
+const CopyrightContainer = styled.div`
+  @media ${QUERIES.tabletAndUp} {
+    text-align: center;
+  }
+`;
 
 export default Contacts;
