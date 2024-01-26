@@ -8,6 +8,8 @@ import UnstyledButton from "../UnstyledButton/UnstyledButton";
 import { COLORS } from "../../constants";
 
 const ArrowDownButton = ({ id }) => {
+  console.log(id);
+
   return (
     <Wrapper>
       <Link to={id} smooth={true} duration={700}>

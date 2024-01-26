@@ -5,17 +5,17 @@ import DynamicBgSection from "../DynamicBg/DynamicBgSection";
 import ProjectInfoItem from "./ProjectInfoItem";
 import Grid from "../Grid/Grid";
 import Spacer from "../Spacer";
-import ProjectPlans from "./ProjectPlans";
+import ProjectPlanImage from "./ProjectPlanImage";
 import ProjectNavigation from "./ProjectNavigation";
 
 import { COLORS, WEIGHTS, QUERIES } from "../../constants";
-import { setDynamicBg } from "../../helpers";
+import { setDynamicBg, getPath } from "../../helpers";
 
 const ProjectLayout = ({ project }, projectLayoutRef) => {
   const [isTitleStatic, setIsTitleStatic] = useState(false);
   const [titleOffsetTop, setTitleOffsetTop] = useState(0);
 
-  const { id, name, previewImg, infoImg, projectInfo, images, plans } = project;
+  const { id, name, planImg, infoImg, projectInfo, images } = project;
 
   /** Dynamic BG refs */
 
@@ -120,12 +120,35 @@ const ProjectLayout = ({ project }, projectLayoutRef) => {
         </InfoWrapper>
 
         <InfoImgWrapper>
-          <InfoImg src={infoImg} alt="" />
+          <picture style={{ height: "100%" }}>
+            <source
+              type="image/avif"
+              srcSet={`${getPath(infoImg).replace(
+                ".jpg",
+                ".avif"
+              )} 1x, ${getPath(infoImg).replace(
+                ".jpg",
+                "@2x.avif"
+              )} 2x, ${getPath(infoImg).replace(".jpg", "@3x.avif")} 3x`}
+            />
+            <source
+              type="image/jpg"
+              srcSet={`${getPath(infoImg)} 1x, ${getPath(infoImg).replace(
+                ".jpg",
+                "@2x.jpg"
+              )} 2x, ${getPath(infoImg).replace(".jpg", "@3x.jpg")} 3x`}
+            />
+
+            <InfoImg src={getPath(infoImg)} alt="" />
+          </picture>
         </InfoImgWrapper>
       </Grid>
 
       <DynamicBgSection ref={plansRef} bgColor={COLORS.grayLight02}>
-        <Grid>{plans && <ProjectPlans plans={plans} />}</Grid>
+        <Grid>
+          <ProjectPlanImage planImg={planImg} />
+          {/* {plans && <ProjectPlans plans={plans} />} */}
+        </Grid>
 
         <ImagesContainer>
           <ImagesGrid>
@@ -136,11 +159,31 @@ const ProjectLayout = ({ project }, projectLayoutRef) => {
                   style={{ "--grid-column": image.span }}
                   data-layout={image.layout ? image.layout : undefined}
                 >
-                  <ProjectImg
-                    src={image.imgPath}
-                    alt={image.alt}
-                    style={{ "--aspect-ratio": image.aspectRatio }}
-                  />
+                  <picture>
+                    <source
+                      type="image/avif"
+                      srcSet={`${image.imgPath.replace(
+                        ".jpg",
+                        ".avif"
+                      )} 1x, ${image.imgPath.replace(
+                        ".jpg",
+                        "@2x.avif"
+                      )} 2x, ${image.imgPath.replace(".jpg", "@3x.avif")} 3x`}
+                    />
+                    <source
+                      type="image/jpg"
+                      srcSet={`${image.imgPath} 1x, ${image.imgPath.replace(
+                        ".jpg",
+                        "@2x.jpg"
+                      )} 2x, ${image.imgPath.replace(".jpg", "@3x.jpg")} 3x`}
+                    />
+
+                    <ProjectImg
+                      src={image.imgPath}
+                      alt={image.alt}
+                      style={{ "--aspect-ratio": image.aspectRatio }}
+                    />
+                  </picture>
                 </ProjectImgWrapper>
               ))}
           </ImagesGrid>

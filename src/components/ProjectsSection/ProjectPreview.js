@@ -40,12 +40,32 @@ const ProjectPreview = ({ projectItem }) => {
         {images
           .filter((_, index) => index < 4)
           .map((image) => (
-            <SwiperSlide>
-              <Image
-                src={image.imgPath}
-                alt=""
-                style={{ "--aspect-ratio": image.aspectRatio }}
-              />
+            <SwiperSlide key={image.id}>
+              <picture style={{ height: "100%" }}>
+                <source
+                  type="image/avif"
+                  srcSet={`${image.imgPath.replace(
+                    ".jpg",
+                    ".avif"
+                  )} 1x, ${image.imgPath.replace(
+                    ".jpg",
+                    "@2x.avif"
+                  )} 2x, ${image.imgPath.replace(".jpg", "@3x.avif")} 3x`}
+                />
+                <source
+                  type="image/jpg"
+                  srcSet={`${image.imgPath} 1x, ${image.imgPath.replace(
+                    ".jpg",
+                    "@2x.jpg"
+                  )} 2x, ${image.imgPath.replace(".jpg", "@3x.jpg")} 3x`}
+                />
+
+                <Image
+                  src={image.imgPath}
+                  alt=""
+                  style={{ "--aspect-ratio": image.aspectRatio }}
+                />
+              </picture>
             </SwiperSlide>
           ))}
         <SwiperSlide>

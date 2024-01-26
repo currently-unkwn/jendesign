@@ -28,12 +28,12 @@ const Project = () => {
     project && (
       <>
         <ProjectHero
-          key={project.id}
+          key={`hero-${project.id}`}
           project={project}
           projectLayoutRef={projectLayoutRef}
         />
         <ProjectLayout
-          key={project.id}
+          key={`project-${project.id}`}
           project={project}
           ref={projectLayoutRef}
         />

@@ -1,6 +1,7 @@
 import styled from "styled-components/macro";
 
 import { QUERIES, COLORS } from "../../constants";
+import { getPath } from "../../helpers";
 
 const ProjectNavigationItem = ({
   project,
@@ -10,11 +11,38 @@ const ProjectNavigationItem = ({
 }) => {
   return (
     <Wrapper onClick={onClickHandler} style={style}>
-      <Image
-        src={project?.prevNextImg?.src}
-        alt={project?.prevNextImg?.alt}
-        style={{ "--aspect-ratio": project?.prevNextImg?.aspectRatio }}
-      />
+      <picture>
+        <source
+          type="image/avif"
+          srcSet={`${getPath(project?.prevNextImg?.src).replace(
+            ".jpg",
+            ".avif"
+          )} 1x, ${getPath(project?.prevNextImg?.src).replace(
+            ".jpg",
+            "@2x.avif"
+          )} 2x, ${getPath(project?.prevNextImg?.src).replace(
+            ".jpg",
+            "@3x.avif"
+          )} 3x`}
+        />
+        <source
+          type="image/jpg"
+          srcSet={`${getPath(project?.prevNextImg?.src)} 1x, ${getPath(
+            project?.prevNextImg?.src
+          ).replace(".jpg", "@2x.jpg")} 2x, ${getPath(
+            project?.prevNextImg?.src
+          ).replace(".jpg", "@3x.jpg")} 3x`}
+        />
+
+        <Image
+          src={getPath(project?.prevNextImg?.src)}
+          alt={getPath(project?.prevNextImg?.alt)}
+          style={{
+            "--aspect-ratio": getPath(project?.prevNextImg?.aspectRatio),
+          }}
+        />
+      </picture>
+
       <Content>
         <Direction>{children}</Direction>
         <Name>{project.name}</Name>

@@ -16,7 +16,25 @@ const MainHero = () => {
             <AboutText>{text}</AboutText>
           </ContentWrapper>
           <PortraitWrapper>
-            <Portrait src={image.src} alt={image.alt} />
+            <picture>
+              <source
+                type="image/avif"
+                srcSet={`${image.src} 1x, ${image.src.replace(
+                  ".jpg",
+                  "@2x.avif"
+                )} 2x, ${image.src.replace(".avif", "@3x.avif")} 3x`}
+              />
+
+              <source
+                type="image/jpg"
+                srcSet={`${image.src} 1x, ${image.src.replace(
+                  ".jpg",
+                  "@2x.jpg"
+                )} 2x, ${image.src.replace(".jpg", "@3x.jpg")} 3x`}
+              />
+
+              <Portrait src={image.src} alt={image.alt} />
+            </picture>
           </PortraitWrapper>
         </Grid>
       </HeroSection>

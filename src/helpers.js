@@ -36,3 +36,5 @@ export const setDynamicBg = (...refsArr) => {
 export const getIndex = (id, array) => {
   return array.findIndex((item) => item.id === id);
 };
+
+export const getPath = (path) => (path ? path : "");

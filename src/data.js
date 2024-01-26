@@ -1,9 +1,9 @@
 export const ABOUT_DATA = {
-  id: "a",
+  id: 1,
   text: "Привіт! Я Женя, дизайнер інтер'єрів з понад 15 роками досвіду. Обожнюю створювати атмосферні та елегантні простори.",
   // text: "Jane Kuznetsova is an interior designer and creative based out of Kyiv, Ukraine. Her design aesthetic can be described as eclectic, curated and intentional.",
   image: {
-    src: "/images/profile-light-blue.png",
+    src: "/images/profile/profile-light-blue.jpg",
     alt: "Portrait of Jane Kuznetsova, an interior designer.",
   },
 };
@@ -11,63 +11,68 @@ export const ABOUT_DATA = {
 export const CONTACTS_DATA = {
   details: [
     {
-      id: "a",
+      id: 2,
       title: "Пошта",
       value: "jendesign@gmail.com",
       link: "mailto:jendesign@gmail.com",
     },
     {
-      id: "b",
+      id: 3,
       title: "Телефон",
       value: "+38 093 555-44-33",
       link: "tel:+38 093 555-44-33",
     },
     {
-      id: "c",
+      id: 4,
       title: "Інстаграм",
       value: "@eugenia_kuznetsova",
       link: "https://www.instagram.com/eugenia_kuznetsova/",
     },
     {
-      id: "d",
+      id: 6,
       title: "Телеграм",
       value: "@EugeniaKuznetsova",
       link: "https://t.me/EugeniaKuznetsova",
     },
   ],
+  id: 7,
   fullName: "Євгенія Кузнєцова",
   text: "Будь ласка, зателефонуйте мені, якщо у вас є які-небудь питання або ви бажаєте домовитись про консультацію.",
   country: "Україна",
   city: "Київ",
   image: {
-    src: "/images/dragomanova_project_006.jpg",
+    id: 777,
+    src: "/images/contacts/contacts-feature-image.jpg",
     alt: "Інтер'єр вітальні",
   },
 };
 
 export const PROJECTS = [
   {
-    id: 1,
+    id: 8,
     title: "Басейна",
     images: [
       {
-        id: "a",
-        imageUrl: "/images/Baseyna/basseynaya_project_011.jpg",
+        id: 9,
+        imageUrl:
+          "/images/projects/baseyna/project-feature/basseynaya_project_011.jpg",
         alt: "",
         gridSpan: 5,
         aspectRatio: 3 / 2,
       },
       {
-        id: "b",
-        imageUrl: "/images/Baseyna/basseynaya_project_022.jpg",
+        id: 10,
+        imageUrl:
+          "/images/projects/baseyna/project-feature/basseynaya_project_022.jpg",
         alt: "",
         gridSpan: 4,
         aspectRatio: 4 / 5,
         display: "none",
       },
       {
-        id: "c",
-        imageUrl: "/images/Baseyna/basseynaya_project_058.jpg",
+        id: 11,
+        imageUrl:
+          "/images/projects/baseyna/project-feature/basseynaya_project_058.jpg",
         alt: "",
         gridSpan: 3,
         aspectRatio: 3 / 2,
@@ -77,26 +82,29 @@ export const PROJECTS = [
     route: "baseyna",
   },
   {
-    id: 2,
+    id: 12,
     title: "Дельмар",
     images: [
       {
-        id: "z",
-        imageUrl: "/images/Dragomirova/dragomirova_project_012.jpg",
+        id: 13,
+        imageUrl:
+          "/images/projects/delmar/project-feature/dragomirova_project_012.jpg",
         alt: "",
         gridSpan: 5,
         aspectRatio: 3 / 2,
       },
       {
-        id: "x",
-        imageUrl: "/images/Dragomirova/dragomirova_project_013.jpg",
+        id: 14,
+        imageUrl:
+          "/images/projects/delmar/project-feature/dragomirova_project_013.jpg",
         alt: "",
         gridSpan: 3,
         aspectRatio: 3 / 2,
       },
       {
-        id: "c",
-        imageUrl: "/images/Dragomirova/dragomirova_project_038.jpg",
+        id: 15,
+        imageUrl:
+          "/images/projects/delmar/project-feature/dragomirova_project_038.jpg",
         alt: "",
         gridSpan: 4,
         aspectRatio: 3 / 2,
@@ -106,26 +114,29 @@ export const PROJECTS = [
     route: "delmar",
   },
   {
-    id: 3,
+    id: 16,
     title: "Коновальця",
     images: [
       {
-        id: "z",
-        imageUrl: "/images/Konovalca/konovalca_project_030.jpg",
+        id: 17,
+        imageUrl:
+          "/images/projects/konovalca/project-feature/konovalca_project_030.jpg",
         alt: "",
         gridSpan: 3,
         aspectRatio: 2 / 3,
       },
       {
-        id: "x",
-        imageUrl: "/images/Konovalca/konovalca_project_001.jpg",
+        id: 18,
+        imageUrl:
+          "/images/projects/konovalca/project-feature/konovalca_project_001.jpg",
         alt: "",
         gridSpan: 4,
         aspectRatio: 3 / 2,
       },
       {
-        id: "c",
-        imageUrl: "/images/Konovalca/konovalca_project_051.jpg",
+        id: 19,
+        imageUrl:
+          "/images/projects/konovalca/project-feature/konovalca_project_051.jpg",
         alt: "",
         gridSpan: 5,
         aspectRatio: 3 / 2,
@@ -138,172 +149,170 @@ export const PROJECTS = [
 
 export const PROJECTS_DATA = [
   {
-    id: 1,
+    id: 20,
     // name: `Квартира на Басейній`,
     name: "Басейна",
     route: "baseyna",
-    client: "Яна Зужко",
-    date: "Червень 2020",
-    location: "Київ, Печерський район",
-    size: "180m²",
     projectInfo: [
       {
-        id: "h",
+        id: 21,
         category: "Місто",
         text: "Київ, Печерський район",
       },
       {
-        id: "j",
+        id: 22,
         category: "Площа",
-        text: "93м2",
+        text: "93м²",
       },
       {
-        id: "k",
+        id: 23,
         category: "Рік реалізації",
         text: "2022",
       },
     ],
-    plans: [
-      {
-        id: "b",
-        image: "/images/dragomanova_plans_001.jpeg",
-        alt: "",
-        caption: "Підвал",
-      },
-      {
-        id: "n",
-        image: "/images/dragomanova_plans_002.jpeg",
-        alt: "",
-        caption: "Перший поверх",
-      },
-      {
-        id: "m",
-        image: "/images/dragomanova_plans_003.jpeg",
-        alt: "",
-        caption: "Другий поверх",
-      },
-    ],
-    heroImg: "/images/Baseyna/basseynaya_project_020.jpg",
-    infoImg: "/images/Baseyna/basseynaya_project_022.jpg",
+    planImg: {
+      src: "/images/projects/baseyna/plans/baseyna_plans_001.jpg",
+      alt: "План-схема квартири на Басейній",
+      caption: "Загальна площа дизайну  93м²",
+    },
+
+    heroImg: "/images/projects/baseyna/project-hero/basseynaya_project_020.jpg",
+    infoImg:
+      "/images/projects/baseyna/project-info-image/basseynaya_project_022.jpg",
     prevNextImg: {
-      src: "/images/Baseyna/basseynaya_project_024.jpg",
+      src: "/images/projects/baseyna/project-nav-image/basseynaya_project_024.jpg",
       alt: "...to be filled",
       aspectRatio: 2 / 3,
     },
     images: [
       {
-        id: "t",
-        imgPath: "/images/Baseyna/basseynaya_project_001.jpg",
+        id: 27,
+        imgPath:
+          "/images/projects/baseyna/project-images/basseynaya_project_001.jpg",
         alt: "",
         aspectRatio: 4 / 3,
         layout: "default",
         span: `col-start / col-end`,
       },
       {
-        id: "y",
-        imgPath: "/images/Baseyna/basseynaya_project_004.jpg",
+        id: 28,
+        imgPath:
+          "/images/projects/baseyna/project-images/basseynaya_project_004.jpg",
         alt: "",
         aspectRatio: 3 / 4,
         span: `col-start / span 5`,
         orientation: "vertical",
       },
       {
-        id: "u",
-        imgPath: "/images/Baseyna/basseynaya_project_012.jpg",
+        id: 29,
+        imgPath:
+          "/images/projects/baseyna/project-images/basseynaya_project_012.jpg",
         alt: "",
         aspectRatio: 3 / 4,
         span: `7 / col-end`,
         orientation: "vertical",
       },
       {
-        id: "i",
-        imgPath: "/images/Baseyna/basseynaya_project_007.jpg",
+        id: 30,
+        imgPath:
+          "/images/projects/baseyna/project-images/basseynaya_project_007.jpg",
         alt: "",
         aspectRatio: 3 / 4,
         span: `4 / 10`,
         orientation: "vertical",
       },
       {
-        id: "o",
-        imgPath: "/images/Baseyna/basseynaya_project_014.jpg",
+        id: 31,
+        imgPath:
+          "/images/projects/baseyna/project-images/basseynaya_project_014.jpg",
         alt: "",
         aspectRatio: 4 / 3,
         layout: "default",
         span: `col-start / col-end`,
       },
       {
-        id: "p",
-        imgPath: "/images/Baseyna/basseynaya_project_053.jpg",
+        id: 32,
+        imgPath:
+          "/images/projects/baseyna/project-images/basseynaya_project_053.jpg",
         alt: "",
         aspectRatio: 3 / 4,
         span: `4 / 10`,
         orientation: "vertical",
       },
       {
-        id: "a",
-        imgPath: "/images/Baseyna/basseynaya_project_026.jpg",
+        id: 33,
+        imgPath:
+          "/images/projects/baseyna/project-images/basseynaya_project_026.jpg",
         alt: "",
         aspectRatio: 3 / 4,
         span: `col-start / span 5`,
         orientation: "vertical",
       },
       {
-        id: "s",
-        imgPath: "/images/Baseyna/basseynaya_project_025.jpg",
+        id: 34,
+        imgPath:
+          "/images/projects/baseyna/project-images/basseynaya_project_025.jpg",
         alt: "",
         aspectRatio: 3 / 4,
         span: `7 / col-end`,
         orientation: "vertical",
       },
       {
-        id: "d",
-        imgPath: "/images/Baseyna/basseynaya_project_038.jpg",
+        id: 35,
+        imgPath:
+          "/images/projects/baseyna/project-images/basseynaya_project_038.jpg",
         alt: "",
         aspectRatio: 16 / 9,
         layout: "full",
         span: `full-start / full-end`,
       },
       {
-        id: "f",
-        imgPath: "/images/Baseyna/basseynaya_project_046.jpg",
+        id: 36,
+        imgPath:
+          "/images/projects/baseyna/project-images/basseynaya_project_046.jpg",
         alt: "",
         aspectRatio: 4 / 3,
         span: `col-start / span 5`,
       },
       {
-        id: "g",
-        imgPath: "/images/Baseyna/basseynaya_project_044.jpg",
+        id: 37,
+        imgPath:
+          "/images/projects/baseyna/project-images/basseynaya_project_044.jpg",
         alt: "",
         aspectRatio: 4 / 3,
         span: `7 / col-end`,
       },
       {
-        id: "h",
-        imgPath: "/images/Baseyna/basseynaya_project_033.jpg",
+        id: 38,
+        imgPath:
+          "/images/projects/baseyna/project-images/basseynaya_project_033.jpg",
         alt: "",
         aspectRatio: 4 / 3,
         span: `col-start / col-end`,
         layout: "default",
       },
       {
-        id: "j",
-        imgPath: "/images/Baseyna/basseynaya_project_029.jpg",
+        id: 39,
+        imgPath:
+          "/images/projects/baseyna/project-images/basseynaya_project_029.jpg",
         alt: "",
         aspectRatio: 3 / 4,
         span: `col-start / span 5`,
         orientation: "vertical",
       },
       {
-        id: "k",
-        imgPath: "/images/Baseyna/basseynaya_project_035.jpg",
+        id: 40,
+        imgPath:
+          "/images/projects/baseyna/project-images/basseynaya_project_035.jpg",
         alt: "",
         aspectRatio: 3 / 4,
         span: `7 / col-end`,
         orientation: "vertical",
       },
       {
-        id: "l",
-        imgPath: "/images/Baseyna/basseynaya_project_028.jpg",
+        id: 41,
+        imgPath:
+          "/images/projects/baseyna/project-images/basseynaya_project_028.jpg",
         alt: "",
         aspectRatio: 4 / 3,
         span: `col-start / col-end`,
@@ -312,135 +321,129 @@ export const PROJECTS_DATA = [
     ],
   },
   {
-    id: 2,
+    id: 42,
     name: "Дельмар",
     route: "delmar",
-    client: "Богдан Сірий",
-    date: "Жовтень 2021",
-    location: "Київ, Печерський район",
-    size: "154m²",
     projectInfo: [
       {
-        id: "h",
+        id: 43,
         category: "Місто",
         text: "Київ, Печерський район",
       },
       {
-        id: "j",
+        id: 44,
         category: "Площа",
-        text: "90m²",
+        text: "90м²",
       },
       {
-        id: "k",
+        id: 45,
         category: "Рік реалізації",
         text: "2021",
       },
     ],
-    heroImg: "/images/Dragomirova/dragomirova_project_014.jpg",
-    infoImg: "/images/Dragomirova/dragomirova_project_015.jpg",
+    heroImg: "/images/projects/delmar/project-hero/dragomirova_project_014.jpg",
+    infoImg:
+      "/images/projects/delmar/project-info-image/dragomirova_project_015.jpg",
     prevNextImg: {
-      src: "/images/Dragomirova/dragomirova_project_014.jpg",
+      src: "/images/projects/delmar/project-nav-image/dragomirova_project_014.jpg",
       alt: "...to be filled",
       aspectRatio: 3 / 2,
     },
-    plans: [
-      {
-        id: "b",
-        image: "/images/dragomanova_plans_001.jpeg",
-        alt: "",
-        caption: "Підвал",
-      },
-      {
-        id: "n",
-        image: "/images/dragomanova_plans_002.jpeg",
-        alt: "",
-        caption: "Перший поверх",
-      },
-      {
-        id: "m",
-        image: "/images/dragomanova_plans_003.jpeg",
-        alt: "",
-        caption: "Другий поверх",
-      },
-    ],
+    planImg: {
+      src: "/images/projects/delmar/plans/delmar_plans_001.jpg",
+      alt: "План-схема квартири Дельмар",
+      caption: "Загальна площа дизайну  90м²",
+    },
+
     images: [
       {
-        id: "t",
-        imgPath: "/images/Dragomirova/dragomirova_project_004.jpg",
+        id: 49,
+        imgPath:
+          "/images/projects/delmar/project-images/dragomirova_project_004.jpg",
         alt: "",
         aspectRatio: 4 / 3,
         layout: "default",
         span: `col-start / col-end`,
       },
       {
-        id: "y",
-        imgPath: "/images/Dragomirova/dragomirova_project_011.jpg",
+        id: 50,
+        imgPath:
+          "/images/projects/delmar/project-images/dragomirova_project_011.jpg",
         alt: "",
         aspectRatio: 4 / 3,
         span: `col-start / span 5`,
       },
       {
-        id: "u",
-        imgPath: "/images/Dragomirova/dragomirova_project_014.jpg",
+        id: 51,
+        imgPath:
+          "/images/projects/delmar/project-images/dragomirova_project_014.jpg",
         alt: "",
         aspectRatio: 4 / 3,
         span: `7 / col-end`,
       },
       {
-        id: "t",
-        imgPath: "/images/Dragomirova/dragomirova_project_048.jpg",
+        id: 52,
+        imgPath:
+          "/images/projects/delmar/project-images/dragomirova_project_048.jpg",
         alt: "",
         aspectRatio: 4 / 3,
         layout: "default",
         span: `col-start / col-end`,
       },
       {
-        id: "y",
-        imgPath: "/images/Dragomirova/dragomirova_project_019.jpg",
+        id: 53,
+        imgPath:
+          "/images/projects/delmar/project-images/dragomirova_project_019.jpg",
         alt: "",
         aspectRatio: 3 / 4,
         span: `col-start / span 5`,
       },
       {
-        id: "u",
-        imgPath: "/images/Dragomirova/dragomirova_project_049.jpg",
+        id: 54,
+        imgPath:
+          "/images/projects/delmar/project-images/dragomirova_project_049.jpg",
         alt: "",
         aspectRatio: 3 / 4,
         span: `7 / col-end`,
       },
       {
-        id: "t",
-        imgPath: "/images/Dragomirova/dragomirova_project_038.jpg",
+        id: 55,
+        imgPath:
+          "/images/projects/delmar/project-images/dragomirova_project_038.jpg",
         alt: "",
         aspectRatio: 16 / 9,
         layout: "full",
         span: `full-start / full-end`,
       },
       {
-        id: "y",
-        imgPath: "/images/Dragomirova/dragomirova_project_044.jpg",
+        id: 56,
+        imgPath:
+          "/images/projects/delmar/project-images/dragomirova_project_044.jpg",
         alt: "",
         aspectRatio: 4 / 3,
         span: `col-start / span 5`,
       },
       {
-        id: "u",
-        imgPath: "/images/Dragomirova/dragomirova_project_036.jpg",
+        id: 57,
+        imgPath:
+          "/images/projects/delmar/project-images/dragomirova_project_036.jpg",
         alt: "",
         aspectRatio: 4 / 3,
         span: `7 / col-end`,
       },
       {
-        id: "t",
-        imgPath: "/images/Dragomirova/dragomirova_project_029.jpg",
+        id: 58,
+        imgPath:
+          "/images/projects/delmar/project-images/dragomirova_project_029.jpg",
         alt: "",
         aspectRatio: 4 / 3,
         layout: "default",
         span: `col-start / col-end`,
       },
       {
-        id: "t",
-        imgPath: "/images/Dragomirova/dragomirova_project_031.jpg",
+        id: 59,
+        imgPath:
+          "/images/projects/delmar/project-images/dragomirova_project_031.jpg",
         alt: "",
         aspectRatio: 4 / 3,
         layout: "default",
@@ -449,225 +452,232 @@ export const PROJECTS_DATA = [
     ],
   },
   {
-    id: 3,
+    id: 60,
     name: "Коновальця",
     route: "konovalca",
-    client: "Богдан Сірий",
-    date: "Жовтень 2021",
-    location: "Київ, Печерський район",
-    size: "154m²",
     projectInfo: [
       {
-        id: "h",
+        id: 61,
         category: "Місце",
         text: "Київ, Печерський район",
       },
       {
-        id: "j",
+        id: 62,
         category: "Розмір",
-        text: "154m²",
+        text: "154м²",
       },
       {
-        id: "k",
-        category: "Замовник",
-        text: "Богдан Сірий",
+        id: 63,
+        category: "Рік реалізації",
+        text: "2021",
       },
     ],
-    heroImg: "/images/Konovalca/konovalca_project_003.jpg",
-    infoImg: "/images/Konovalca/konovalca_project_001v.jpg",
+    heroImg:
+      "/images/projects/konovalca/project-hero/konovalca_project_003.jpg",
+    infoImg:
+      "/images/projects/konovalca/project-info-image/konovalca_project_001v.jpg",
     prevNextImg: {
-      src: "/images/Konovalca/konovalca_project_003.jpg",
+      src: "/images/projects/konovalca/project-nav-image/konovalca_project_003.jpg",
       alt: "...to be filled",
       aspectRatio: 3 / 2,
     },
-    plans: [
-      {
-        id: "b",
-        image: "/images/dragomanova_plans_001.jpeg",
-        alt: "",
-        caption: "Підвал",
-      },
-      {
-        id: "n",
-        image: "/images/dragomanova_plans_002.jpeg",
-        alt: "",
-        caption: "Перший поверх",
-      },
-      {
-        id: "m",
-        image: "/images/dragomanova_plans_003.jpeg",
-        alt: "",
-        caption: "Другий поверх",
-      },
-    ],
+    planImg: {
+      src: "/images/projects/konovalca/plans/konovalca_plans_001.jpg",
+      alt: "План-схема квартири Коновальця",
+      caption: "Загальна площа дизайну  154м²",
+    },
+
     images: [
       {
-        id: "t",
-        imgPath: "/images/Konovalca/konovalca_project_002.jpg",
+        id: 67,
+        imgPath:
+          "/images/projects/konovalca/project-images/konovalca_project_002.jpg",
         alt: "",
         aspectRatio: 4 / 3,
         layout: "default",
         span: `col-start / col-end`,
       },
       {
-        id: "y",
-        imgPath: "/images/Konovalca/konovalca_project_004.jpg",
+        id: 68,
+        imgPath:
+          "/images/projects/konovalca/project-images/konovalca_project_004.jpg",
         alt: "",
         aspectRatio: 4 / 3,
         layout: "default",
         span: `col-start / col-end`,
       },
       {
-        id: "u",
-        imgPath: "/images/Konovalca/konovalca_project_005.jpg",
+        id: 69,
+        imgPath:
+          "/images/projects/konovalca/project-images/konovalca_project_005.jpg",
         alt: "",
         aspectRatio: 4 / 3,
         span: `col-start / span 5`,
       },
       {
-        id: "i",
-        imgPath: "/images/Konovalca/konovalca_project_006.jpg",
+        id: 70,
+        imgPath:
+          "/images/projects/konovalca/project-images/konovalca_project_006.jpg",
         alt: "",
         aspectRatio: 4 / 3,
         span: `7 / col-end`,
       },
       {
-        id: "p",
-        imgPath: "/images/Konovalca/konovalca_project_032.jpg",
+        id: 71,
+        imgPath:
+          "/images/projects/konovalca/project-images/konovalca_project_032.jpg",
         alt: "",
         aspectRatio: 3 / 4,
         span: `4 / 10`,
         orientation: "vertical",
       },
       {
-        id: "a",
-        imgPath: "/images/Konovalca/konovalca_project_026.jpg",
+        id: 72,
+        imgPath:
+          "/images/projects/konovalca/project-images/konovalca_project_026.jpg",
         alt: "",
         aspectRatio: 3 / 4,
         span: `col-start / span 5`,
       },
       {
-        id: "s",
-        imgPath: "/images/Konovalca/konovalca_project_033.jpg",
+        id: 73,
+        imgPath:
+          "/images/projects/konovalca/project-images/konovalca_project_033.jpg",
         alt: "",
         aspectRatio: 3 / 4,
         span: `7 / col-end`,
       },
       {
-        id: "d",
-        imgPath: "/images/Konovalca/konovalca_project_029.jpg",
+        id: 74,
+        imgPath:
+          "/images/projects/konovalca/project-images/konovalca_project_029.jpg",
         alt: "",
         aspectRatio: 3 / 4,
         span: `4 / 10`,
         orientation: "vertical",
       },
       {
-        id: "i",
-        imgPath: "/images/Konovalca/konovalca_project_049.jpg",
+        id: 75,
+        imgPath:
+          "/images/projects/konovalca/project-images/konovalca_project_049.jpg",
         alt: "",
         aspectRatio: 16 / 9,
         layout: "full",
         span: `full-start / full-end`,
       },
       {
-        id: "f",
-        imgPath: "/images/Konovalca/konovalca_project_050.jpg",
+        id: 76,
+        imgPath:
+          "/images/projects/konovalca/project-images/konovalca_project_050.jpg",
         alt: "",
         aspectRatio: 4 / 3,
         span: `col-start / span 5`,
       },
       {
-        id: "g",
-        imgPath: "/images/Konovalca/konovalca_project_053.jpg",
+        id: 77,
+        imgPath:
+          "/images/projects/konovalca/project-images/konovalca_project_053.jpg",
         alt: "",
         aspectRatio: 4 / 3,
         span: `7 / col-end`,
       },
       {
-        id: "h",
-        imgPath: "/images/Konovalca/konovalca_project_021.jpg",
+        id: 78,
+        imgPath:
+          "/images/projects/konovalca/project-images/konovalca_project_021.jpg",
         alt: "",
         aspectRatio: 4 / 3,
         layout: "default",
         span: `col-start / col-end`,
       },
       {
-        id: "j",
-        imgPath: "/images/Konovalca/konovalca_project_024.jpg",
+        id: 79,
+        imgPath:
+          "/images/projects/konovalca/project-images/konovalca_project_024.jpg",
         alt: "",
         aspectRatio: 4 / 3,
         layout: "default",
         span: `col-start / col-end`,
       },
       {
-        id: "k",
-        imgPath: "/images/Konovalca/konovalca_project_008.jpg",
+        id: 80,
+        imgPath:
+          "/images/projects/konovalca/project-images/konovalca_project_008.jpg",
         alt: "",
         aspectRatio: 3 / 4,
         span: `col-start / span 5`,
       },
       {
-        id: "l",
-        imgPath: "/images/Konovalca/konovalca_project_010.jpg",
+        id: 81,
+        imgPath:
+          "/images/projects/konovalca/project-images/konovalca_project_010.jpg",
         alt: "",
         aspectRatio: 3 / 4,
         span: `7 / col-end`,
       },
       {
-        id: "z",
-        imgPath: "/images/Konovalca/konovalca_project_011.jpg",
+        id: 82,
+        imgPath:
+          "/images/projects/konovalca/project-images/konovalca_project_011.jpg",
         alt: "",
         aspectRatio: 4 / 3,
         layout: "default",
         span: `col-start / col-end`,
       },
       {
-        id: "mm",
-        imgPath: "/images/Konovalca/konovalca_project_048.jpg",
+        id: 83,
+        imgPath:
+          "/images/projects/konovalca/project-images/konovalca_project_048.jpg",
         alt: "",
         aspectRatio: 3 / 4,
         span: `4 / 10`,
       },
       {
-        id: "x",
-        imgPath: "/images/Konovalca/konovalca_project_018.jpg",
+        id: 84,
+        imgPath:
+          "/images/projects/konovalca/project-images/konovalca_project_018.jpg",
         alt: "",
         aspectRatio: 4 / 3,
         span: `col-start / span 5`,
       },
       {
-        id: "c",
-        imgPath: "/images/Konovalca/konovalca_project_020.jpg",
+        id: 85,
+        imgPath:
+          "/images/projects/konovalca/project-images/konovalca_project_020.jpg",
         alt: "",
         aspectRatio: 4 / 3,
         span: `7 / col-end`,
       },
       {
-        id: "v",
-        imgPath: "/images/Konovalca/konovalca_project_036.jpg",
+        id: 86,
+        imgPath:
+          "/images/projects/konovalca/project-images/konovalca_project_036.jpg",
         alt: "",
         aspectRatio: 3 / 4,
         span: `4 / 10`,
         orientation: "vertical",
       },
       {
-        id: "b",
-        imgPath: "/images/Konovalca/konovalca_project_040.jpg",
+        id: 87,
+        imgPath:
+          "/images/projects/konovalca/project-images/konovalca_project_040.jpg",
         alt: "",
         aspectRatio: 3 / 4,
         span: `4 / 10`,
         orientation: "vertical",
       },
       {
-        id: "n",
-        imgPath: "/images/Konovalca/konovalca_project_041.jpg",
+        id: 88,
+        imgPath:
+          "/images/projects/konovalca/project-images/konovalca_project_041.jpg",
         alt: "",
         aspectRatio: 3 / 4,
         span: `col-start / span 5`,
       },
       {
-        id: "m",
-        imgPath: "/images/Konovalca/konovalca_project_042.jpg",
+        id: 89,
+        imgPath:
+          "/images/projects/konovalca/project-images/konovalca_project_042.jpg",
         alt: "",
         aspectRatio: 3 / 4,
         span: `7 / col-end`,

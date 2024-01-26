@@ -5,22 +5,16 @@ import DynamicBgSection from "../DynamicBg/DynamicBgSection";
 import ArrowDownButton from "../ArrowDownButton/ArrowDownButton";
 
 import { COLORS } from "../../constants";
-import { setDynamicBg } from "../../helpers";
+import { setDynamicBg, getPath } from "../../helpers";
 
 const ProjectHero = ({ project, projectLayoutRef }) => {
   const { heroImg } = project;
 
   const heroImgRef = useRef();
-  // console.log(projectLayoutRef.current);
+
   useEffect(() => {
-    // console.log(projectLayoutRef);
     setDynamicBg(heroImgRef);
   }, [projectLayoutRef]);
-
-  // function handleClick() {
-  //   console.log(projectLayoutRef.current.id);
-  //   projectLayoutRef.current.scrollIntoView({ behavior: "smooth" });
-  // }
 
   return (
     <Hero>
@@ -29,9 +23,29 @@ const ProjectHero = ({ project, projectLayoutRef }) => {
         bgColor="white"
         style={{ height: "100%" }}
       >
-        <HeroImg src={heroImg} alt="" />
+        <picture style={{ height: "100%" }}>
+          <source
+            type="image/avif"
+            srcSet={`${getPath(heroImg).replace(".jpg", ".avif")} 1x, ${getPath(
+              heroImg
+            ).replace(".jpg", "@2x.avif")} 2x, ${getPath(heroImg).replace(
+              ".jpg",
+              "@3x.avif"
+            )} 3x`}
+          />
+          <source
+            type="image/jpg"
+            srcSet={`${getPath(heroImg)} 1x, ${getPath(heroImg).replace(
+              ".jpg",
+              "@2x.jpg"
+            )} 2x, ${getPath(heroImg).replace(".jpg", "@3x.jpg")} 3x`}
+          />
+
+          <HeroImg src={getPath(heroImg)} alt="" />
+        </picture>
+
         <ScrollDownArrow>
-          <ArrowDownButton id={projectLayoutRef?.current?.id} />
+          <ArrowDownButton id={getPath(projectLayoutRef?.current?.id)} />
         </ScrollDownArrow>
       </DynamicBgSection>
     </Hero>

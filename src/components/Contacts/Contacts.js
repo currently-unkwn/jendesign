@@ -15,7 +15,7 @@ import { setDynamicBg } from "../../helpers";
 
 const Contacts = ({ loading }) => {
   const { fullName, details, country, city, image } = CONTACTS_DATA;
-
+  console.log(details);
   const contactsRef = useRef();
 
   useEffect(() => {
@@ -26,7 +26,27 @@ const Contacts = ({ loading }) => {
     <DynamicBgSection bgColor={COLORS.tertiary} ref={contactsRef}>
       <Wrapper>
         <HeroImageContainer>
-          <HeroImage src={image.src} alt={image.alt} />
+          <picture style={{ height: "100%" }}>
+            <source
+              type="image/avif"
+              srcSet={`${image.src.replace(
+                ".jpg",
+                ".avif"
+              )} 1x, ${image.src.replace(
+                ".jpg",
+                "@2x.avif"
+              )} 2x, ${image.src.replace(".jpg", "@3x.avif")} 3x`}
+            />
+            <source
+              type="image/jpg"
+              srcSet={`${image.src} 1x, ${image.src.replace(
+                ".jpg",
+                "@2x.jpg"
+              )} 2x, ${image.src.replace(".jpg", "@3x.jpg")} 3x`}
+            />
+
+            <HeroImage id={image.id} src={image.src} alt={image.alt} />
+          </picture>
         </HeroImageContainer>
         <MaxWidthWrapper>
           <Container>

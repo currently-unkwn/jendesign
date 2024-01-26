@@ -12,11 +12,31 @@ const ImagesRow = ({ images }) => {
             "--display": image.display,
           }}
         >
-          <Image
-            src={image.imageUrl}
-            alt={image.alt}
-            style={{ "--aspect-ratio": image.aspectRatio }}
-          />
+          <picture>
+            <source
+              type="image/avif"
+              srcSet={`${image.imageUrl.replace(
+                ".jpg",
+                ".avif"
+              )} 1x, ${image.imageUrl.replace(
+                ".jpg",
+                "@2x.avif"
+              )} 2x, ${image.imageUrl.replace(".jpg", "@3x.avif")} 3x`}
+            />
+            <source
+              type="image/jpg"
+              srcSet={`${image.imageUrl} 1x, ${image.imageUrl.replace(
+                ".jpg",
+                "@2x.jpg"
+              )} 2x, ${image.imageUrl.replace(".jpg", "@3x.jpg")} 3x`}
+            />
+
+            <Image
+              src={image.imageUrl}
+              alt={image.alt}
+              style={{ "--aspect-ratio": image.aspectRatio }}
+            />
+          </picture>
         </ImageWrapper>
       ))}
     </Wrapper>
