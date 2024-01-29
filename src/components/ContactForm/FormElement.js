@@ -3,8 +3,6 @@ import styled from "styled-components/macro";
 
 import Spacer from "../Spacer";
 
-import { COLORS } from "../../constants";
-
 const FormElement = ({ label, errorMessage, formControl, ...delegated }) => {
   const [focused, setFocused] = useState(false);
 

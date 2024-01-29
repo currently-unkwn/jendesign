@@ -6,7 +6,7 @@ import FormElement from "./FormElement";
 
 import { WEIGHTS } from "../../constants";
 
-const ContactForm = ({ onSubmit, buttonText }, ref) => {
+const ContactForm = ({ onSubmit, buttonText, ...delegated }, ref) => {
   const [values, setValues] = useState({
     user_name: "",
     user_email: "",
@@ -24,7 +24,7 @@ const ContactForm = ({ onSubmit, buttonText }, ref) => {
       errorMessage:
         "Username should be 2-20 characters and shouldn't include any special character!",
       required: true,
-      pattern: "^[A-Za-z0-9]{2,20}",
+      pattern: "^[A-Za-zА-Яа-я0-9]{2,20}",
     },
     {
       id: 2,
@@ -32,7 +32,8 @@ const ContactForm = ({ onSubmit, buttonText }, ref) => {
       label: "Ваша Пошта*",
       name: "user_email",
       type: "email",
-      placeholder: "me@you.com",
+      placeholder: "me@example.com",
+      pattern: "^[^s@]+@[^s@]+.[^s@]+$",
       errorMessage: "Should be valid email address",
       required: true,
     },
@@ -53,7 +54,7 @@ const ContactForm = ({ onSubmit, buttonText }, ref) => {
   };
 
   return (
-    <Form ref={ref} onSubmit={onSubmit}>
+    <Form ref={ref} onSubmit={onSubmit} data-netlify="true">
       {/* <FormElement formControl="input" type="hidden" name="contact_number" /> */}
       {inputs.map((input) => (
         <FormElement

@@ -48,11 +48,7 @@ const SubmitEmail = () => {
       {alertIsVisible ? (
         <ContactFormAlert />
       ) : (
-        <ContactForm
-          ref={form}
-          onSubmit={handleSubmit}
-          buttonText={buttonText}
-        />
+        <ContactForm ref={form} buttonText={buttonText} netlify />
       )}
     </>
   );
