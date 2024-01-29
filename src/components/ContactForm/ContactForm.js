@@ -54,7 +54,7 @@ const ContactForm = ({ onSubmit, buttonText, ...delegated }, ref) => {
   };
 
   return (
-    <Form ref={ref} onSubmit={onSubmit} data-netlify="true">
+    <Form ref={ref} onSubmit={onSubmit}>
       {/* <FormElement formControl="input" type="hidden" name="contact_number" /> */}
       {inputs.map((input) => (
         <FormElement
